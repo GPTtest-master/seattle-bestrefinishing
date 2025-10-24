@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Best Refinishing — Seattle Reglazing Experts</title>
+  <meta name="description" content="Bathtub, Tile, Shower, Sink, Countertop refinishing in Seattle area. Fast, eco-friendly, professional reglazing. Call or text +1 (206) 786-9915."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b1220;
+      --navy2:#1a2b4a;
+      --brand:#0078D7;
+      --brand-deep:#005fa9;
+      --ink:#111;
+      --text:#333;
+      --muted:#4b5563;
+      --gray:#f4f7fb;
+      --card:#fff;
+      --cta:#ff6b00;
+      --bg:#fff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--text);line-height:1.55;background:var(--bg)}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    section{padding:80px 20px;max-width:1200px;margin:auto}
+
+    /* Header */
+    .header-wrap{
+      position:sticky;top:0;z-index:1000;
+      background:linear-gradient(180deg,var(--navy) 0%, var(--navy2) 100%);
+      color:#fff; box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+    .nav{
+      max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;
+      padding:14px 20px;gap:16px;
+    }
+    .brand{
+      display:flex;flex-direction:column;line-height:1;justify-content:center;
+    }
+    .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px}
+    .brand .tag{opacity:.85;font-size:.78rem;margin-top:6px;line-height:1.2}
+    .brand .tag span{display:block}
+    .menu{display:flex;gap:20px;align-items:center;font-weight:600;justify-content:space-between}
+    .menu a{opacity:.95}
+    .menu a:hover{opacity:1;text-decoration:underline}
+
+    /* phone: number first, icons to the right */
+    .phone{font-weight:800;display:flex;align-items:center;gap:8px}
+    .phone .phone-link{color:inherit;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px}
+    .phone .icons{display:inline-flex;gap:6px;align-items:center}
+    .phone .icon-link{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:transparent;color:inherit;border:none;cursor:pointer}
+    .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px;fill:currentColor}
+    .phone-number{display:inline-block}
+
+    .cta-quote{
+      background:var(--cta);color:#fff;font-weight:800;border:none;border-radius:10px;
+      padding:10px 16px;font-size:0.95rem;cursor:pointer;transition:.25s;
+    }
+    .cta-quote:hover{transform:translateY(-1px);box-shadow:0 0 18px rgba(255,107,0,.45);}
+
+    .burger{display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .burger span{width:24px;height:2px;background:#fff;border-radius:2px}
+    .drawer{display:none;background:var(--navy2);color:#fff;padding:12px 20px}
+    .drawer a{display:block;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .drawer .cta-quote{margin-top:10px;width:100%}
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(135deg,#0078D7 0%,#00A4EF 100%);
+      color:#fff;min-height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding:60px 20px;
+    }
+    .hero h1{font-size:2.6rem;max-width:900px;line-height:1.15;margin-bottom:18px}
+    .hero p{max-width:760px;margin-bottom:30px;font-size:1.1rem;opacity:.98}
+    .btn-primary{background:#fff;color:#0b66b3;padding:14px 24px;border-radius:10px;border:none;font-weight:800;transition:.25s}
+    .btn-primary:hover{transform:translateY(-1px)}
+
+    /* Services */
+    .servicesSec{background:var(--gray)}
+    .svcTitle{font-size:1.9rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:26px}
+    .svcGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .svcCard{position:relative;border-radius:16px;overflow:hidden;min-height:220px;box-shadow:0 8px 24px rgba(0,0,0,.08);cursor:pointer}
+    .svcImg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .35s ease}
+    .svcCard:hover .svcImg{transform:scale(1.06)}
+    .svcOverlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(255,255,255,.82) 0%, rgba(255,255,255,.35) 60%, rgba(255,255,255,.15) 100%);display:flex;align-items:flex-end;padding:18px}
+    .svcTextWrap{background:rgba(255,255,255,.75);backdrop-filter:blur(2px);border-radius:12px;padding:12px 14px}
+    .svcCard h3{margin:0 0 6px;font-size:1.05rem;color:#111}
+    .svcCard p{margin:0;font-size:.92rem;color:#333}
+
+    /* Estimate (two-column + CTA on right) */
+    .wrapGray{background:var(--gray);padding:90px 20px}
+    .box{
+      background:#fff;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08);
+      padding:20px;width:100%;max-width:980px;margin:auto;
+      display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start;
+    }
+    .estimate-left{min-width:0}
+    .estimate-right{
+      background:#fff;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;
+      box-shadow:0 8px 28px rgba(2,6,23,0.04);text-align:center;
+    }
+    .ctaBox h2{font-size:1.25rem;color:#0b66b3;margin-bottom:8px;font-weight:800}
+    .ctaBox p{color:#475569;margin-bottom:12px;font-weight:600}
+    .ctaBox .instantBtn{background:var(--cta);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer;font-size:1rem}
+    .ctaBox .instantBtn:hover{filter:brightness(.95);transform:translateY(-2px)}
+    .preview-empty{color:#64748b;padding:18px;text-align:center;font-weight:700}
+    .preview-labels{display:flex;gap:8px;width:100%;justify-content:space-between;font-weight:800;color:#0b66b3;font-size:0.95rem}
+    .ba-slider{position:relative;width:100%;height:220px;border-radius:10px;overflow:hidden;background:#e2eefb}
+    .ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .ba-slider .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden}
+    .ba-slider .after-wrap img{position:relative;left:0}
+    .ba-slider .handle{position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#fff,#d1e9ff);transform:translateX(-50%);cursor:ew-resize;box-shadow:0 0 0 6px rgba(13,110,253,0.06);border-radius:2px}
+    .ba-slider .handle::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(2,6,23,0.12);display:block}
+    .ba-slider .overlay-label{position:absolute;left:12px;top:12px;background:rgba(2,6,23,0.6);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:0.85rem}
+
+    .title{font-size:1.9rem;font-weight:800;margin-bottom:12px;color:#0b66b3;text-align:left}
+    .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+    .chip{border:2px solid #e2e8f0;border-radius:12px;padding:10px;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;cursor:pointer;transition:.2s;background:#fff;user-select:none;font-size:.98rem}
+    .chip:hover{border-color:#0b66b3}
+    .chip.active{border-color:#0b66b3;background:#eef6ff;color:#0b66b3}
+    form{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+    input{padding:12px 14px;border:1.8px solid #d0d7e2;border-radius:10px;font-size:1rem;outline:none;transition:border .2s}
+    input:focus{border-color:#0b66b3}
+    .submit{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:14px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:6px;transition:.2s}
+    .submit:hover{background:#1e4ed8}
+    .note{margin-top:10px;font-weight:700;color:#333;font-size:.95rem;text-align:center}
+
+    /* Gallery & rest */
+    .galleryGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .ba{position:relative;border-radius:14px;overflow:hidden;height:180px;background:#e5eaf1}
+    .ba .ba-inner{width:100%;height:100%}
+    .baBadge{position:absolute;left:10px;top:10px;background:#111827;color:#fff;font-size:.75rem;padding:4px 8px;border-radius:6px}
+    .tWrap{display:flex;align-items:center;gap:14px;justify-content:center}
+    .tCard{background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:24px;max-width:680px;box-shadow:0 8px 22px rgba(12,36,68,.06);text-align:center}
+    .tName{margin-top:10px;font-weight:800;color:#0b66b3}
+    .tBtn{background:#eef2ff;border:none;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:800;color:#1e40af}
+    .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
+    .pmSec{background:#fff}
+    .pmGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+    .pmCard{background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:20px;box-shadow:0 10px 24px rgba(12,36,68,.06)}
+    .pmCard h4{margin-bottom:6px;color:#0b66b3}
+    .pmList{color:#4b5563;font-size:.96rem;line-height:1.6}
+    .pmCTA{margin-top:16px;background:linear-gradient(90deg,#0b9cff,#0078D7);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
+    .pmCTA:hover{filter:brightness(1.05)}
+    .contact{text-align:center}
+    .map-wrap{max-width:1200px;margin:18px auto;padding:20px}
+    .map-frame{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,.06)}
+    .footer{background:var(--navy);color:#cbd5e1;padding:26px 20px;text-align:center;margin-top:24px}
+    .floating-btn{position:fixed;bottom:26px;right:26px;background:#0b66b3;color:#fff;font-weight:800;border:none;border-radius:50px;padding:14px 22px;width:172px;box-shadow:0 6px 16px rgba(0,0,0,.25);cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;gap:8px;font-size:1rem;transition:.3s}
+    .floating-btn:hover{background:var(--brand-deep);transform:scale(1.05)}
+    .instant-floating{
+      position:fixed;
+      bottom:100px;
+      right:26px;
+      background:var(--cta);
+      color:#fff;
+      font-weight:800;
+      border:none;
+      border-radius:50px;
+      padding:14px 22px;
+      width:172px;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      cursor:pointer;
+      z-index:1001;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:1rem;
+      transition:.25s;
+    }
+    .instant-floating:hover{filter:brightness(.95);transform:translateY(-2px)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .svcGrid{grid-template-columns:repeat(2,1fr)}
+      .galleryGrid{grid-template-columns:repeat(2,1fr)}
+      .pmGrid{grid-template-columns:repeat(2,1fr)}
+      .menu{gap:12px}
+    }
+    @media (max-width:820px){
+      .menu,.phone,.cta-quote{display:none}
+      .burger{display:flex}
+      .hero h1{font-size:2.1rem}
+      .hero p{font-size:1rem}
+      .box{grid-template-columns:1fr}
+    }
+    @media (max-width:900px){
+      .ba-slider{height:160px}
+    }
+    @media (max-width:640px){
+      .svcGrid{grid-template-columns:1fr}
+      .chips{grid-template-columns:repeat(2,1fr)}
+      .galleryGrid{grid-template-columns:1fr}
+      .pmGrid{grid-template-columns:1fr}
+      .brand .name{font-size:1.2rem}
+      .brand .tag{font-size:.72rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-wrap">
+    <nav class="nav">
+      <div class="brand">
+        <div class="name">Best Refinishing</div>
+        <div class="tag">
+          <span>Trusted by Homeowners</span>
+          <span>and Property Managers Across Seattle</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a>
+        <a href="Property/property.html">Property Managers</a>
+        <a href="#contact">Contact</a>
+
+        <span class="phone" aria-hidden="false">
+          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915">
+            <span class="phone-number">+1 (206) 786-9915</span>
+          </a>
+          <span class="icons" aria-hidden="true">
+            <a class="icon-link" href="tel:+12067869915" aria-label="Call">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+            </a>
+            <a class="icon-link" href="sms:+12067869915" aria-label="Text">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+            </a>
+          </span>
+        </span>
+
+        <button class="cta-quote" id="quoteTop">Get Instant Quote</button>
+      </div>
+
+      <div class="burger" id="burger" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="Property/property.html">Property Managers</a>
+      <a href="#contact">Contact</a>
+      <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
+        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915">
+          Call: +1 (206) 786-9915
+        </a>
+        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+        </a>
+        <a href="sms:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Text">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h1>Best Bathtub & Tile Refinishing Company in Seattle and Surrounding Areas</h1>
+    <p>We’ll transform your bathroom in just 24 hours — no messy remodel or thousands in renovation costs. Eco-friendly, fast, and professional service that makes your space look brand new.</p>
+    <div class="cta" style="display:flex;gap:16px;justify-content:center">
+      <button class="btn-primary" id="goEstimate">Get Instant Estimate</button>
+      <button class="btn-primary" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth',block:'center'})">Reviews</button>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="servicesSec">
+    <h2 class="svcTitle">Our Services</h2>
+    <div class="svcGrid">
+      <div class="svcCard go-est" data-key="Bathtub">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021fb88a1?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Bathtub Refinishing</h3>
+          <p>Restore shine, fix chips & stains in one day.</p>
+        </div></div>
+      </div>
+
+      <div class="svcCard go-est" data-key="Tile Walls">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Tile Reglazing</h3>
+          <p>Durable, easy-to-clean finish for outdated tiles.</p>
+        </div></div>
+      </div>
+
+      <div class="svcCard go-est" data-key="Shower">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Shower Resurfacing</h3>
+          <p>Refresh walls & pans, seal minor cracks.</p>
+        </div></div>
+      </div>
+
+      <div class="svcCard go-est" data-key="Countertop">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Countertop Coating</h3>
+          <p>Modern stone-look without a full remodel.</p>
+        </div></div>
+      </div>
+
+      <div class="svcCard go-est" data-key="Sink">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Sink Refinishing</h3>
+          <p>Porcelain & cast-iron sinks like new.</p>
+        </div></div>
+      </div>
+
+      <div class="svcCard go-est" data-key="Local Repair">
+        <div class="svcImg" style="background-image:url('https://images.unsplash.com/photo-1556909190-ef6e87f2c1d5?q=80&w=1200&auto=format&fit=crop')"></div>
+        <div class="svcOverlay"><div class="svcTextWrap">
+          <h3>Local Repair</h3>
+          <p>Chips, rust, small holes — prepped before coating.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estimate -->
+  <section id="estimate" class="wrapGray">
+    <div class="box">
+      <div class="estimate-left">
+        <h2 class="title">Get a Free Estimate</h2>
+        <div class="chips" id="chips">
+          <div class="chip" data-key="Bathtub">🛁 Bathtub</div>
+          <div class="chip" data-key="Tile Walls">🧱 Tile Walls</div>
+          <div class="chip" data-key="Shower">🚿 Shower</div>
+          <div class="chip" data-key="Sink">🚰 Sink</div>
+          <div class="chip" data-key="Countertop">🪵 Countertop</div>
+          <div class="chip" data-key="Local Repair">🛠️ Local Repair</div>
+        </div>
+        <form id="estimateForm">
+          <input id="nameInput" type="text" name="name" placeholder="Your Name" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="text" name="zip" placeholder="ZIP Code" required />
+          <input type="email" name="email" placeholder="Email (optional)" />
+          <button type="submit" class="submit">Submit Request</button>
+        </form>
+        <div class="note">Submit the form to get an estimate.</div>
+      </div>
+
+      <aside class="estimate-right" id="preview">
+        <div class="ctaBox">
+          <h2>Select Your Surface — Receive Your Estimate Instantly.</h2>
+          <p>A project manager will contact you to confirm details and schedule your service.</p>
+          <button class="instantBtn" id="instantCTA">Instant Quote</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2 class="title">Before & After Gallery</h2>
+    <div class="galleryGrid">
+      <div class="ba" data-before="https://images.unsplash.com/photo-1616594039964-ae9021fb88a1?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+
+      <div class="ba" data-before="https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+
+      <div class="ba" data-before="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1616594039964-ae9021fb88a1?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+
+      <div class="ba" data-before="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d52?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+
+      <div class="ba" data-before="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1556909190-ef6e87f2c1d5?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+
+      <div class="ba" data-before="https://images.unsplash.com/photo-1556909190-ef6e87f2c1d5?q=80&w=1200&auto=format&fit=crop" data-after="https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=1200&auto=format&fit=crop">
+        <div class="ba-inner"></div>
+        <span class="baBadge">Before / After</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2 class="title">What Customers Say</h2>
+    <div class="tWrap">
+      <button class="tBtn" id="tPrev">‹</button>
+      <div class="tCard">
+        <div id="tText" style="font-size:1.05rem">Amazing results in one day. Tub and tiles look brand new!</div>
+        <div class="tName" id="tName">— Megan K.</div>
+        <div class="dots" id="tDots"></div>
+      </div>
+      <button class="tBtn" id="tNext">›</button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2 class="title">FAQ</h2>
+    <div style="max-width: 900px; margin: 0 auto;">
+      <details style="background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:14px 18px;margin-bottom:10px">
+        <summary style="cursor:pointer;font-weight:800;color:#0b66b3">How long before I can use the tub?</summary>
+        <div style="color:#4b5563;margin-top:8px">Typically 24 hours. We’ll confirm cure time based on coating.</div>
+      </details>
+      <details style="background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:14px 18px;margin-bottom:10px">
+        <summary style="cursor:pointer;font-weight:800;color:#0b66b3">Is reglazing safe and low-odor?</summary>
+        <div style="color:#4b5563;margin-top:8px">Yes. We use modern, low-VOC materials and professional ventilation.</div>
+      </details>
+      <details style="background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:14px 18px;margin-bottom:10px">
+        <summary style="cursor:pointer;font-weight:800;color:#0b66b3">How long does it last?</summary>
+        <div style="color:#4b5563;margin-top:8px">With proper care, 5–10 years. Warranty options available.</div>
+      </details>
+      <details style="background:#fff;border:1px solid #e8edf4;border-radius:14px;padding:14px 18px;margin-bottom:10px">
+        <summary style="cursor:pointer;font-weight:800;color:#0b66b3">Do you repair chips or rust?</summary>
+        <div style="color:#4b5563;margin-top:8px">Yes — local repairs are part of prep before refinishing.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2 class="title">Contact Us</h2>
+    <p><strong>Phone:</strong> <a href="tel:+12067869915">+1 (206) 786-9915</a></p>
+    <p><strong>Email:</strong> <a href="mailto:office@best-refinishing.com">office@best-refinishing.com</a></p>
+    <p><strong>Address:</strong> Columbia Tower, 701 5th Ave 42nd Floor, Seattle, WA 98104</p>
+  </section>
+
+  <!-- Map -->
+  <section id="map" class="map-wrap" aria-label="Office location">
+    <h3 class="title" style="text-align:center;margin-bottom:12px">Our Office — Columbia Tower</h3>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps?q=701%205th%20Ave%20Seattle%20WA%2098104&z=15&output=embed"
+        width="100%" height="360" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps location">
+      </iframe>
+    </div>
+    <p style="text-align:center;margin-top:10px;color:#475569;font-weight:700">Columbia Tower, 701 5th Ave, 42nd Floor, Seattle, WA 98104</p>
+  </section>
+
+  <!-- Floating Call/Text -->
+  <a class="floating-btn" id="floatCall" href="tel:+12067869915">Call or Text</a>
+
+  <!-- Instant Quote floating button (added) -->
+  <a class="instant-floating" id="floatInstant" href="#estimate">Instant Quote</a>
+
+  <!-- Footer -->
+  <div class="footer">© 2025 Best Refinishing — All rights reserved.</div>
+
+  <script>
+    // Header drawer
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    burger && burger.addEventListener('click', () => {
+      const open = drawer.style.display === 'block';
+      drawer.style.display = open ? 'none' : 'block';
+      drawer.setAttribute('aria-hidden', open ? 'true' : 'false');
+    });
+
+    // Smooth scroll actions + focus
+    const estimateSection = document.getElementById('estimate');
+    const nameInput = document.getElementById('nameInput');
+    function gotoEstimateAndFocus(){
+      estimateSection?.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(()=>{ try{ nameInput?.focus(); }catch(e){} }, 550);
+    }
+    document.getElementById('goEstimate')?.addEventListener('click', gotoEstimateAndFocus);
+    document.getElementById('quoteTop')?.addEventListener('click', gotoEstimateAndFocus);
+    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ gotoEstimateAndFocus(); drawer.style.display='none'; });
+
+    // Right-side CTA button
+    document.getElementById('instantCTA')?.addEventListener('click', gotoEstimateAndFocus);
+
+    // Service cards click => highlight chip and scroll to estimate
+    const selected = new Set();
+    document.querySelectorAll('.go-est').forEach(el=>{
+      el.addEventListener('click',()=>{
+        const key = el.dataset.key || el.textContent.trim();
+        estimateSection?.scrollIntoView({behavior:'smooth', block:'center'});
+        const chip = Array.from(document.querySelectorAll('.chip')).find(c => (c.dataset.key||c.textContent.trim()) === key);
+        if(chip){
+          chip.classList.add('active');
+          if(!selected.has(key)) selected.add(key);
+        }
+        setTimeout(()=>{ try{ nameInput?.focus(); }catch(e){} }, 550);
+      });
+    });
+
+    // Chips select — keep right side CTA
+    document.querySelectorAll('.chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        const key = chip.dataset.key || chip.textContent.trim();
+        if(selected.has(key)){ selected.delete(key); chip.classList.remove('active'); }
+        else { selected.add(key); chip.classList.add('active'); }
+      });
+    });
+
+    // Gallery sliders
+    function setupSlider(container, beforeSrc, afterSrc){
+      container.innerHTML = `
+        <div class="ba-slider">
+          <img src="${beforeSrc}" alt="Before" class="before">
+          <div class="after-wrap"><img src="${afterSrc}" alt="After" class="after"></div>
+          <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+          <div class="overlay-label">Before / After</div>
+        </div>
+      `;
+      const slider = container.querySelector('.ba-slider');
+      const afterWrap = slider.querySelector('.after-wrap');
+      const handle = slider.querySelector('.handle');
+
+      function setPos(pct){
+        pct = Math.max(0, Math.min(100, pct));
+        afterWrap.style.width = pct + '%';
+        handle.style.left = pct + '%';
+        handle.setAttribute('aria-valuenow', Math.round(pct));
+      }
+
+      let dragging = false;
+      function pointerMove(clientX){
+        const rect = slider.getBoundingClientRect();
+        const pct = ((clientX - rect.left) / rect.width) * 100;
+        setPos(pct);
+      }
+
+      handle.addEventListener('mousedown', ()=>dragging=true);
+      document.addEventListener('mouseup', ()=>dragging=false);
+      document.addEventListener('mousemove',(e)=>{ if(dragging){ pointerMove(e.clientX); }});
+
+      handle.addEventListener('touchstart', ()=>dragging=true, {passive:true});
+      document.addEventListener('touchend', ()=>dragging=false, {passive:true});
+      document.addEventListener('touchmove',(e)=>{ if(dragging && e.touches && e.touches[0]){ pointerMove(e.touches[0].clientX); }},{passive:true});
+
+      slider.addEventListener('click',(e)=>{
+        if (e.target === handle) return;
+        pointerMove(e.clientX);
+      });
+
+      setPos(50);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.ba').forEach(item=>{
+        const before = item.dataset.before;
+        const after = item.dataset.after;
+        const inner = item.querySelector('.ba-inner');
+        if(before && after && inner){
+          setupSlider(inner, before, after);
+        } else if(inner) {
+          inner.innerHTML = '<img src="' + (before||'') + '" alt="Image" style="width:100%;height:100%;object-fit:cover">';
+        }
+      });
+    });
+
+    // Form submit (mock)
+    const form = document.getElementById('estimateForm');
+    if (form) {
+      form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const data = new FormData(form);
+        const msg =
+          `Estimate Request Sent!\n`+
+          `Name: ${data.get('name')}\n`+
+          `Phone: ${data.get('phone')}\n`+
+          `ZIP: ${data.get('zip')}\n`+
+          `Email: ${data.get('email')}\n`+
+          `Services: ${Array.from(selected).join(', ')}`;
+        alert(msg);
+        form.reset(); selected.clear();
+        document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
+      });
+    }
+
+    // Testimonials
+    const testimonials = [
+      {name:'Megan K.', text:'Amazing results in one day. Tub and tiles look brand new!'},
+      {name:'Daniel S.', text:'On time, clean work, flawless finish. Highly recommend in Seattle!'},
+      {name:'Priya R.', text:'Eco-friendly materials and super fast turnaround. Great communication.'},
+    ];
+    let tIdx=0;
+    const tText=document.getElementById('tText');
+    const tName=document.getElementById('tName');
+    const tDots=document.getElementById('tDots');
+    function renderDots(){
+      if(!tDots) return;
+      tDots.innerHTML='';
+      testimonials.forEach((_,i)=>{
+        const d=document.createElement('div');
+        d.style.width='10px'; d.style.height='10px'; d.style.borderRadius='999px';
+        d.style.background= (i===tIdx)? '#1e40af' : '#c7d2fe';
+        tDots.appendChild(d);
+      });
+    }
+    function renderT(){
+      if(!tText || !tName) return;
+      tText.textContent=testimonials[tIdx].text;
+      tName.textContent='— '+testimonials[tIdx].name;
+      renderDots();
+    }
+    renderT();
+    document.getElementById('tNext')?.addEventListener('click',()=>{tIdx=(tIdx+1)%testimonials.length;renderT()});
+    document.getElementById('tPrev')?.addEventListener('click',()=>{tIdx=(tIdx-1+testimonials.length)%testimonials.length;renderT()});
+
+    // Floating button behavior: call on desktop, sms on mobile
+    const floatBtn=document.getElementById('floatCall');
+    if (floatBtn && /Mobi|Android/i.test(navigator.userAgent)) {
+      floatBtn.setAttribute('href','sms:+12067869915');
+      floatBtn.textContent='Text Us';
+    }
+
+    // Instant floating CTA behavior
+    document.getElementById('floatInstant')?.addEventListener('click',(e)=>{
+      e.preventDefault();
+      gotoEstimateAndFocus();
+    });
+
+    // Accessibility: close drawer on outside click
+    document.addEventListener('click',(e)=>{
+      if(!drawer || !burger) return;
+      if(drawer.style.display==='block' && !drawer.contains(e.target) && !burger.contains(e.target)){
+        drawer.style.display='none';
+        drawer.setAttribute('aria-hidden','true');
+      }
+    });
+  </script>
+</body>
+</html>

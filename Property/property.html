@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Property Managers — Best Refinishing</title>
+  <meta name="description" content="Priority scheduling, bulk pricing and centralized billing for property managers. Best Refinishing — Seattle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b1220;--navy2:#1a2b4a;--brand:#0078D7;--muted:#4b5563;--card:#fff;--bg:#f7fafc;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,Arial,sans-serif;background:var(--bg);color:#14213d;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    header{background:linear-gradient(180deg,var(--navy),var(--navy2));color:#fff;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;font-size:1.1rem}
+    .nav-links a{margin-left:16px;color:#e6eefc;font-weight:700}
+    .wrap{max-width:980px;margin:28px auto;padding:24px;background:var(--card);border-radius:12px;box-shadow:0 8px 28px rgba(2,6,23,.06)}
+    h1{color:var(--brand);margin-bottom:8px;font-size:1.6rem}
+    p.lead{color:var(--muted);font-weight:600;margin-bottom:18px}
+    .pmGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+    .pmCard{padding:18px;border-radius:12px;background:#fff;border:1px solid #e6eef6;font-weight:700;color:#0b3b66}
+    .pmCTA{display:inline-block;margin-top:18px;background:linear-gradient(90deg,#0b9cff,#0078D7);color:#fff;padding:16px 24px;border-radius:14px;border:none;font-weight:900;cursor:pointer;font-size:1.15rem;min-width:240px}
+    .contact-row{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:18px}
+    .contact-item{background:#fff;border:1px solid #eef4fb;padding:12px 14px;border-radius:10px;font-weight:700;color:#0b3b66}
+    footer{max-width:980px;margin:28px auto;text-align:center;color:#64748b;padding:18px 8px}
+    @media(max-width:920px){.pmGrid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.pmGrid{grid-template-columns:1fr}.contact-row{flex-direction:column;align-items:stretch}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Best Refinishing</div>
+    <nav class="nav-links" aria-label="Main">
+      <a href="../main.html">Home</a>
+      <a href="index.html" aria-current="page">Property Managers</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap" role="main" aria-labelledby="pmTitle">
+    <h1 id="pmTitle">For Property Managers</h1>
+    <p class="lead">We work with apartment complexes, realtors, and maintenance teams for multi-unit refinishing. Priority scheduling, bulk pricing, and streamlined billing.</p>
+
+    <div class="pmGrid" role="list">
+      <div class="pmCard" role="listitem">
+        <h3>Priority Scheduling</h3>
+        <p>Turn units faster with guaranteed slots and predictable timelines. Coordinate with our scheduling team for efficient turnarounds.</p>
+      </div>
+
+      <div class="pmCard" role="listitem">
+        <h3>Bulk Pricing</h3>
+        <p>Volume discounts and custom quotes for projects of 5+ surfaces. We provide itemized estimates per unit to simplify approvals.</p>
+      </div>
+
+      <div class="pmCard" role="listitem">
+        <h3>Centralized Billing</h3>
+        <p>Invoices by unit or consolidated monthly billing. Purchase order support and flexible payment terms for property accounts.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:18px">
+      <button class="pmCTA" onclick="location.href='../index.html#estimate'">Request Partnership Details</button>
+    </div>
+
+    <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div class="contact-row" aria-label="Contact details">
+        <div class="contact-item">📞 +1 (206) 786-9915</div>
+        <div class="contact-item">✉️ office@best-refinishing.com</div>
+        <div class="contact-item">📍 Columbia Tower, 701 5th Ave, 42nd Floor, Seattle, WA 98104</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>Columbia Tower, 701 5th Ave, 42nd Floor, Seattle, WA 98104</div>
+    <div style="margin-top:8px">© 2025 Best Refinishing — All rights reserved.</div>
+  </footer>
+</body>
+</html>
