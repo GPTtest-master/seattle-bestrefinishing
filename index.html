@@ -43,8 +43,8 @@
     }
     .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px}
     .brand .tag{opacity:.85;font-size:.78rem;margin-top:6px;line-height:1.2}
-    .menu{display:flex;gap:20px;align-items:center;font-weight:600;justify-content:space-between}
-    .menu a{opacity:.95}
+    .menu{display:flex;gap:16px;align-items:center;font-weight:600;justify-content:space-between}
+    .menu a{opacity:.95;white-space:nowrap}
     .menu a:hover{opacity:1;text-decoration:underline}
 
     /* phone: number first, icons to the right */
@@ -212,10 +212,25 @@
     .ba .ba-inner{width:100%;height:100%}
     .baBadge{position:absolute;left:10px;top:10px;background:#111827;color:#fff;font-size:.75rem;padding:4px 8px;border-radius:6px}
     .tWrap{display:flex;align-items:center;gap:14px;justify-content:center}
-    .tCard{background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:24px;max-width:680px;box-shadow:0 8px 22px rgba(12,36,68,.06);text-align:center}
-    .tName{margin-top:10px;font-weight:800;color:#0b66b3}
+    .tCard{background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:20px;max-width:720px;box-shadow:0 8px 22px rgba(12,36,68,.06);text-align:left}
     .tBtn{background:#eef2ff;border:none;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:800;color:#1e40af}
     .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
+    /* Google-like review styling */
+    .gHeader{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+    .gAvatar{width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;letter-spacing:.3px;
+      background:linear-gradient(135deg,#1a73e8,#34a853); box-shadow:0 2px 8px rgba(2,6,23,.12)}
+    .gName{font-weight:900;color:#111;line-height:1.2}
+    .gMeta{display:flex;align-items:center;gap:10px;color:#6b7280;font-weight:700;font-size:.9rem;margin-top:2px}
+    .gStars{display:inline-flex;gap:2px;align-items:center}
+    .gStars svg{width:16px;height:16px;display:block}
+    .gStars svg path{fill:#fbbc04}
+    .gDate{color:#6b7280}
+    .gText{color:#374151;font-size:1.02rem;line-height:1.6}
+    /* Review source badges */
+    .brand-badge{display:inline-flex;align-items:center;gap:6px;font-weight:800;border-radius:999px;padding:4px 10px;font-size:.8rem;line-height:1}
+    .badge-google{color:#1a73e8;background:#e8f0fe;border:1px solid #d2e3fc}
+    .badge-yelp{color:#fff;background:#d32323;border:1px solid #b31b1b}
+    .badge-icon-small{width:14px;height:14px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem}
     .pmSec{background:#fff}
     .pmGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
     .pmCard{background:#fff;border:1px solid #e8edf4;border-radius:16px;padding:20px;box-shadow:0 10px 24px rgba(12,36,68,.06)}
@@ -300,9 +315,9 @@
       <div class="menu">
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
-        <a href="#faq">FAQ</a>
+        <a href="Our Process/process.html">Our Process</a>
         <a href="Property/property.html">Property Managers</a>
-        <a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
 
         <span class="phone" aria-hidden="false">
           <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915">
@@ -329,9 +344,9 @@
     <div class="drawer" id="drawer" aria-hidden="true">
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="#faq">FAQ</a>
+      <a href="Our Process/process.html">Our Process</a>
       <a href="Property/property.html">Property Managers</a>
-      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
@@ -351,7 +366,21 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <h1>Best Bathtub & Tile Refinishing Company in Seattle and Surrounding Areas</h1>
-    <p>We’ll transform your bathroom in just 24 hours — no messy remodel or thousands in renovation costs. Eco-friendly, fast, and professional service that makes your space look brand new.</p>
+    <p style="font-size:1.1rem;opacity:.95;margin:16px auto 18px;max-width:720px;">
+      We refinish bathtubs, tiles, sinks, and countertops across the Seattle area —<br>
+      providing a flawless, long-lasting finish in just 24 hours.<br>
+      Get an instant estimate and enjoy 5-year warranty coverage.
+    </p>
+    <div style="font-size:1.22rem;font-weight:700;display:flex;gap:22px;justify-content:center;margin-bottom:0;">
+      <span>🌿 Eco-Friendly Coatings</span>
+      <span>⚡ Instant Estimate Form</span>
+      <span>🛡 Fully Bonded & Insured</span>
+    </div>
+    <div style="font-size:1.22rem;font-weight:700;display:flex;gap:22px;justify-content:center;margin-bottom:18px;margin-top:8px;">
+      <span>⏳ 10–15 Years Durability</span>
+      <span>😊 1,000+ Happy Clients</span>
+      <span>🏅 5-Year Warranty Included</span>
+    </div>
     <div class="cta" style="display:flex;gap:16px;justify-content:center">
       <button class="btn-primary" id="goEstimate">Get Instant Estimate</button>
       <button class="btn-primary" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth',block:'center'})">Reviews</button>
@@ -403,14 +432,6 @@
           <h3>Local Repair</h3>
         </div></div>
       </div>
-    </div>
-    <div class="svcIntro">
-      <p>At Best Refinishing Company, we deliver fast, flawless, and long-lasting results. Every project is handled by skilled technicians using only premium, commercial-grade materials — ensuring your surfaces look beautiful and stay that way for years.</p>
-      <p>We are a fully licensed, bonded, and insured company — trusted by homeowners, property managers, and real-estate professionals across the Seattle area.</p>
-      <p>During every job, we use a professional exhaust ventilation system to remove all fumes and maintain a safe, odor-free environment inside your home.</p>
-      <p>You can also choose any custom color — we’ll mix the coating specifically for your project to match your unique style.</p>
-      <p>From bathtubs and tiles to sinks, showers, and countertops — we restore and refinish every surface with precision, speed, and care.</p>
-      <p>Get your instant online estimate today and see how easy it is to make your bathroom look brand new again — without a costly remodel.</p>
     </div>
   </section>
 
@@ -489,9 +510,19 @@
     <div class="tWrap">
       <button class="tBtn" id="tPrev">‹</button>
       <div class="tCard">
-        <div id="tText" style="font-size:1.05rem">Amazing results in one day. Tub and tiles look brand new!</div>
-        <div class="tName" id="tName">— Megan K.</div>
-        <div class="dots" id="tDots"></div>
+        <div class="gHeader">
+          <div class="gAvatar" id="tAvatar">M</div>
+          <div>
+            <div class="gName" id="tName">Megan K.</div>
+            <div class="gMeta">
+              <span class="gStars" id="tStars"></span>
+              <span id="tBrand"></span>
+              <span class="gDate" id="tDate">2 weeks ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="gText" id="tText">Amazing results in one day. Tub and tiles look brand new!</div>
+        <div class="dots" id="tDots" style="margin-top:12px"></div>
       </div>
       <button class="tBtn" id="tNext">›</button>
     </div>
@@ -554,9 +585,6 @@
 
   <!-- Floating Call/Text -->
   <a class="floating-btn" id="floatCall" href="tel:+12067869915">Call or Text</a>
-
-  <!-- Instant Quote floating button (added) -->
-  <a class="instant-floating" id="floatInstant" href="#estimate">Instant Quote</a>
 
   <!-- Footer -->
   <div class="footer">© 2025 Best Refinishing — All rights reserved.</div>
@@ -662,8 +690,11 @@
     document.addEventListener('DOMContentLoaded', ()=>{
       // --- Estimate section: slider with navigation ---
       const estimateExamples = [
-        { before: 'images/tub before 1.jpeg', after: 'images/tub after 1.jpeg' },
-        { before: 'images/sink before 3.jpg', after: 'images/sink after 3.jpg' },
+        { before: 'images/sink after 3.jpg', after: 'images/sink before 3.jpg' },
+        { before: 'images/tub after 1.jpeg', after: 'images/tub before 1.jpeg' },
+        { before: 'images/bathtub 3 after.jpg', after: 'images/bathtub 3 before.jpg' },
+        { before: 'images/tub tiles after 1.jpeg', after: 'images/tiles tub before 1.jpeg' },
+        { before: 'images/tub before 7.jpg', after: 'images/tub after 7.jpg' },
       ];
       let estimateIdx = 0;
       const estimatePreview = document.querySelector('#preview .ba-inner');
@@ -673,11 +704,12 @@
       function showEstimateExample(idx, animate=true) {
         if (!estimatePreview) return;
         if (animate) {
+          estimatePreview.style.transition = 'opacity 0.4s ease-in-out';
           estimatePreview.style.opacity = '0';
           setTimeout(() => {
             updateSlider();
             estimatePreview.style.opacity = '1';
-          }, 320);
+          }, 400);
         } else {
           updateSlider();
         }
@@ -726,14 +758,23 @@
 
     // Testimonials
     const testimonials = [
-      {name:'Megan K.', text:'Amazing results in one day. Tub and tiles look brand new!'},
-      {name:'Daniel S.', text:'On time, clean work, flawless finish. Highly recommend in Seattle!'},
-      {name:'Priya R.', text:'Eco-friendly materials and super fast turnaround. Great communication.'},
+      {name:'Megan K.', text:'Amazing results in one day. Tub and tiles look brand new!', rating:5, date:'2 weeks ago', source:'google'},
+      {name:'Daniel S.', text:'On time, clean work, flawless finish. Highly recommend in Seattle!', rating:5, date:'1 month ago', source:'yelp'},
+      {name:'Priya R.', text:'Eco-friendly materials and super fast turnaround. Great communication.', rating:5, date:'3 days ago', source:'google'},
+      {name:'Alejandro M.', text:'They saved us from a full replacement—quality is top-notch.', rating:5, date:'5 days ago', source:'yelp'},
+      {name:'Sophie L.', text:'Professional, punctual, and the tub looks factory new.', rating:5, date:'3 months ago', source:'google'},
+      {name:'Henry T.', text:'Price was fair and the 5-year warranty gives peace of mind.', rating:5, date:'1 week ago', source:'google'},
+      {name:'Jasmine P.', text:'Courteous techs and zero mess. Love the finish!', rating:5, date:'4 weeks ago', source:'yelp'},
+      {name:'Owen R.', text:'Quick estimate, easy scheduling, and stunning results.', rating:5, date:'2 months ago', source:'google'},
     ];
     let tIdx=0;
-    const tText=document.getElementById('tText');
-    const tName=document.getElementById('tName');
-    const tDots=document.getElementById('tDots');
+  const tText=document.getElementById('tText');
+  const tName=document.getElementById('tName');
+  const tDots=document.getElementById('tDots');
+  const tStars=document.getElementById('tStars');
+  const tDate=document.getElementById('tDate');
+  const tAvatar=document.getElementById('tAvatar');
+  const tBrand=document.getElementById('tBrand');
     function renderDots(){
       if(!tDots) return;
       tDots.innerHTML='';
@@ -744,10 +785,31 @@
         tDots.appendChild(d);
       });
     }
+    function starHTML(rating=5){
+      let html='';
+      for(let i=0;i<5;i++){
+        html += `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.164L12 18.896l-7.334 3.864 1.4-8.164L.132 9.21l8.2-1.192L12 .587z"/></svg>`;
+      }
+      return html;
+    }
+    function brandBadgeHTML(source){
+      if(source==='google'){
+        return `<span class="brand-badge badge-google"><span class="badge-icon-small" style="background:#1a73e8;color:#fff">G</span> Google</span>`;
+      }
+      if(source==='yelp'){
+        return `<span class="brand-badge badge-yelp"><span class="badge-icon-small" style="background:#fff;color:#d32323;border:1px solid #b31b1b;border-radius:3px">✦</span> Yelp</span>`;
+      }
+      return '';
+    }
     function renderT(){
       if(!tText || !tName) return;
-      tText.textContent=testimonials[tIdx].text;
-      tName.textContent='— '+testimonials[tIdx].name;
+      const item=testimonials[tIdx];
+      tText.textContent=item.text;
+      tName.textContent=item.name;
+      if(tStars) tStars.innerHTML = starHTML(item.rating);
+      if(tDate) tDate.textContent = item.date || '';
+      if(tAvatar) tAvatar.textContent = (item.name||'?').trim().charAt(0).toUpperCase();
+      if(tBrand) tBrand.innerHTML = brandBadgeHTML(item.source);
       renderDots();
     }
     renderT();
