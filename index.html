@@ -36,22 +36,25 @@
     }
     .nav{
       max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;
-      padding:14px 20px;gap:16px;
+      padding:14px 0px;gap:20px;
     }
     .brand{
-      display:flex;flex-direction:column;line-height:1;justify-content:center;
+      display:flex;flex-direction:row;line-height:1;align-items:center;gap:12px;margin-left:-10px;
     }
+    .brand .logo{height:70px;width:auto;display:block;margin-top:0;margin-bottom:0}
+    .brand .text-wrap{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
     .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px}
     .brand .tag{opacity:.85;font-size:.78rem;margin-top:6px;line-height:1.2}
-    .menu{display:flex;gap:16px;align-items:center;font-weight:600;justify-content:space-between}
+    .brand .trusted{opacity:.75;font-size:.72rem;margin-top:4px;line-height:1.2;font-weight:600}
+    .menu{display:flex;flex-wrap:nowrap;gap:14px;align-items:center;font-weight:600;margin:0 20px}
     .menu a{opacity:.95;white-space:nowrap}
     .menu a:hover{opacity:1;text-decoration:underline}
 
-    /* phone: number first, icons to the right */
+    /* phone: number only */
     .phone{font-weight:800;display:flex;align-items:center;gap:8px}
-    .phone .phone-link{color:inherit;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px}
-    .phone .icons{display:inline-flex;gap:6px;align-items:center}
-    .phone .icon-link{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:transparent;color:inherit;border:none;cursor:pointer}
+    .phone .phone-link{color:inherit;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px;white-space:nowrap}
+    .phone .icons{display:none}
+    .phone .icon-link{display:none}
     .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px;fill:currentColor}
     .phone-number{display:inline-block}
 
@@ -288,6 +291,150 @@
     }
     .instant-floating:hover{filter:brightness(.95);transform:translateY(-2px)}
 
+    /* Estimate result popup */
+    .estimate-result{
+      display:none;
+      position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,0.7);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .estimate-result.show{display:flex}
+    .result-card{
+      background:#fff;
+      border-radius:16px;
+      padding:32px;
+      max-width:480px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      position:relative;
+      animation:slideIn 0.3s ease-out;
+    }
+    @keyframes slideIn{
+      from{transform:translateY(-20px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+    .result-close{
+      position:absolute;
+      top:16px;
+      right:16px;
+      background:none;
+      border:none;
+      font-size:1.5rem;
+      cursor:pointer;
+      color:#64748b;
+      width:32px;
+      height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+    }
+    .result-close:hover{background:#f1f5f9}
+    .result-title{
+      font-size:1.6rem;
+      font-weight:800;
+      color:#0b66b3;
+      margin-bottom:16px;
+    }
+    .result-subtitle{
+      font-size:1rem;
+      color:#64748b;
+      margin-bottom:24px;
+    }
+    .result-pricing{
+      background:#f8fafc;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:24px;
+    }
+    .result-original{
+      font-size:1.1rem;
+      color:#94a3b8;
+      text-decoration:line-through;
+      margin-bottom:8px;
+    }
+    .result-discount{
+      font-size:2.2rem;
+      font-weight:900;
+      color:#0b66b3;
+      margin-bottom:8px;
+    }
+    .result-savings{
+      display:inline-block;
+      background:#dcfce7;
+      color:#166534;
+      padding:6px 12px;
+      border-radius:8px;
+      font-weight:800;
+      font-size:0.9rem;
+    }
+    .result-services{
+      text-align:left;
+      margin-bottom:24px;
+      padding:16px;
+      background:#fff;
+      border:1px solid #e2e8f0;
+      border-radius:12px;
+    }
+    .result-services-title{
+      font-weight:800;
+      color:#334155;
+      margin-bottom:8px;
+      font-size:0.95rem;
+    }
+    .result-services-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .result-services-list li{
+      padding:4px 0;
+      color:#64748b;
+      font-size:0.9rem;
+    }
+    .result-services-list li:before{
+      content:'✓';
+      color:#10b981;
+      font-weight:800;
+      margin-right:8px;
+    }
+    .result-cta{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .result-btn{
+      padding:14px 24px;
+      border-radius:10px;
+      border:none;
+      font-weight:800;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .result-btn-primary{
+      background:#0b66b3;
+      color:#fff;
+    }
+    .result-btn-primary:hover{background:#005fa9}
+    .result-btn-secondary{
+      background:#fff;
+      color:#0b66b3;
+      border:2px solid #0b66b3;
+    }
+    .result-btn-secondary:hover{background:#f0f9ff}
+    .result-note{
+      margin-top:16px;
+      font-size:0.85rem;
+      color:#64748b;
+      line-height:1.5;
+    }
+
     /* Responsive */
     @media (max-width:1024px){
       .svcGrid{grid-template-columns:repeat(2,1fr)}
@@ -295,8 +442,12 @@
       .menu{gap:12px}
     }
     @media (max-width:820px){
+      .nav{padding:14px 20px}
+      .brand{margin-left:0}
       .menu,.phone,.cta-quote{display:none}
       .burger{display:flex}
+      .drawer{padding:16px 20px}
+      .drawer a{padding:12px 0;font-size:1rem}
       .hero h1{font-size:2.1rem}
       .hero p{font-size:1rem}
       .hero-features{font-size:0.85rem;gap:12px}
@@ -322,6 +473,9 @@
       .galleryGrid{grid-template-columns:1fr}
       .ba{height:340px}
       .ba-slider{height:340px}
+      .result-card{padding:24px}
+      .result-title{font-size:1.3rem}
+      .result-discount{font-size:1.8rem}
     }
   </style>
 </head>
@@ -330,18 +484,19 @@
   <!-- Header -->
   <div class="header-wrap">
     <nav class="nav">
-      <div class="brand">
-        <div class="name">Best Refinishing</div>
-        <div class="tag">
-          <span>Trusted by Homeowners Across Seattle</span>
+      <a href="#home" class="brand" style="cursor:pointer">
+        <img src="images/logo1.png" alt="Best Refinishing Logo" class="logo">
+        <div class="text-wrap">
+          <div class="name">Best Refinishing</div>
+          <div class="trusted">Trusted by Homeowners Across Seattle</div>
         </div>
-      </div>
+      </a>
 
       <div class="menu">
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
-        <a href="Our Process/process.html">Our Process</a>
-        <a href="Property/property.html">Property Managers</a>
+        <a href="/our-process">Our Process</a>
+        <a href="/property">Property Managers</a>
         <a href="#faq">FAQ</a>
 
         <span class="phone" aria-hidden="false">
@@ -369,8 +524,8 @@
     <div class="drawer" id="drawer" aria-hidden="true">
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="Our Process/process.html">Our Process</a>
-      <a href="Property/property.html">Property Managers</a>
+      <a href="/our-process">Our Process</a>
+      <a href="/property">Property Managers</a>
       <a href="#faq">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
@@ -390,7 +545,7 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <h1>Best Bathtub & Tile Refinishing Company in Seattle and Surrounding Areas</h1>
+    <h1>Best Bathtub & Tile Refinishing Company Across Seattle and Surrounding Areas</h1>
     <p style="font-size:1.1rem;opacity:.95;margin:16px auto 18px;max-width:720px;">
       We refinish bathtubs, tiles, sinks, and countertops across the Seattle area —<br>
       providing a flawless, long-lasting finish in just 24 hours.
@@ -405,9 +560,8 @@
       <span>😊 1,000+ Happy Clients</span>
       <span>🏅 5-Year Warranty Included</span>
     </div>
-    <div class="cta" style="display:flex;gap:16px;justify-content:center">
+    <div class="cta" style="display:flex;gap:16px;justify-content:center;margin-top:32px">
       <button class="btn-primary" id="goEstimate">Get Instant Estimate</button>
-      <button class="btn-primary" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth',block:'center'})">Reviews</button>
     </div>
 
     <!-- Testimonials Carousel in Hero -->
@@ -417,7 +571,7 @@
         <div class="gHeader">
           <div class="gAvatar" id="tAvatar">M</div>
           <div>
-            <div class="gName" id="tName">Megan K.</div>
+            <div class="gName" id="tName">Megan R., Ballard</div>
             <div class="gMeta">
               <span class="gStars" id="tStars"></span>
               <span id="tBrand"></span>
@@ -425,7 +579,7 @@
             </div>
           </div>
         </div>
-        <div class="gText" id="tText">Amazing results in one day. Tub and tiles look brand new!</div>
+        <div class="gText" id="tText">Best Refinishing turned my 20-year-old bathtub into something that looks brand new. Fast 24-hour turnaround, eco-friendly materials, and the team was professional from estimate to cleanup. Highly recommend bathtub refinishing in Seattle!</div>
         <div class="dots" id="tDots" style="margin-top:12px"></div>
       </div>
       <button class="tBtn" id="tNext">›</button>
@@ -443,10 +597,10 @@
         </div></div>
       </div>
 
-      <div class="svcCard go-est" data-key="Tile Walls">
+      <div class="svcCard go-est" data-key="Tub+Tiles">
         <div class="svcImg" style="background-image:url('images/tiles BG.jpg')"></div>
         <div class="svcOverlay"><div class="svcTextWrap">
-          <h3>Tile Refinishing</h3>
+         <h3>Tub+Tiles Refinishing</h3>
         </div></div>
       </div>
 
@@ -487,10 +641,10 @@
         <h2 class="title">Get a Free Estimate</h2>
         <div class="chips" id="chips">
           <div class="chip" data-key="Bathtub">🛁 Bathtub</div>
-          <div class="chip" data-key="Tile Walls">🧱 Tile Walls</div>
+            <div class="chip" data-key="Tub+Tiles">🧱 Tub+Tiles</div>
           <div class="chip" data-key="Shower">🚿 Shower</div>
           <div class="chip" data-key="Sink">🚰 Sink</div>
-          <div class="chip" data-key="Countertop">🪵 Countertop</div>
+            <div class="chip" data-key="Countertop">𓊳 Countertop</div>
           <div class="chip" data-key="Local Repair">🛠️ Local Repair</div>
         </div>
         <form id="estimateForm">
@@ -510,7 +664,7 @@
           <button class="ba-nav ba-nav-left" aria-label="Previous example" tabindex="0">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="11" stroke="#fff" stroke-width="2.5" fill="rgba(11,102,179,0.92)"/><polyline points="14 8 10 12 14 16" stroke="#fff" stroke-width="2.5"/></svg>
           </button>
-          <div class="ba-inner" data-before="images/tub before 1.jpeg" data-after="images/tub after 1.jpeg" style="flex:1;min-width:0;"></div>
+          <div class="ba-inner" data-before="images/tub after 1.jpeg?v=3" data-after="images/tub before 1.jpeg?v=3" style="flex:1;min-width:0;"></div>
           <button class="ba-nav ba-nav-right" aria-label="Next example" tabindex="0">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="11" stroke="#fff" stroke-width="2.5" fill="rgba(11,102,179,0.92)"/><polyline points="10 8 14 12 10 16" stroke="#fff" stroke-width="2.5"/></svg>
           </button>
@@ -525,16 +679,16 @@
     <h2 class="title">Before & After Gallery</h2>
     <div class="galleryGrid">
       <!-- Pair 1: tub 1 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/tub before 1.jpeg" alt="Before: Tub 1"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/tub after 1.jpeg" alt="After: Tub 1"></div>
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/tub before 1.jpeg?v=2" alt="Before: Tub 1"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/tub after 1.jpeg?v=2" alt="After: Tub 1"></div>
 
       <!-- Pair 2: bathtub 2 -->
   <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/bathtub 2.jpg" alt="Before: Bathtub 2"></div>
   <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/bath tub 2 after.jpg" alt="After: Bathtub 2"></div>
 
       <!-- Pair 3: bathtub 3 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/bathtub 3 before.jpg" alt="Before: Bathtub 3"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/bathtub 3 after.jpg" alt="After: Bathtub 3"></div>
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/bathtub 3 before.jpg?v=2" alt="Before: Bathtub 3"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/bathtub 3 after.jpg?v=2" alt="After: Bathtub 3"></div>
 
       <!-- Pair 4: bathtub 4 -->
   <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/bathtub 4 before.jpg" alt="Before: Bathtub 4"></div>
@@ -547,13 +701,23 @@
     <!-- Pair 6: sink 1 -->
   <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/sink before 1.jpg" alt="Before: Sink 1"></div>
   <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/sink after 1.jpg" alt="After: Sink 1"></div>
-    </div>
-  </section>
+      
+    <!-- Pair 7: local repair 5 -->
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/local 5.jpg" alt="Before: Local Repair 5"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/local 5 after.jpg" alt="After: Local Repair 5"></div>
 
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <h2 class="title">What Customers Say</h2>
-    <p style="text-align:center;color:#4b5563;max-width:680px;margin:0 auto 24px">See all our reviews from Google and Yelp above in the hero section.</p>
+    <!-- Pair 8: shower pan 1 -->
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/shower pan1.jpg" alt="Before: Shower Pan 1"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/shower pan1 after.jpg" alt="After: Shower Pan 1"></div>
+
+      <!-- Pair 9: Tub+Tiles 1 -->
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/tiles tub before 1.jpeg" alt="Before: Tub+Tiles 1"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/tub tiles after 1.jpeg" alt="After: Tub+Tiles 1"></div>
+
+      <!-- Pair 10: Pink -->
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="images/pink before.jpg" alt="Before: Pink"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="images/pink after.jpg" alt="After: Pink"></div>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -613,6 +777,38 @@
 
   <!-- Floating Call/Text -->
   <a class="floating-btn" id="floatCall" href="tel:+12067869915">Call or Text</a>
+
+  <!-- Estimate Result Popup -->
+  <div id="estimateResult" class="estimate-result">
+    <div class="result-card">
+      <button id="resultClose" class="result-close" aria-label="Close">×</button>
+      
+      <h2 class="result-title">Your Estimate is Ready!</h2>
+      <p class="result-subtitle">Hi <span id="resultName">there</span>, here's your instant quote:</p>
+      
+      <div class="result-pricing">
+        <div class="result-original">Regular Price: <span id="resultOriginal">$0</span></div>
+        <div class="result-discount" id="resultDiscount">$0</div>
+        <span class="result-savings" id="resultSavings">Save $0!</span>
+      </div>
+
+      <div class="result-services">
+        <div class="result-services-title">Selected Services:</div>
+        <ul class="result-services-list" id="resultServices">
+          <li>Service</li>
+        </ul>
+      </div>
+
+      <div class="result-cta">
+        <button id="resultCall" class="result-btn result-btn-primary">📞 Call to Confirm</button>
+        <button id="resultText" class="result-btn result-btn-secondary">💬 Text Us</button>
+      </div>
+
+      <p class="result-note">
+        <strong>Next Steps:</strong> Our manager will contact you shortly to confirm the final quote and schedule your service. Please note: the price may be adjusted if stripping old paint is required or if the surface is unusually large. Final price will be confirmed after reviewing photos of your surface.
+      </p>
+    </div>
+  </div>
 
   <!-- Footer -->
   <div class="footer">© 2025 Best Refinishing — All rights reserved.</div>
@@ -718,11 +914,10 @@
     document.addEventListener('DOMContentLoaded', ()=>{
       // --- Estimate section: slider with navigation ---
       const estimateExamples = [
-        { before: 'images/sink before 3.jpg', after: 'images/sink after 3.jpg' },
-        { before: 'images/tub before 1.jpeg', after: 'images/tub after 1.jpeg' },
-        { before: 'images/bathtub 3 before.jpg', after: 'images/bathtub 3 after.jpg' },
-        { before: 'images/tiles tub before 1.jpeg', after: 'images/tub tiles after 1.jpeg' },
-        { before: 'images/tub before 7.jpg', after: 'images/tub after 7.jpg' },
+        { before: 'images/sink after 3.jpg', after: 'images/sink before 3.jpg' },
+        { before: 'images/after tub 10.jpg', after: 'images/before tub 10jpg.jpg' },
+        { before: 'images/tub after 7.jpg', after: 'images/tub before 7.jpg' },
+        { before: 'images/tub after8.jpg', after: 'images/tub before8.jpg' },
       ];
       let estimateIdx = 0;
       const estimatePreview = document.querySelector('#preview .ba-inner');
@@ -765,10 +960,75 @@
       }
     });
 
-    // Form submit with loading + inline toast (mock send)
-    const form = document.getElementById('estimateForm');
+  // Form submit with loading + inline toast + send to Google Apps Script
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6zRJ35HtufhrhWvoOnV-idpNBkOUg0Z00ZxyN1BCK-n97E2NT1ndjCW4zjLwPqAY32Q/exec';
+  const form = document.getElementById('estimateForm');
     if (form) {
       const toast = document.getElementById('estimateToast');
+      
+      // Service pricing (base prices)
+      const servicePrices = {
+        'Bathtub': 700,
+          'Tub+Tiles': 900,
+        'Shower': 900,
+        'Sink': 400,
+        'Countertop': 550,
+        'Local Repair': 380
+      };
+
+      // Calculate estimate
+      function calculateEstimate(selectedServices) {
+        if (selectedServices.length === 0) return { original: 0, discount: 0, savings: 0 };
+        
+        let total = 0;
+        selectedServices.forEach(service => {
+          total += servicePrices[service] || 0;
+        });
+        
+        // Apply discount (10% for all services)
+        const discountPercent = 0.10;
+        const discount = total * (1 - discountPercent);
+        
+        // Round to nearest 10
+        const originalRounded = Math.round(total / 10) * 10;
+        const discountRounded = Math.round(discount / 10) * 10;
+        const savingsCalculated = originalRounded - discountRounded;
+        
+        return {
+          original: originalRounded,
+          discount: discountRounded,
+          savings: savingsCalculated
+        };
+      }
+
+      // Show estimate result popup
+      function showEstimateResult(name, selectedServices) {
+        const estimate = calculateEstimate(selectedServices);
+        
+        if (estimate.original === 0) {
+          showToast('error', 'Please select at least one service.');
+          return;
+        }
+
+        const popup = document.getElementById('estimateResult');
+        const serviceName = document.getElementById('resultName');
+        const originalPrice = document.getElementById('resultOriginal');
+        const discountPrice = document.getElementById('resultDiscount');
+        const savingsAmount = document.getElementById('resultSavings');
+        const servicesList = document.getElementById('resultServices');
+
+        if (serviceName) serviceName.textContent = name;
+        if (originalPrice) originalPrice.textContent = `$${estimate.original}`;
+        if (discountPrice) discountPrice.textContent = `$${estimate.discount}`;
+        if (savingsAmount) savingsAmount.textContent = `Save $${estimate.savings}!`;
+        
+        if (servicesList) {
+          servicesList.innerHTML = selectedServices.map(s => `<li>${s}</li>`).join('');
+        }
+
+        if (popup) popup.classList.add('show');
+      }
+      
       function showToast(type, message){
         if(!toast) return;
         toast.className = 'toast ' + (type||'');
@@ -778,7 +1038,7 @@
         setTimeout(()=>{ if(toast) toast.style.display='none'; }, 6000);
       }
 
-      form.addEventListener('submit',(e)=>{
+      form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const submitBtn = form.querySelector('button[type="submit"]');
         const data = new FormData(form);
@@ -788,35 +1048,89 @@
         const name = (data.get('name')||'').toString().trim();
         const phone = (data.get('phone')||'').toString().trim();
         const zip = (data.get('zip')||'').toString().trim();
+        const email = (data.get('email')||'').toString().trim();
         if(!name || !phone || !zip){
           showToast('error','Please fill in Name, Phone, and ZIP.');
           return;
         }
+        
+        if(services.length === 0){
+          showToast('error','Please select at least one service.');
+          return;
+        }
+
+        // Calculate final price (what client sees)
+        const est = calculateEstimate(services);
+        const finalPrice = est.discount;
 
         // Loading state
         const prevHTML = submitBtn ? submitBtn.innerHTML : '';
-        if(submitBtn){ submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner"></span>Sending…'; }
+        if(submitBtn){ submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner"></span>Calculating…'; }
 
-        // Mock async send (replace with real fetch later)
-        setTimeout(()=>{
-          showToast('success','Estimate request sent! We\'ll reach out shortly.');
+        try {
+          if (!GOOGLE_SCRIPT_URL) throw new Error('Missing Google Script URL');
+          // Send lead to Google Apps Script (opaque response due to no-cors)
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name,
+              phone,
+              zip,
+              email,
+              services: services.join(', '),
+              price: finalPrice,
+              timestamp: new Date().toISOString(),
+              source: 'website',
+              page: window.location.href
+            })
+          });
+
+          // Show result to the client regardless of opaque response
+          showEstimateResult(name, services);
           form.reset(); selected.clear();
           document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
+        } catch (err) {
+          console.error(err);
+          showToast('error','Submission error. Please call: +1 (206) 786-9915');
+        } finally {
           if(submitBtn){ submitBtn.disabled = false; submitBtn.innerHTML = prevHTML; }
-        }, 800);
+        }
+      });
+      
+      // Close result popup
+      document.getElementById('resultClose')?.addEventListener('click', () => {
+        document.getElementById('estimateResult')?.classList.remove('show');
+      });
+
+      // Call/Text from result popup
+      document.getElementById('resultCall')?.addEventListener('click', () => {
+        window.location.href = 'tel:+12067869915';
+      });
+      
+      document.getElementById('resultText')?.addEventListener('click', () => {
+        window.location.href = 'sms:+12067869915';
+      });
+
+      // Close popup on outside click
+      document.getElementById('estimateResult')?.addEventListener('click', (e) => {
+        if(e.target.id === 'estimateResult'){
+          e.target.classList.remove('show');
+        }
       });
     }
 
     // Testimonials
     const testimonials = [
-      {name:'Megan K.', text:'Amazing results in one day. Tub and tiles look brand new!', rating:5, date:'2 weeks ago', source:'google'},
-      {name:'Daniel S.', text:'On time, clean work, flawless finish. Highly recommend in Seattle!', rating:5, date:'1 month ago', source:'yelp'},
-      {name:'Priya R.', text:'Eco-friendly materials and super fast turnaround. Great communication.', rating:5, date:'3 days ago', source:'google'},
-      {name:'Alejandro M.', text:'They saved us from a full replacement—quality is top-notch.', rating:5, date:'5 days ago', source:'yelp'},
-      {name:'Sophie L.', text:'Professional, punctual, and the tub looks factory new.', rating:5, date:'3 months ago', source:'google'},
-      {name:'Henry T.', text:'Price was fair and the 5-year warranty gives peace of mind.', rating:5, date:'1 week ago', source:'google'},
-      {name:'Jasmine P.', text:'Courteous techs and zero mess. Love the finish!', rating:5, date:'4 weeks ago', source:'yelp'},
-      {name:'Owen R.', text:'Quick estimate, easy scheduling, and stunning results.', rating:5, date:'2 months ago', source:'google'},
+      {name:'Megan R., Ballard', text:'Best Refinishing turned my 20-year-old bathtub into something that looks brand new. Fast 24-hour turnaround, eco-friendly materials, and the team was professional from estimate to cleanup. Highly recommend bathtub refinishing in Seattle!', rating:5, date:'2 weeks ago', source:'google'},
+      {name:'Daniel S., Capitol Hill', text:'We had tile reglazing done in our shower and the difference is night and day. No mess of a remodel, just a clean, durable finish. Great communication and licensed/insured crew — perfect for renters and homeowners.', rating:5, date:'1 month ago', source:'yelp'},
+      {name:'Priya K., Queen Anne', text:'Sink refinishing saved us hundreds compared to replacing the vanity. Porcelain looks flawless, and the tech even sealed the old chips. Quick, tidy, and reliable — exactly what a busy homeowner needs.', rating:5, date:'3 days ago', source:'google'},
+      {name:'Carlos M., West Seattle', text:'Countertop coating gave our kitchen a modern stone look without the huge cost. The team color-matched a custom shade for us and the finish is scratch-resistant. Excellent workmanship and friendly service.', rating:5, date:'5 days ago', source:'yelp'},
+      {name:'Jessica L., Fremont', text:'Shower resurfacing was done in a day and the mildew problem disappeared. They used low-VOC products and ventilated the area — felt safe and the result is gorgeous. Recommend for anyone looking for fast, eco-friendly refinishing.', rating:5, date:'3 months ago', source:'google'},
+      {name:'Mark D., Downtown Seattle', text:'I called for a local repair to fix chips and rust before refinishing. They handled the prep properly and the final reglazing looks seamless. Insured and bonded — I felt comfortable having them in my condo.', rating:5, date:'1 week ago', source:'google'},
+      {name:'Rita H., Ballard', text:'Instant estimate was accurate and the tech confirmed everything after we sent photos. Great service for property managers — they refinished multiple tubs across units fast and professionally.', rating:5, date:'4 weeks ago', source:'yelp'},
+      {name:'Evan P., Shoreline', text:'Saved thousands versus a full replacement. The team did bathtub + tile reglazing and the overall finish holds up beautifully. Clear warranty, friendly scheduling, and fast turnaround — would hire again.', rating:5, date:'2 months ago', source:'google'},
     ];
     let tIdx=0;
   const tText=document.getElementById('tText');
