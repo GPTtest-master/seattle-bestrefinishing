@@ -203,6 +203,13 @@
     .submit{background:#2563eb;color:#fff;border:none;border-radius:10px;padding:14px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:6px;transition:.2s}
     .submit:hover{background:#1e4ed8}
     .note{margin-top:10px;font-weight:700;color:#333;font-size:.95rem;text-align:center}
+  /* Submit loading + toast */
+  .submit[disabled]{opacity:.7;cursor:not-allowed}
+  .spinner{width:16px;height:16px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;display:inline-block;margin-right:8px;animation:spin .8s linear infinite;vertical-align:middle}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .toast{margin-top:10px;padding:12px 14px;border-radius:10px;font-weight:700;display:none}
+  .toast.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+  .toast.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
 
   /* Gallery & rest */
   .galleryGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1200px;margin:0 auto}
@@ -385,6 +392,27 @@
       <button class="btn-primary" id="goEstimate">Get Instant Estimate</button>
       <button class="btn-primary" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth',block:'center'})">Reviews</button>
     </div>
+
+    <!-- Testimonials Carousel in Hero -->
+    <div class="tWrap" style="margin-top:48px">
+      <button class="tBtn" id="tPrev">‹</button>
+      <div class="tCard">
+        <div class="gHeader">
+          <div class="gAvatar" id="tAvatar">M</div>
+          <div>
+            <div class="gName" id="tName">Megan K.</div>
+            <div class="gMeta">
+              <span class="gStars" id="tStars"></span>
+              <span id="tBrand"></span>
+              <span class="gDate" id="tDate">2 weeks ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="gText" id="tText">Amazing results in one day. Tub and tiles look brand new!</div>
+        <div class="dots" id="tDots" style="margin-top:12px"></div>
+      </div>
+      <button class="tBtn" id="tNext">›</button>
+    </div>
   </section>
 
   <!-- Services -->
@@ -456,6 +484,7 @@
           <button type="submit" class="submit">Submit Request</button>
         </form>
         <div class="note">Submit the form to get an estimate.</div>
+        <div id="estimateToast" class="toast" aria-live="polite"></div>
       </div>
 
       <aside class="estimate-right" id="preview" style="display:flex;flex-direction:column;align-items:stretch;position:relative;">
@@ -507,25 +536,7 @@
   <!-- Testimonials -->
   <section id="testimonials">
     <h2 class="title">What Customers Say</h2>
-    <div class="tWrap">
-      <button class="tBtn" id="tPrev">‹</button>
-      <div class="tCard">
-        <div class="gHeader">
-          <div class="gAvatar" id="tAvatar">M</div>
-          <div>
-            <div class="gName" id="tName">Megan K.</div>
-            <div class="gMeta">
-              <span class="gStars" id="tStars"></span>
-              <span id="tBrand"></span>
-              <span class="gDate" id="tDate">2 weeks ago</span>
-            </div>
-          </div>
-        </div>
-        <div class="gText" id="tText">Amazing results in one day. Tub and tiles look brand new!</div>
-        <div class="dots" id="tDots" style="margin-top:12px"></div>
-      </div>
-      <button class="tBtn" id="tNext">›</button>
-    </div>
+    <p style="text-align:center;color:#4b5563;max-width:680px;margin:0 auto 24px">See all our reviews from Google and Yelp above in the hero section.</p>
   </section>
 
   <!-- FAQ -->
@@ -690,10 +701,10 @@
     document.addEventListener('DOMContentLoaded', ()=>{
       // --- Estimate section: slider with navigation ---
       const estimateExamples = [
-        { before: 'images/sink after 3.jpg', after: 'images/sink before 3.jpg' },
-        { before: 'images/tub after 1.jpeg', after: 'images/tub before 1.jpeg' },
-        { before: 'images/bathtub 3 after.jpg', after: 'images/bathtub 3 before.jpg' },
-        { before: 'images/tub tiles after 1.jpeg', after: 'images/tiles tub before 1.jpeg' },
+        { before: 'images/sink before 3.jpg', after: 'images/sink after 3.jpg' },
+        { before: 'images/tub before 1.jpeg', after: 'images/tub after 1.jpeg' },
+        { before: 'images/bathtub 3 before.jpg', after: 'images/bathtub 3 after.jpg' },
+        { before: 'images/tiles tub before 1.jpeg', after: 'images/tub tiles after 1.jpeg' },
         { before: 'images/tub before 7.jpg', after: 'images/tub after 7.jpg' },
       ];
       let estimateIdx = 0;
@@ -737,22 +748,45 @@
       }
     });
 
-    // Form submit (mock)
+    // Form submit with loading + inline toast (mock send)
     const form = document.getElementById('estimateForm');
     if (form) {
+      const toast = document.getElementById('estimateToast');
+      function showToast(type, message){
+        if(!toast) return;
+        toast.className = 'toast ' + (type||'');
+        toast.textContent = message || '';
+        toast.style.display = 'block';
+        // auto hide after 6s
+        setTimeout(()=>{ if(toast) toast.style.display='none'; }, 6000);
+      }
+
       form.addEventListener('submit',(e)=>{
         e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
         const data = new FormData(form);
-        const msg =
-          `Estimate Request Sent!\n`+
-          `Name: ${data.get('name')}\n`+
-          `Phone: ${data.get('phone')}\n`+
-          `ZIP: ${data.get('zip')}\n`+
-          `Email: ${data.get('email')}\n`+
-          `Services: ${Array.from(selected).join(', ')}`;
-        alert(msg);
-        form.reset(); selected.clear();
-        document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
+        const services = Array.from(selected);
+
+        // Basic check
+        const name = (data.get('name')||'').toString().trim();
+        const phone = (data.get('phone')||'').toString().trim();
+        const zip = (data.get('zip')||'').toString().trim();
+        if(!name || !phone || !zip){
+          showToast('error','Please fill in Name, Phone, and ZIP.');
+          return;
+        }
+
+        // Loading state
+        const prevHTML = submitBtn ? submitBtn.innerHTML : '';
+        if(submitBtn){ submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner"></span>Sending…'; }
+
+        // Mock async send (replace with real fetch later)
+        setTimeout(()=>{
+          showToast('success','Estimate request sent! We\'ll reach out shortly.');
+          form.reset(); selected.clear();
+          document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
+          if(submitBtn){ submitBtn.disabled = false; submitBtn.innerHTML = prevHTML; }
+        }, 800);
       });
     }
 
