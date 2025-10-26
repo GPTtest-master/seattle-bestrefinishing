@@ -116,6 +116,20 @@
       box-shadow:0 4px 18px rgba(11,102,179,0.18);
     }
 
+    /* Hero features */
+    .hero-features{
+      font-size:1.22rem;
+      font-weight:700;
+      display:flex;
+      gap:22px;
+      justify-content:center;
+      margin-bottom:0;
+      flex-wrap:wrap;
+    }
+    .hero-features span{
+      white-space:nowrap;
+    }
+
     /* Services */
     .servicesSec{background:var(--gray)}
     .svcTitle{font-size:1.9rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:26px}
@@ -285,6 +299,8 @@
       .burger{display:flex}
       .hero h1{font-size:2.1rem}
       .hero p{font-size:1rem}
+      .hero-features{font-size:0.85rem;gap:12px}
+      .hero-features span{font-size:0.85rem}
       .box{grid-template-columns:1fr}
     }
     @media (max-width:1024px){
@@ -301,6 +317,8 @@
       .pmGrid{grid-template-columns:1fr}
       .brand .name{font-size:1.2rem}
       .brand .tag{font-size:.72rem}
+      .hero-features{font-size:0.75rem;gap:8px;padding:0 10px}
+      .hero-features span{font-size:0.75rem}
       .galleryGrid{grid-template-columns:1fr}
       .ba{height:340px}
       .ba-slider{height:340px}
@@ -378,12 +396,12 @@
       providing a flawless, long-lasting finish in just 24 hours.<br>
       Get an instant estimate and enjoy 5-year warranty coverage.
     </p>
-    <div style="font-size:1.22rem;font-weight:700;display:flex;gap:22px;justify-content:center;margin-bottom:0;">
+    <div class="hero-features">
       <span>🌿 Eco-Friendly Coatings</span>
       <span>⚡ Instant Estimate Form</span>
       <span>🛡 Fully Bonded & Insured</span>
     </div>
-    <div style="font-size:1.22rem;font-weight:700;display:flex;gap:22px;justify-content:center;margin-bottom:18px;margin-top:8px;">
+    <div class="hero-features" style="margin-top:8px;">
       <span>⏳ 10–15 Years Durability</span>
       <span>😊 1,000+ Happy Clients</span>
       <span>🏅 5-Year Warranty Included</span>
