@@ -80,7 +80,7 @@
 <body>
   <div class="header-wrap">
     <nav class="nav">
-      <a href="../index.html" class="brand" style="cursor:pointer">
+      <a href="/" class="brand" style="cursor:pointer">
         <img src="../images/logo1.png" alt="Best Refinishing Logo" class="logo">
         <div class="text-wrap">
           <div class="name">Best Refinishing</div>
@@ -90,11 +90,11 @@
 
       <div class="menu">
         <div class="menu-links">
-          <a href="../index.html#services">Services</a>
-          <a href="../index.html#gallery">Gallery</a>
-          <a href="../Our Process/process.html">Our Process</a>
-          <a href="../index.html#contact">Contact</a>
-          <a href="../index.html#faq">FAQ</a>
+          <a href="/#services">Services</a>
+          <a href="/#gallery">Gallery</a>
+          <a href="/our-process">Our Process</a>
+          <a href="/#contact">Contact</a>
+          <a href="/#faq">FAQ</a>
         </div>
 
         <span class="phone" aria-hidden="false">
@@ -120,11 +120,11 @@
     </nav>
 
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="../index.html#services">Services</a>
-      <a href="../index.html#gallery">Gallery</a>
-      <a href="../Our Process/process.html">Our Process</a>
-      <a href="../index.html#contact">Contact</a>
-      <a href="../index.html#faq">FAQ</a>
+      <a href="/#services">Services</a>
+      <a href="/#gallery">Gallery</a>
+      <a href="/our-process">Our Process</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#faq">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
@@ -224,8 +224,8 @@
     });
 
     // Header CTA: go to main estimate
-    document.getElementById('quoteTop')?.addEventListener('click', ()=>{ window.location.href='../index.html#estimate'; });
-    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ window.location.href='../index.html#estimate'; });
+    document.getElementById('quoteTop')?.addEventListener('click', ()=>{ window.location.href='/#estimate'; });
+    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ window.location.href='/#estimate'; });
 
     // Accessibility: close drawer on outside click
     document.addEventListener('click',(e)=>{

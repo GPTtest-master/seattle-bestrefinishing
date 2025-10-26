@@ -1,0 +1,10 @@
+# Clean URLs - rewrite to actual files
+/our-process  /Our Process/process.html  200
+/property     /Property/property.html    200
+
+# Redirect old .html URLs to clean URLs
+/Our Process/process.html  /our-process  301!
+/Property/property.html    /property     301!
+
+# Fallback to index.html for 404
+/*  /index.html  200
