@@ -1222,18 +1222,28 @@
         return p === '' ? '/' : p;
       }
 
+      function getHeaderOffset(){
+        const hw = document.querySelector('.header-wrap');
+        const h = hw ? hw.offsetHeight : 0;
+        return Math.max(60, Math.min(140, h + 10));
+      }
+
       function scrollToSection(id){
         const el = document.getElementById(id);
         if(!el) return;
-        const offset = 90; // account for sticky header
-        const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
 
       function handleRoute(pathname){
         const path = normalizePath(pathname);
         const id = sectionRoutes[path];
-        if(id){ requestAnimationFrame(()=>scrollToSection(id)); }
+        if(id){
+          // Defer to ensure layout/images measured
+          requestAnimationFrame(()=>{
+            setTimeout(()=>scrollToSection(id), 0);
+          });
+        }
       }
 
       // Support old hash links by converting to clean path
@@ -1244,6 +1254,10 @@
             history.replaceState({}, '', '/'+h);
           }
         }
+      });
+
+      // Run after full load for reliable scroll positions
+      window.addEventListener('load', ()=>{
         handleRoute(location.pathname);
       });
 
