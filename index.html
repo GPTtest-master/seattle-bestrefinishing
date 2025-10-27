@@ -484,7 +484,7 @@
   <!-- Header -->
   <div class="header-wrap">
     <nav class="nav">
-      <a href="#home" class="brand" style="cursor:pointer">
+  <a href="/" class="brand" style="cursor:pointer">
         <img src="images/logo1.png" alt="Best Refinishing Logo" class="logo">
         <div class="text-wrap">
           <div class="name">Best Refinishing</div>
@@ -493,11 +493,11 @@
       </a>
 
       <div class="menu">
-        <a href="/#services">Services</a>
-        <a href="/#gallery">Gallery</a>
+        <a href="/services">Services</a>
+        <a href="/gallery">Gallery</a>
         <a href="/our-process">Our Process</a>
         <a href="/property">Property Managers</a>
-        <a href="/#faq">FAQ</a>
+        <a href="/faq">FAQ</a>
 
         <span class="phone" aria-hidden="false">
           <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915">
@@ -522,11 +522,11 @@
     </nav>
 
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="/#services">Services</a>
-      <a href="/#gallery">Gallery</a>
+      <a href="/services">Services</a>
+      <a href="/gallery">Gallery</a>
       <a href="/our-process">Our Process</a>
       <a href="/property">Property Managers</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/faq">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
@@ -1202,6 +1202,67 @@
         drawer.setAttribute('aria-hidden','true');
       }
     });
+  </script>
+  <script>
+    // Clean URLs router for in-page sections (no hash)
+    (function(){
+      const sectionRoutes = {
+        '/services': 'services',
+        '/gallery':  'gallery',
+        '/contact':  'contact',
+        '/faq':      'faq',
+        '/estimate': 'estimate',
+      };
+
+      function normalizePath(p){
+        if(!p) return '/';
+        p = p.split('?')[0].split('#')[0];
+        p = p.replace(/\/index\.html$/,'/');
+        p = p.replace(/\/+$/,'');
+        return p === '' ? '/' : p;
+      }
+
+      function scrollToSection(id){
+        const el = document.getElementById(id);
+        if(!el) return;
+        const offset = 90; // account for sticky header
+        const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+
+      function handleRoute(pathname){
+        const path = normalizePath(pathname);
+        const id = sectionRoutes[path];
+        if(id){ requestAnimationFrame(()=>scrollToSection(id)); }
+      }
+
+      // Support old hash links by converting to clean path
+      document.addEventListener('DOMContentLoaded', ()=>{
+        if (location.hash) {
+          const h = location.hash.replace('#','').toLowerCase();
+          if (sectionRoutes['/'+h]) {
+            history.replaceState({}, '', '/'+h);
+          }
+        }
+        handleRoute(location.pathname);
+      });
+
+      // Intercept nav clicks for section routes
+      document.addEventListener('click', (e)=>{
+        const a = e.target.closest('a[href]');
+        if(!a) return;
+        const url = new URL(a.getAttribute('href'), location.origin);
+        const path = normalizePath(url.pathname);
+        if (url.origin === location.origin && sectionRoutes[path]) {
+          e.preventDefault();
+          history.pushState({}, '', path);
+          handleRoute(path);
+        }
+      });
+
+      // Back/forward support
+      window.addEventListener('popstate', () => handleRoute(location.pathname));
+    })();
   </script>
 </body>
 </html>
