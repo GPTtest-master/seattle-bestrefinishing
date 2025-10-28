@@ -1100,6 +1100,18 @@
 
           // Show result to the client regardless of opaque response
           showEstimateResult(name, services);
+
+          // Google Ads conversion tracking for Estimate form submission
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                'value': 40.0,
+                'currency': 'USD'
+              });
+            }
+          } catch (e) { /* no-op */ }
+
           form.reset(); selected.clear();
           document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
         } catch (err) {
