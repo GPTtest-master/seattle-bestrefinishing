@@ -1,18 +1,20 @@
 # Clean URLs - rewrite to actual files
-/our-process  /our-process/index.html    200
-/property     /Property/property.html    200
+/our-process  /our-process.html    200
+/property     /property.html       200
 
 # Section routes -> index.html for SPA routing
-/services     /index.html                200
-/gallery      /index.html                200
-/faq          /index.html                200
-/estimate     /index.html                200
-/contact      /index.html                200
+/services     /index.html          200
+/gallery      /index.html          200
+/faq          /index.html          200
+/estimate     /index.html          200
+/contact      /index.html          200
 
-# Redirect old .html URLs to clean URLs
-/Our Process/process.html  /our-process  301!
-/our-process/process.html  /our-process  301!
-/Property/property.html    /property     301!
+# Redirect old paths to clean URLs
+/Our Process/process.html     /our-process  301!
+/our-process/process.html     /our-process  301!
+/our-process/index.html       /our-process  301!
+/our-process/our-process.html /our-process  301!
+/Property/property.html       /property     301!
 
 # Fallback to index.html for 404
 /*  /index.html  200
