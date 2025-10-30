@@ -1,13 +1,17 @@
 # Clean URLs - rewrite to actual files
-/our-process  /our-process.html    200
-/property     /property.html       200
+/our-process     /our-process.html    200
+/property        /property.html       200
 
 # Section routes -> index.html for SPA routing
-/services     /index.html          200
-/gallery      /index.html          200
-/faq          /index.html          200
-/estimate     /index.html          200
-/contact      /index.html          200
+/services        /index.html          200
+/gallery         /index.html          200
+/faq             /index.html          200
+/estimate        /index.html          200
+/contact         /index.html          200
+
+# Redirect .html URLs to clean URLs
+/our-process.html  /our-process  301!
+/property.html     /property     301!
 
 # Redirect old paths to clean URLs
 /Our Process/process.html     /our-process  301!
