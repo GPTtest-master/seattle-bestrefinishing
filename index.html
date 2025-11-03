@@ -277,8 +277,26 @@
   .map-wrap{width:100%;margin:18px auto;padding:20px}
     .map-frame{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,.06)}
     .footer{background:var(--navy);color:#cbd5e1;padding:26px 20px;text-align:center;margin-top:24px}
-    .floating-btn{position:fixed;bottom:26px;right:26px;background:#0b66b3;color:#fff;font-weight:800;border:none;border-radius:50px;padding:14px 22px;width:172px;box-shadow:0 6px 16px rgba(0,0,0,.25);cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;gap:8px;font-size:1rem;transition:.3s}
+    .floating-btn{
+      position:fixed;
+      bottom:26px;
+      right:26px;
+      background:#0b66b3;
+      color:#fff;
+      border:none;
+      border-radius:50%;
+      width:64px;
+      height:64px;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      cursor:pointer;
+      z-index:1000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.3s;
+    }
     .floating-btn:hover{background:var(--brand-deep);transform:scale(1.05)}
+    .floating-btn svg{width:28px;height:28px;display:block}
     .instant-floating{
       position:fixed;
       bottom:100px;
@@ -787,7 +805,17 @@
   </section>
 
   <!-- Floating Call/Text -->
-  <a class="floating-btn" id="floatCall" href="tel:+12067869915">Call or Text</a>
+  <a
+    class="floating-btn"
+    id="floatCall"
+    href="tel:+12067869915"
+    aria-label="Call Best Refinishing at +1 (206) 786-9915"
+    title="Call us"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/>
+    </svg>
+  </a>
 
   <!-- Estimate Result Popup -->
   <div id="estimateResult" class="estimate-result">
@@ -1206,9 +1234,9 @@
 
     // Floating button behavior: call on desktop, sms on mobile
     const floatBtn=document.getElementById('floatCall');
-    if (floatBtn && /Mobi|Android/i.test(navigator.userAgent)) {
-      floatBtn.setAttribute('href','sms:+12067869915');
-      floatBtn.textContent='Text Us';
+    if (floatBtn) {
+      // Always use tel: on all devices
+      floatBtn.setAttribute('href','tel:+12067869915');
     }
 
     // Instant floating CTA behavior
