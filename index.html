@@ -249,7 +249,8 @@
 
   /* Gallery & rest */
   .galleryGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1200px;margin:0 auto}
-  .ga{position:relative;border-radius:14px;overflow:hidden;height:240px;background:#e5eaf1}
+  .ga{position:relative;border-radius:14px;overflow:hidden;height:240px;background:#e5eaf1;cursor:pointer;transition:transform .2s}
+  .ga:hover{transform:scale(1.02)}
   .ga img{width:100%;height:100%;object-fit:cover;display:block}
     .ba{position:relative;border-radius:14px;overflow:hidden;height:400px;background:#e5eaf1}
     .ba .ba-inner{width:100%;height:100%}
@@ -472,6 +473,90 @@
       line-height:1.5;
     }
 
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .lightbox.show{display:flex}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 48px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+      transition: transform 0.2s;
+      line-height: 1;
+      padding: 0;
+      width: 48px;
+      height: 48px;
+    }
+    .lightbox-close:hover {
+      transform: scale(1.2);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 64px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      line-height: 1;
+      z-index: 10001;
+    }
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .lightbox-prev {
+      left: 30px;
+    }
+    .lightbox-next {
+      right: 30px;
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      background: rgba(0,0,0,0.7);
+      padding: 12px 24px;
+      border-radius: 8px;
+      max-width: 90%;
+    }
+
     /* Responsive */
     @media (max-width:1024px){
       .svcGrid{grid-template-columns:repeat(2,1fr)}
@@ -513,6 +598,25 @@
       .result-card{padding:24px}
       .result-title{font-size:1.3rem}
       .result-discount{font-size:1.8rem}
+      .lightbox-nav {
+        font-size: 48px;
+        padding: 16px 20px;
+      }
+      .lightbox-prev {
+        left: 10px;
+      }
+      .lightbox-next {
+        right: 10px;
+      }
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 36px;
+      }
+      .lightbox-caption {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+      }
     }
   </style>
 </head>
@@ -824,6 +928,15 @@
       <path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/>
     </svg>
   </a>
+
+  <!-- Lightbox for Gallery -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">›</button>
+    <img id="lightboxImg" src="" alt="" class="lightbox-img">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
 
   <!-- Estimate Result Popup -->
   <div id="estimateResult" class="estimate-result">
@@ -1261,6 +1374,81 @@
         drawer.setAttribute('aria-hidden','true');
       }
     });
+
+    // Gallery Lightbox
+    (function(){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      
+      const galleryImages = Array.from(document.querySelectorAll('#gallery .ga img'));
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        const img = galleryImages[index];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        // Extract only "Before" or "After" from alt text
+        const match = img.alt.match(/^(Before|After)/i);
+        lightboxCaption.textContent = match ? match[0] : '';
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        openLightbox(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        openLightbox(currentIndex);
+      }
+
+      // Click on gallery image
+      galleryImages.forEach((img, idx) => {
+        img.parentElement.addEventListener('click', () => openLightbox(idx));
+      });
+
+      // Controls
+      lightboxClose?.addEventListener('click', closeLightbox);
+      lightboxNext?.addEventListener('click', showNext);
+      lightboxPrev?.addEventListener('click', showPrev);
+
+      // Click outside image to close
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('show')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      lightbox?.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+      lightbox?.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) showNext();
+        if (touchEndX - touchStartX > 50) showPrev();
+      }, {passive: true});
+    })();
   </script>
   <script>
     // Clean URLs router for in-page sections (no hash)
