@@ -78,7 +78,7 @@
 
     .cta-quote{
       background:var(--cta);color:#fff;font-weight:800;border:none;border-radius:10px;
-      padding:10px 16px;font-size:0.95rem;cursor:pointer;transition:.25s;
+      padding:10px 16px;font-size:0.95rem;cursor:pointer;transition:.25s;white-space:nowrap;
     }
     .cta-quote:hover{transform:translateY(-1px);box-shadow:0 0 18px rgba(255,107,0,.45);}
 
@@ -273,98 +273,159 @@
     </video>
     <div class="hero-content">
       <h1>Our Professional Refinishing Process</h1>
-      <p style="font-size:1.1rem;opacity:.95;margin:16px auto 18px;max-width:720px;">
-        Discover how we transform worn-out bathtubs, tiles, and surfaces<br>
-        into beautiful, like-new fixtures with our proven refinishing process.
+      <p style="font-size:1.22rem;opacity:.98;margin:22px auto 24px;max-width:780px;font-weight:600;color:#fbbf24;">
+        Multi-Layer System • Commercial-Grade Materials • 10-15 Year Durability
       </p>
-  <button class="btn-primary" onclick="window.location.href='/estimate'" style="margin-top:16px">Get Your Free Estimate</button>
+      <p style="font-size:1.1rem;opacity:.98;margin:16px auto 18px;max-width:760px;color:#fff;">
+        See exactly how we transform your bathtub, tile, or countertop with our proven multi-step process. 
+        From deep surface prep to multiple layers of commercial-grade coatings — we never cut corners.
+      </p>
+  <button class="btn-primary" onclick="window.location.href='/estimate'" style="margin-top:20px">Get Your Free Estimate</button>
+    </div>
+  </section>
+
+  <!-- Why We're Different -->
+  <section style="background:linear-gradient(135deg,#0b66b3 0%,#005fa9 100%);color:#fff;padding:80px 20px">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+      <h2 style="font-size:2.4rem;font-weight:800;margin-bottom:24px;color:#fff">Why Our Process is Superior</h2>
+      <p style="font-size:1.15rem;line-height:1.75;opacity:.95;margin-bottom:30px">
+        While most refinishers cut corners with single-coat applications and budget materials, we follow <strong>commercial industry standards</strong> used by professional contractors nationwide. Our multi-layer system with premium coatings ensures your refinished surface looks flawless and lasts 10-15 years.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:40px">
+        <div style="background:rgba(255,255,255,.12);padding:24px;border-radius:12px;backdrop-filter:blur(8px)">
+          <div style="font-size:2.2rem;font-weight:800;color:#fbbf24;margin-bottom:8px">3-5 Layers</div>
+          <div style="font-size:1.05rem;opacity:.95">Multiple primer & topcoat layers for maximum durability</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);padding:24px;border-radius:12px;backdrop-filter:blur(8px)">
+          <div style="font-size:2.2rem;font-weight:800;color:#fbbf24;margin-bottom:8px">Commercial Grade</div>
+          <div style="font-size:1.05rem;opacity:.95">Same materials used in luxury hotels & properties</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);padding:24px;border-radius:12px;backdrop-filter:blur(8px)">
+          <div style="font-size:2.2rem;font-weight:800;color:#fbbf24;margin-bottom:8px">10-15 Years</div>
+          <div style="font-size:1.05rem;opacity:.95">Proven longevity with proper care & maintenance</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Process Steps -->
   <section class="process-section" style="background:#fff;padding:80px 20px">
     <div style="max-width:1200px;margin:0 auto">
-      <h2 style="font-size:2.6rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:60px">How Our Refinishing Process Works</h2>
+      <h2 style="font-size:2.6rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:60px">Our 6-Step Professional Process</h2>
       
       <!-- Step 1 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
+      <div id="step-inspection" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
         <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
-          <img src="/images/tub-bg.jpg" alt="Estimate form" style="width:100%;height:400px;object-fit:cover;display:block">
+          <img src="/images/tub-bg.jpg" alt="Professional inspection" style="width:100%;height:400px;object-fit:cover;display:block">
         </div>
         <div class="process-text">
-          <div style="display:inline-block;background:#0b66b3;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 1</div>
-          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Get Your Quote & Schedule Appointment</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">Fill out our instant estimate form or give us a call. We'll provide you with a transparent, no-obligation quote for your refinishing project.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">What to expect:</strong> Our team will schedule a convenient time that works for you. We respect your schedule and always arrive on time, fully equipped with professional-grade materials.</p>
+          <div style="display:inline-block;background:#0b66b3;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 1</div>
+          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Professional Inspection & Quote</h3>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">Our certified technicians evaluate your surface condition, measure the area, and assess any damage or special requirements. You'll receive a detailed, transparent quote with no hidden fees.</p>
+          <div style="background:#f0f9ff;border-left:4px solid #0b66b3;padding:16px;border-radius:8px;margin-top:16px">
+            <div style="font-weight:700;color:#0b66b3;margin-bottom:8px">✓ What Sets Us Apart:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">We arrive on time with full equipment, respect your schedule, and provide honest assessments. Our quotes include all materials, labor, and warranty coverage—no surprises.</p>
+          </div>
         </div>
       </div>
 
       <!-- Step 2 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
+      <div id="step-preparation" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
         <div class="process-text">
-          <div style="display:inline-block;background:#ff6b00;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 2</div>
+          <div style="display:inline-block;background:#ff6b00;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 2</div>
           <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Preparing for Your Bath's Transformation</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">Before our technician arrives, we kindly ask you to clear the bathroom of personal items like towels, shampoo, or even the toothbrushes. If you have a shower screen or plan to change the taps, please do so before the work begins.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">What to expect from us:</strong> Our skilled technician will arrive in our professional uniform, assess the space, and prepare for ventilation. They'll begin the comprehensive refinishing process that's guaranteed to transform your bathroom.</p>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">Before our technician arrives, we kindly ask you to clear the bathroom of personal items like towels, shampoo, or even the toothbrushes. If you have a shower screen or plan to change the taps, please do so before the work begins.</p>
+          <div style="background:#f0f9ff;border-left:4px solid #0b66b3;padding:16px;border-radius:8px;margin-top:16px">
+            <div style="font-weight:700;color:#0b66b3;margin-bottom:8px">✓ What to Expect From Us:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">Our skilled technician will arrive in our professional uniform, assess the space, and prepare for proper ventilation. They'll begin the comprehensive refinishing process that's guaranteed to transform your bathroom with our multi-layer system.</p>
+          </div>
         </div>
         <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
-          <img src="/images/img-7041-rotated.jpg" alt="Preparation" style="width:100%;height:400px;object-fit:cover;display:block">
+          <img src="/images/img-7041-rotated.jpg" alt="Preparing bathroom" style="width:100%;height:400px;object-fit:cover;display:block">
         </div>
       </div>
 
       <!-- Step 3 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
+      <div id="step-primer" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
         <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
           <video autoplay muted loop playsinline style="width:100%;height:400px;object-fit:cover;display:block">
             <source src="/images/videos/3jjdjo0-imgur.mp4" type="video/mp4">
           </video>
         </div>
         <div class="process-text">
-          <div style="display:inline-block;background:#10b981;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 3</div>
-          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Expert Surface Preparation</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">We thoroughly clean and prepare your surface, removing all soap scum, oils, and old coatings. Any chips, cracks, or imperfections are carefully repaired to ensure a smooth foundation.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">Professional approach:</strong> Our meticulous preparation ensures maximum adhesion and longevity. This critical step is what sets professional refinishing apart from DIY attempts.</p>
+          <div style="display:inline-block;background:#10b981;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 3</div>
+          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Deep Surface Preparation</h3>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">This is where professionals separate themselves from amateurs. We use industrial-strength cleaning agents to strip away years of soap scum, mineral deposits, body oils, and old coatings. Every chip and crack is meticulously filled and sanded smooth.</p>
+          <div style="background:#fff7ed;border-left:4px solid #ff6b00;padding:16px;border-radius:8px;margin-top:16px;margin-bottom:16px">
+            <div style="font-weight:700;color:#ff6b00;margin-bottom:8px">⚠️ Why This Matters:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">Poor surface prep is the #1 cause of refinishing failure. We spend 40-60% of project time on prep work because proper adhesion determines whether your finish lasts 2 years or 15 years.</p>
+          </div>
+          <div style="background:#f0fdf4;border-left:4px solid #10b981;padding:16px;border-radius:8px">
+            <div style="font-weight:700;color:#10b981;margin-bottom:8px">✓ Professional Equipment We Use:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">Industrial sanders, chemical etching solutions, professional-grade fillers, and HEPA filtration systems for dust control.</p>
+          </div>
         </div>
       </div>
 
       <!-- Step 4 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
+      <div id="step-topcoat" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
         <div class="process-text">
-          <div style="display:inline-block;background:#8b5cf6;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 4</div>
-          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Premium Coating Application</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">Using state-of-the-art spray equipment and eco-friendly, low-VOC coatings, we apply multiple layers to achieve a beautiful, factory-like finish. Our advanced techniques ensure even coverage and exceptional durability.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">Quality materials:</strong> We use only commercial-grade coatings designed for daily use in high-moisture environments. Your refinished surface will look stunning and last for 10-15 years with proper care.</p>
+          <div style="display:inline-block;background:#8b5cf6;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 4</div>
+          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Multi-Layer Primer & Topcoat Application</h3>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">We apply 2-3 coats of commercial-grade bonding primer designed specifically for high-moisture bathroom environments. After proper curing time, we use professional HVLP (High Volume Low Pressure) spray equipment to apply 2-3 layers of premium topcoat. Each coat is meticulously applied with proper drying time between layers to achieve a flawless, glass-like finish.</p>
+          <div style="background:#faf5ff;border-left:4px solid #8b5cf6;padding:16px;border-radius:8px;margin-top:16px;margin-bottom:16px">
+            <div style="font-weight:700;color:#8b5cf6;margin-bottom:8px">✓ Premium Materials We Use:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0"><strong>Industrial bonding primers</strong> with superior adhesion and anti-microbial additives. <strong>Commercial-grade acrylic urethane topcoat</strong> (same material used in luxury hotels), <strong>UV-resistant pigments</strong> that won't yellow over time, and <strong>low-VOC eco-friendly formulas</strong> safe for your family.</p>
+          </div>
+          <div style="background:#f0f9ff;border-left:4px solid #0b66b3;padding:16px;border-radius:8px">
+            <div style="font-weight:700;color:#0b66b3;margin-bottom:8px">✓ Why Multiple Layers Matter:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">Our multi-layer primer creates a waterproof barrier, while multiple topcoat layers add thickness and durability. This 3-5 layer system creates a hard, chemical-resistant surface that withstands daily cleaning products, hot water, and wear for 10-15 years.</p>
+          </div>
         </div>
           <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
-            <img src="/images/img-7119-rotated.jpg" alt="Application" style="width:100%;height:400px;object-fit:cover;display:block">
+            <img src="/images/img-7119-rotated.jpg" alt="Multi-layer primer and topcoat application" style="width:100%;height:400px;object-fit:cover;display:block">
           </div>
       </div>
 
       <!-- Step 5 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
+      <div id="step-curing" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px">
         <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
           <video autoplay muted loop playsinline style="width:100%;height:400px;object-fit:cover;display:block">
             <source src="/images/videos/fka5rgf-imgur.mp4" type="video/mp4">
           </video>
         </div>
         <div class="process-text">
-          <div style="display:inline-block;background:#f59e0b;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 5</div>
-          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Curing & Final Inspection</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">We allow proper curing time and perform a thorough quality inspection. Our technician ensures every detail meets our high standards before considering the job complete.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">Our commitment:</strong> We clean up completely, leaving your bathroom spotless. You'll receive detailed care instructions and warranty documentation for your peace of mind.</p>
+          <div style="display:inline-block;background:#f59e0b;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 5</div>
+          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Professional Curing & Quality Control</h3>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">We carefully control ventilation and temperature to ensure optimal curing conditions. Our technicians perform a detailed quality inspection, checking for any imperfections, drips, or missed spots before the coating fully hardens.</p>
+          <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin-top:16px;margin-bottom:16px">
+            <div style="font-weight:700;color:#f59e0b;margin-bottom:8px">✓ Our Quality Standards:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">Every surface is inspected under bright lighting from multiple angles. We check for uniform thickness, smooth texture, and flawless appearance. If anything doesn't meet our standards, we fix it immediately.</p>
+          </div>
+          <div style="background:#f0fdf4;border-left:4px solid #10b981;padding:16px;border-radius:8px">
+            <div style="font-weight:700;color:#10b981;margin-bottom:8px">✓ Complete Cleanup:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">We leave your bathroom spotless—removing all equipment, protective coverings, and debris. You'll receive detailed care instructions and warranty documentation.</p>
+          </div>
         </div>
       </div>
 
       <!-- Step 6 -->
-      <div class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+      <div id="step-result" class="process-row" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
         <div class="process-text">
-          <div style="display:inline-block;background:#06b6d4;color:#fff;font-weight:800;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem">STEP 6</div>
-          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Ready to Use in 24 Hours</h3>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:12px">After just 24 hours, your beautifully refinished surface is ready for daily use. The coating will continue to harden over the next few days, reaching full durability within a week.</p>
-          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem"><strong style="color:#0b66b3">Enjoy your transformation:</strong> With a 5-year warranty and expert care instructions, you can enjoy your like-new bathroom for years to come. No messy demolition, no expensive replacement — just beautiful results!</p>
+          <div style="display:inline-block;background:#06b6d4;color:#fff;font-weight:800;padding:10px 18px;border-radius:10px;margin-bottom:18px;font-size:1rem">STEP 6</div>
+          <h3 style="font-size:2rem;font-weight:800;color:#111;margin-bottom:16px;line-height:1.2">Flawless Finish Ready in 24 Hours</h3>
+          <p style="color:#4b5563;line-height:1.8;font-size:1.05rem;margin-bottom:16px">Your professionally refinished surface is ready to use in just 24 hours. The coating continues to cure and harden over the next week, reaching maximum durability and hardness.</p>
+          <div style="background:#f0fdfa;border-left:4px solid #06b6d4;padding:16px;border-radius:8px;margin-top:16px;margin-bottom:16px">
+            <div style="font-weight:700;color:#06b6d4;margin-bottom:8px">✓ What You Get:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">A <strong>factory-smooth, glass-like finish</strong> that looks and feels brand new. <strong>Brilliant, long-lasting color</strong> that won't yellow or fade. <strong>Easy-to-clean surface</strong> that resists stains, mold, and mildew. <strong>5-year warranty</strong> backed by our satisfaction guarantee.</p>
+          </div>
+          <div style="background:#ecfdf5;border-left:4px solid #10b981;padding:16px;border-radius:8px">
+            <div style="font-weight:700;color:#10b981;margin-bottom:8px">✓ Long-Term Durability:</div>
+            <p style="color:#4b5563;font-size:1rem;line-height:1.7;margin:0">With proper care (detailed instructions provided), your refinished surface will maintain its beautiful appearance for <strong>10-15 years</strong>. No messy demolition, no expensive replacement—just professional results at a fraction of the cost.</p>
+          </div>
         </div>
         <div class="process-image" style="border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
-          <img src="/images/tub-bg.jpg" alt="Final result" style="width:100%;height:400px;object-fit:cover;display:block">
+          <img src="/images/tub-bg.jpg" alt="Flawless finished result" style="width:100%;height:400px;object-fit:cover;display:block">
         </div>
       </div>
 
