@@ -988,16 +988,23 @@
     <p><strong>Address:</strong> Columbia Tower, 701 5th Ave 42nd Floor, Seattle, WA 98104</p>
   </section>
 
-  <!-- Map -->
-  <section id="map" class="map-wrap" aria-label="Office location">
-    <h3 class="title" style="text-align:center;margin-bottom:12px">Our Office — Columbia Tower</h3>
-    <div class="map-frame">
-      <iframe
-        src="https://www.google.com/maps?q=701%205th%20Ave%20Seattle%20WA%2098104&z=15&output=embed"
-        width="100%" height="360" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps location">
-      </iframe>
+  <!-- Service Area Map -->
+  <section id="map" class="map-wrap" aria-label="Service area">
+    <h3 class="title" style="text-align:center;margin-bottom:12px">Areas We Serve</h3>
+    <p style="text-align:center;margin-bottom:20px;color:#475569;font-size:16px">
+      We provide professional refinishing services throughout Seattle and surrounding areas
+    </p>
+    <div class="map-frame" id="mapContainer">
+      <div id="mapPlaceholder" style="width:100%;height:360px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:8px">
+        <div style="text-align:center;color:#64748b">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin:0 auto 12px">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <p style="font-weight:600;margin:0">Click to load map</p>
+        </div>
+      </div>
     </div>
-    <p style="text-align:center;margin-top:10px;color:#475569;font-weight:700">Columbia Tower, 701 5th Ave, 42nd Floor, Seattle, WA 98104</p>
   </section>
 
   <!-- Floating Call/Text -->
@@ -1623,6 +1630,50 @@
 
       // Back/forward support
       window.addEventListener('popstate', () => handleRoute(location.pathname));
+    })();
+
+    // Lazy load map on click or scroll into view
+    (function() {
+      const mapPlaceholder = document.getElementById('mapPlaceholder');
+      const mapContainer = document.getElementById('mapContainer');
+      let mapLoaded = false;
+
+      function loadMap() {
+        if (mapLoaded) return;
+        mapLoaded = true;
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172090.1628789547!2d-122.41941485!3d47.60620995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab41780fbf9%3A0x7c2c636d14e7798d!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus';
+        iframe.width = '100%';
+        iframe.height = '360';
+        iframe.style.border = '0';
+        iframe.style.borderRadius = '8px';
+        iframe.loading = 'lazy';
+        iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        iframe.setAttribute('aria-label', 'Google Maps showing Seattle service area');
+        
+        mapContainer.innerHTML = '';
+        mapContainer.appendChild(iframe);
+      }
+
+      // Load on click
+      if (mapPlaceholder) {
+        mapPlaceholder.addEventListener('click', loadMap);
+      }
+
+      // Or load when scrolled into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(loadMap, 500); // Small delay to not block initial render
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '100px' });
+
+      if (mapContainer) {
+        observer.observe(mapContainer);
+      }
     })();
   </script>
 </body>
