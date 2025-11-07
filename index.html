@@ -477,6 +477,35 @@
       border:2px solid #0b66b3;
     }
     .result-btn-secondary:hover{background:#f0f9ff}
+    .result-btn-highlight{
+      font-size:1.1rem;
+      font-weight:700;
+      box-shadow:0 4px 12px rgba(11,102,179,0.3);
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .result-urgent-box{
+      background:linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      border:2px solid #fb923c;
+      border-radius:12px;
+      padding:16px 20px;
+      margin:20px 0;
+      text-align:center;
+    }
+    .result-urgent-icon{
+      font-size:2rem;
+      margin-bottom:8px;
+    }
+    .result-urgent-text{
+      font-size:0.9rem;
+      color:#292524;
+      line-height:1.5;
+      margin:0;
+      font-weight:500;
+    }
     .result-note{
       margin-top:16px;
       font-size:0.85rem;
@@ -653,6 +682,26 @@
         gap: 20px !important;
       }
     }
+    @media (max-width:640px){
+      .result-urgent-box{
+        padding:12px 16px;
+        margin:16px 0;
+      }
+      .result-urgent-icon{
+        font-size:1.5rem;
+        margin-bottom:6px;
+      }
+      .result-urgent-text{
+        font-size:0.85rem;
+      }
+      .result-btn{
+        font-size:0.9rem;
+        padding:12px 16px;
+      }
+      .result-btn-highlight{
+        font-size:0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -759,8 +808,8 @@
     </div>
 
     <p style="font-size:1.15rem;opacity:.96;margin:0 auto 28px;max-width:820px;color:#fff;line-height:1.6;">
-      We refinish bathtubs, tiles, sinks, and countertops across the Greater Seattle area.<br>
-      Get your free estimate in under 60 seconds and see why thousands of homeowners trust our professional refinishing process that delivers a flawless, factory-like finish in just 24 hours.
+      We refinish bathtubs, tiles, sinks, and countertops across Seattle with premium, 6-layer coatings that last up to 15 years.<br>
+      Get your instant estimate in 60 seconds and save up to $5,000 compared to a remodel.
     </p>
 
     <div class="cta" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
@@ -1050,13 +1099,22 @@
         </ul>
       </div>
 
+      <div class="result-urgent-box">
+        <div class="result-urgent-icon">📸</div>
+        <p class="result-urgent-text">
+          Click the button below to claim your discount and confirm your final price
+        </p>
+      </div>
+
       <div class="result-cta">
-        <button id="resultCall" class="result-btn result-btn-primary">📞 Call to Confirm</button>
-        <button id="resultText" class="result-btn result-btn-secondary">💬 Text Us</button>
+        <button id="resultSendPhoto" class="result-btn result-btn-primary result-btn-highlight">
+          Send Photo & Get Final Price
+        </button>
+        <button id="resultCall" class="result-btn result-btn-secondary">Call Instead</button>
       </div>
 
       <p class="result-note">
-        <strong>Next Steps:</strong> Our manager will contact you shortly to confirm the final quote and schedule your service. Please note: the price may be adjusted if stripping old paint is required or if the surface is unusually large. Final price will be confirmed after reviewing photos of your surface.
+        <strong>Pro Tip:</strong> Customers who send photos get priority scheduling! Final price confirmed after we review your photo (may adjust if extensive prep work needed).
       </p>
     </div>
   </div>
@@ -1388,8 +1446,33 @@
         window.location.href = 'tel:+12067869915';
       });
       
-      document.getElementById('resultText')?.addEventListener('click', () => {
-        window.location.href = 'sms:+12067869915';
+      document.getElementById('resultSendPhoto')?.addEventListener('click', () => {
+        const name = document.getElementById('resultName')?.textContent || 'there';
+        const services = Array.from(document.querySelectorAll('#resultServices li')).map(li => li.textContent).join(', ');
+        const estimate = document.getElementById('resultDiscount')?.textContent || '';
+        
+        // Create pre-filled message for estimate confirmation
+        const message = `Hi! I got an estimate of ${estimate} for ${services}. I'm sending you a photo to confirm the final price. My name is ${name}.`;
+        
+        // Try SMS first (universal), with pre-filled message
+        const smsUrl = `sms:+12067869915&body=${encodeURIComponent(message)}`;
+        
+        // For iOS use different format
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const finalUrl = isIOS 
+          ? `sms:+12067869915&body=${encodeURIComponent(message)}`
+          : `sms:+12067869915?body=${encodeURIComponent(message)}`;
+        
+        window.location.href = finalUrl;
+        
+        // Optional: Google Ads conversion for "Send Photo" action
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        }
       });
 
       // Close popup on outside click
