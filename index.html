@@ -771,7 +771,8 @@
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <h1>Best Bathroom Refinishing Company Across Seattle and Surrounding Areas</h1>
+  <h1 class="hero-desktop-headline">Professional Bathtub, Tile, Sink &amp; Countertop Refinishing in the Greater Seattle Area</h1>
+  <h1 class="hero-mobile-headline" style="font-size:2.1rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;">Bathroom &amp; Kitchen Refinishing Experts in Seattle</h1>
     
     <!-- Sales Features with Geometric Accents -->
     <div style="display:flex;flex-direction:column;gap:16px;margin:28px auto 24px;max-width:900px;">
@@ -807,10 +808,38 @@
       </div>
     </div>
 
-    <p style="font-size:1.15rem;opacity:.96;margin:0 auto 28px;max-width:820px;color:#fff;line-height:1.6;">
-      We refinish bathtubs, tiles, sinks, and countertops across Seattle with premium, 6-layer coatings that last up to 15 years.<br>
-      Get your instant estimate in 60 seconds and save up to $5,000 compared to a remodel.
+    <p class="hero-desktop" style="font-size:1.15rem;opacity:.96;margin:0 auto 28px;max-width:820px;color:#fff;line-height:1.6;display:block;">
+      Our licensed &amp; insured team uses premium 6-layer coatings that last 10–15 years and restore a perfect gloss finish in just 24 hours.<br>
+      Get a free instant quote online and save up to $5,000 compared to a full remodel — fast, eco-friendly &amp; long-lasting results.
     </p>
+    <p class="hero-mobile" style="font-size:1.05rem;opacity:.96;margin:0 auto 28px;max-width:820px;color:#fff;line-height:1.6;display:none;">
+      Transform your bathroom in 24 hours with our 6-layer premium coating.<br>
+      Get your instant quote in 60 seconds — no calls, no stress, up to $5,000 savings.
+    </p>
+    <style>
+      @media (max-width:820px) {
+        .hero-desktop-headline { display: none !important; }
+        .hero-mobile-headline { display: block !important; }
+        .hero-desktop { display: none !important; }
+        .hero-mobile { display: block !important; }
+      }
+      @media (min-width:821px) {
+        .hero-desktop-headline { display: block !important; }
+        .hero-mobile-headline { display: none !important; }
+        .hero-desktop { display: block !important; }
+        .hero-mobile { display: none !important; }
+      }
+    </style>
+    <style>
+      @media (max-width:820px) {
+        .hero-desktop { display: none !important; }
+        .hero-mobile { display: block !important; }
+      }
+      @media (min-width:821px) {
+        .hero-desktop { display: block !important; }
+        .hero-mobile { display: none !important; }
+      }
+    </style>
 
     <div class="cta" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" id="goEstimate" style="background:#fff;color:#0b66b3;padding:18px 40px;border-radius:12px;border:2px solid #fff;font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;box-shadow:0 4px 16px rgba(255,255,255,0.25);letter-spacing:0.01em;">Get Instant Quote</button>
