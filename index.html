@@ -6,8 +6,8 @@
    <link rel="preconnect" href="https://www.googletagmanager.com">
    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-   <link rel="preload" href="/images/hero-bg.jpg" as="image" fetchpriority="high">
-   <link rel="preload" href="/images/logo1.png" as="image" fetchpriority="high">
+   <link rel="preload" href="/images/hero-bg.webp" as="image" type="image/webp" fetchpriority="high">
+   <link rel="preload" href="/images/logo1.webp" as="image" type="image/webp" fetchpriority="high">
    
    <!-- PostHog Analytics - Deferred for performance -->
    <script>
@@ -196,7 +196,11 @@
     .hero{
       background:
         linear-gradient(rgba(18,32,54,0.62), rgba(18,32,54,0.62)),
-        url('/images/hero-bg.jpg') center center/cover no-repeat;
+        url('/images/hero-bg.webp') center center/cover no-repeat;
+      /* Fallback for browsers that don't support WebP */
+      background-image: 
+        linear-gradient(rgba(18,32,54,0.62), rgba(18,32,54,0.62)),
+        url('/images/hero-bg.jpg');
       color:#fff;
       min-height:85vh;
       display:flex;
@@ -303,18 +307,22 @@
       box-shadow:0 4px 12px rgba(255,107,0,0.25);
       border-radius:14px 14px 0 0;
     }
-    .estimate-right .ba-inner{width:100%;height:100%;min-height:400px;flex:1}
+    .estimate-right .ba-inner{width:100%;height:100%;min-height:500px;flex:1}
     .ctaBox h2{font-size:1.25rem;color:#0b66b3;margin-bottom:8px;font-weight:800}
     .ctaBox p{color:#475569;margin-bottom:12px;font-weight:600}
     .ctaBox .instantBtn{background:var(--cta);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer;font-size:1rem}
     .ctaBox .instantBtn:hover{filter:brightness(.95);transform:translateY(-2px)}
     .preview-empty{color:#64748b;padding:18px;text-align:center;font-weight:700}
     .preview-labels{display:flex;gap:8px;width:100%;justify-content:space-between;font-weight:800;color:#0b66b3;font-size:0.95rem}
-    .ba-slider{position:relative;width:100%;height:100%;border-radius:0 0 14px 14px;overflow:hidden;background:#e2eefb;min-height:400px}
+    .ba-slider{position:relative;width:100%;height:100%;border-radius:0 0 14px 14px;overflow:hidden;background:#e2eefb;min-height:500px}
     .ba-slider .before,
     .ba-slider .after{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    .ba-slider picture{position:absolute;top:0;left:0;width:100%;height:100%}
+    .ba-slider picture img{width:100%;height:100%;object-fit:cover;object-position:center}
     .ba-slider .after-wrap{position:absolute;top:0;left:0;right:auto;width:50%;height:100%;overflow:hidden}
     .ba-slider .after-wrap .after{position:absolute;top:0;left:0;width:100vw;max-width:none;height:100%;object-fit:cover;object-position:center}
+    .ba-slider .after-wrap picture{position:absolute;top:0;left:0;width:100vw;max-width:none;height:100%}
+    .ba-slider .after-wrap picture img{width:100vw;max-width:none;height:100%;object-fit:cover;object-position:center}
     .ba-slider .handle{position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#fff,#d1e9ff);transform:translateX(-50%);cursor:ew-resize;box-shadow:0 0 0 6px rgba(13,110,253,0.06);border-radius:2px;z-index:10}
     .ba-slider .handle::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(2,6,23,0.12);display:block}
     .ba-slider .overlay-label{position:absolute;left:12px;top:12px;background:rgba(2,6,23,0.6);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:0.85rem;z-index:5}
@@ -328,16 +336,27 @@
       background: none;
       border: none;
       padding: 0;
-      margin: 0 8px;
+      margin: 0;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      transition: filter .18s;
+      width: 48px;
+      height: 48px;
+      transition: all .2s ease;
       outline: none;
+    }
+    .carousel-nav-bottom .ba-nav {
+      box-shadow: 0 2px 8px rgba(11,102,179,0.15);
+      border: 1px solid #e5e7eb;
+    }
+    .carousel-nav-bottom .ba-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(11,102,179,0.25);
+    }
+    .carousel-nav-bottom .ba-nav:active {
+      transform: translateY(0);
     }
     .ba-nav svg { display: block; }
     .ba-nav:hover svg circle, .ba-nav:focus svg circle { filter: brightness(0.85); }
@@ -377,7 +396,7 @@
   
   /* Optimize font rendering */
   body{font-display:swap;text-rendering:optimizeSpeed}
-    .ba{position:relative;border-radius:14px;overflow:hidden;height:400px;background:#e5eaf1}
+    .ba{position:relative;border-radius:14px;overflow:hidden;height:500px;background:#e5eaf1}
     .ba .ba-inner{width:100%;height:100%}
     .baBadge{position:absolute;left:10px;top:10px;background:#111827;color:#fff;font-size:.75rem;padding:4px 8px;border-radius:6px}
     .tWrap{display:flex;align-items:center;gap:14px;justify-content:center}
@@ -776,8 +795,8 @@
     }
     @media (max-width:900px){
       .galleryGrid{grid-template-columns:repeat(2,1fr)}
-      .ba-slider{height:400px;min-height:350px}
-      .ba{height:420px}
+      .ba-slider{height:450px;min-height:400px}
+      .ba{height:480px}
     }
     @media (max-width:640px){
       .svcGrid{grid-template-columns:1fr}
@@ -788,8 +807,10 @@
       .hero-features{font-size:0.75rem;gap:8px;padding:0 10px}
       .hero-features span{font-size:0.75rem}
       .galleryGrid{grid-template-columns:1fr}
-      .ba{height:340px}
-      .ba-slider{height:340px}
+      .ba{height:420px}
+      .ba-slider{height:420px;min-height:380px}
+      .carousel-nav-bottom{padding:12px !important;gap:15px !important}
+      .carousel-nav-bottom .ba-nav{width:44px !important;height:44px !important}
       .result-card{padding:24px}
       .result-title{font-size:1.3rem}
       .result-discount{font-size:1.8rem}
@@ -1053,7 +1074,7 @@
   <div class="header-wrap">
     <nav class="nav">
   <a href="/" class="brand" style="cursor:pointer">
-  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo" fetchpriority="high">
+  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo">
         <div class="text-wrap">
           <div class="name">Best Refinishing</div>
           <div class="trusted">Trusted by Homeowners Across Seattle</div>
@@ -1187,7 +1208,7 @@
         <div class="svcCaption">Bathtub Refinishing</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Restore worn tubs to like-new condition</p>
         <div class="svcCard go-est" data-key="Bathtub">
-          <div class="svcImg" style="background-image:url('/images/tub-bg.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/tub-bg.webp'),url('/images/tub-bg.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1198,7 +1219,7 @@
         <div class="svcCaption">Tile Refinishing</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Revive outdated tiles without replacement</p>
         <div class="svcCard go-est" data-key="Tub+Tiles">
-          <div class="svcImg" style="background-image:url('/images/tiles-bg.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/tiles-bg.webp'),url('/images/tiles-bg.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1209,7 +1230,7 @@
         <div class="svcCaption">Shower Refinishing</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Transform shower surfaces quickly</p>
         <div class="svcCard go-est" data-key="Shower">
-          <div class="svcImg" style="background-image:url('/images/shower-bg.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/shower-bg.webp'),url('/images/shower-bg.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1220,7 +1241,7 @@
         <div class="svcCaption">Countertop Refinishing</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Renew kitchen & bathroom counters</p>
         <div class="svcCard go-est" data-key="Countertop">
-          <div class="svcImg" style="background-image:url('/images/counter-bg.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/counter-bg.webp'),url('/images/counter-bg.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1231,7 +1252,7 @@
         <div class="svcCaption">Sink Refinishing</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Repair chips, stains, and wear</p>
         <div class="svcCard go-est" data-key="Sink">
-          <div class="svcImg" style="background-image:url('/images/sink-bg.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/sink-bg.webp'),url('/images/sink-bg.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1242,7 +1263,7 @@
         <div class="svcCaption">Repair Services</div>
         <p style="font-size:0.9rem;color:#6b7280;margin:4px 0 12px;text-align:center;">Fix cracks, chips, and damage</p>
         <div class="svcCard go-est" data-key="Local Repair">
-          <div class="svcImg" style="background-image:url('/images/local-bg1.jpg')"></div>
+          <div class="svcImg" style="background-image:url('/images/local-bg1.webp'),url('/images/local-bg1.jpg')"></div>
           <div class="svcOverlay">
             <a class="svcBtn" href="/our-process">Read More</a>
           </div>
@@ -1336,13 +1357,16 @@
         <div style="background:linear-gradient(135deg,#0b66b3,#1e40af);color:#fff;padding:16px;text-align:center;border-radius:14px 14px 0 0;font-weight:700;font-size:1.1rem;">
           See Real Transformation Results
         </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;position:relative;flex:1;">
+        <div style="display:flex;align-items:center;position:relative;flex:1;">
+          <div class="ba-inner" data-before="/images/tub-after-1.jpg" data-after="/images/tub-before-1.jpg" style="flex:1;width:100%;"></div>
+        </div>
+        <!-- Navigation arrows below carousel -->
+        <div class="carousel-nav-bottom" style="display:flex;justify-content:center;gap:20px;padding:16px;background:#fff;border-radius:0 0 14px 14px;border-top:1px solid #e5e7eb;">
           <button class="ba-nav ba-nav-left" aria-label="Previous example" tabindex="0">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="11" stroke="#fff" stroke-width="2.5" fill="rgba(11,102,179,0.92)"/><polyline points="14 8 10 12 14 16" stroke="#fff" stroke-width="2.5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke="#0b66b3" stroke-width="2" fill="#fff"/><polyline points="14 8 10 12 14 16" stroke="#0b66b3" stroke-width="2.5"/></svg>
           </button>
-          <div class="ba-inner" data-before="/images/tub-after-1.jpeg?v=3" data-after="/images/tub-before-1.jpeg?v=3" style="flex:1;min-width:0;"></div>
           <button class="ba-nav ba-nav-right" aria-label="Next example" tabindex="0">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="11" stroke="#fff" stroke-width="2.5" fill="rgba(11,102,179,0.92)"/><polyline points="10 8 14 12 10 16" stroke="#fff" stroke-width="2.5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke="#0b66b3" stroke-width="2" fill="#fff"/><polyline points="10 8 14 12 10 16" stroke="#0b66b3" stroke-width="2.5"/></svg>
           </button>
         </div>
       </aside>
@@ -1705,10 +1729,20 @@
 
     // Gallery sliders - optimized for performance
     function setupSlider(container, beforeSrc, afterSrc){
+      const beforeWebP = beforeSrc.replace(/\.(jpg|png)$/, '.webp');
+      const afterWebP = afterSrc.replace(/\.(jpg|png)$/, '.webp');
       container.innerHTML = `
         <div class="ba-slider">
-          <img src="${beforeSrc}" alt="Before" class="before" loading="lazy">
-          <div class="after-wrap"><img src="${afterSrc}" alt="After" class="after" loading="lazy"></div>
+          <picture>
+            <source srcset="${beforeWebP}" type="image/webp">
+            <img src="${beforeSrc}" alt="Before" class="before" loading="lazy">
+          </picture>
+          <div class="after-wrap">
+            <picture>
+              <source srcset="${afterWebP}" type="image/webp">
+              <img src="${afterSrc}" alt="After" class="after" loading="lazy">
+            </picture>
+          </div>
           <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
           <div class="label-before">before</div>
           <div class="label-after">after</div>
@@ -1716,7 +1750,7 @@
       `;
       const slider = container.querySelector('.ba-slider');
       const afterWrap = slider.querySelector('.after-wrap');
-      const afterImg = slider.querySelector('.after');
+      const afterImg = slider.querySelector('.after-wrap img');
       const handle = slider.querySelector('.handle');
 
       function updateAfterImageWidth(){
@@ -1759,10 +1793,10 @@
     document.addEventListener('DOMContentLoaded', ()=>{
       // --- Estimate section: slider with navigation ---
     const estimateExamples = [
-  { before: '/images/tub-after-7.jpg', after: '/images/tub-before-7.jpg' },
-  { before: '/images/sink-after-3.jpg', after: '/images/sink-before-3.jpg' },
-  { before: '/images/after-tub-10.jpg', after: '/images/before-tub-10.jpg' },
-  { before: '/images/tub-after-8.jpg', after: '/images/tub-before-8.jpg' },
+  { before: '/images/bathtub-2-after.jpg', after: '/images/bathtub-2.jpg' },
+  { before: '/images/sink-after-1.jpg', after: '/images/sink-before-1.jpg' },
+  { before: '/images/bathtub-3-after.jpg', after: '/images/bathtub-3-before.jpg' },
+  { before: '/images/bathtub-4-after.jpg', after: '/images/bathtub-4-before.jpg' },
     ];
       let estimateIdx = 0;
       const estimatePreview = document.querySelector('#preview .ba-inner');
