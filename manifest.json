@@ -1,22 +1,49 @@
 {
-  "name": "Best Refinishing Seattle",
+  "name": "Best Refinishing Seattle - Professional Reglazing Services",
   "short_name": "Best Refinishing",
-  "description": "Professional bathtub, tile, shower, sink, and countertop refinishing in Seattle area",
+  "description": "Professional bathtub, tile, shower, sink, and countertop refinishing services in Seattle. Fast, eco-friendly, licensed and insured.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b1220",
   "theme_color": "#0078D7",
   "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "en-US",
   "icons": [
     {
       "src": "/images/logo1.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
+    },
+    {
+      "src": "/images/logo1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "categories": ["business", "home improvement"],
-  "lang": "en-US",
-  "dir": "ltr",
-  "prefer_related_applications": false
+  "shortcuts": [
+    {
+      "name": "Get Free Estimate",
+      "short_name": "Estimate",
+      "description": "Get instant pricing for your refinishing project",
+      "url": "/estimate",
+      "icons": [{ "src": "/images/logo1.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Call Now",
+      "short_name": "Call",
+      "description": "Call (206) 786-9915 for immediate service",
+      "url": "tel:+12067869915",
+      "icons": [{ "src": "/images/logo1.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Gallery", 
+      "short_name": "Gallery",
+      "description": "See before and after photos of our work",
+      "url": "/gallery",
+      "icons": [{ "src": "/images/logo1.png", "sizes": "96x96" }]
+    }
+  ]
 }

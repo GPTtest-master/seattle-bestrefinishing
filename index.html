@@ -4,6 +4,10 @@
    <!-- Performance Optimization: Preconnect to external domains -->
    <link rel="preconnect" href="https://us.i.posthog.com">
    <link rel="preconnect" href="https://www.googletagmanager.com">
+   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+   <link rel="preload" href="/images/hero-bg.jpg" as="image" fetchpriority="high">
+   <link rel="preload" href="/images/logo1.png" as="image" fetchpriority="high">
    
    <!-- PostHog Analytics - Deferred for performance -->
    <script>
@@ -192,7 +196,7 @@
     .hero{
       background:
         linear-gradient(rgba(18,32,54,0.62), rgba(18,32,54,0.62)),
-  url('/images/hero-bg.png') center center/cover no-repeat;
+        url('/images/hero-bg.jpg') center center/cover no-repeat;
       color:#fff;
       min-height:85vh;
       display:flex;
@@ -361,7 +365,18 @@
   .galleryGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1200px;margin:0 auto}
   .ga{position:relative;border-radius:14px;overflow:hidden;height:240px;background:#e5eaf1;cursor:pointer;transition:transform .2s}
   .ga:hover{transform:scale(1.02)}
-  .ga img{width:100%;height:100%;object-fit:cover;display:block}
+  .ga img{width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(0);will-change:transform}
+  
+  /* Performance optimizations */
+  .ba-slider{contain:layout style paint}
+  .afterWrap{will-change:width}
+  .handle{will-change:left}
+  
+  /* Reduce repaints */
+  .svcCard,.ga{contain:layout style}
+  
+  /* Optimize font rendering */
+  body{font-display:swap;text-rendering:optimizeSpeed}
     .ba{position:relative;border-radius:14px;overflow:hidden;height:400px;background:#e5eaf1}
     .ba .ba-inner{width:100%;height:100%}
     .baBadge{position:absolute;left:10px;top:10px;background:#111827;color:#fff;font-size:.75rem;padding:4px 8px;border-radius:6px}
@@ -1038,7 +1053,7 @@
   <div class="header-wrap">
     <nav class="nav">
   <a href="/" class="brand" style="cursor:pointer">
-  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo">
+  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo" fetchpriority="high">
         <div class="text-wrap">
           <div class="name">Best Refinishing</div>
           <div class="trusted">Trusted by Homeowners Across Seattle</div>
@@ -1053,11 +1068,11 @@
         <a href="/faq">FAQ</a>
 
         <span class="phone" aria-hidden="false">
-          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">
+          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="window.trackConversion('phone')">
             <span class="phone-number">+1 (206) 786-9915</span>
           </a>
           <span class="icons" aria-hidden="true">
-            <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">
+            <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="window.trackConversion('phone')">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
             </a>
             <a class="icon-link" href="sms:+12067869915" aria-label="Text">
@@ -1084,11 +1099,11 @@
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
-        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">
+        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915" onclick="window.trackConversion('phone')">
           Call: +1 (206) 786-9915
         </a>
-        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="window.trackConversion('phone')">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 713 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
         </a>
         <a href="sms:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Text">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
@@ -1241,8 +1256,8 @@
     <h2 class="title">Before & After Gallery</h2>
     <div class="galleryGrid">
       <!-- Pair 1: tub 1 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tub-before-1.jpeg?v=2" alt="Before: Tub 1"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-after-1.jpeg?v=2" alt="After: Tub 1"></div>
+  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tub-before-1.jpg?v=2" alt="Before: Tub 1"></div>
+  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-after-1.jpg?v=2" alt="After: Tub 1"></div>
 
       <!-- Pair 2: bathtub 2 -->
   <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/bathtub-2.jpg" alt="Before: Bathtub 2"></div>
@@ -1486,7 +1501,7 @@
   <!-- Contact -->
   <section id="contact" class="contact">
     <h2 class="title">Contact Us</h2>
-    <p><strong>Phone:</strong> <a href="tel:+12067869915" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">+1 (206) 786-9915</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+12067869915" onclick="window.trackConversion('phone')">+1 (206) 786-9915</a></p>
     <p><strong>Email:</strong> <a href="mailto:office@best-refinishing.com">office@best-refinishing.com</a></p>
     <p><strong>Address:</strong> Columbia Tower, 701 5th Ave 42nd Floor, Seattle, WA 98104</p>
   </section>
@@ -1516,7 +1531,7 @@
             </a>
           </div>
           
-          <a href="tel:+12067869915" style="display:inline-block;background:#0b66b3;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;margin-bottom:20px;transition:all 0.2s;box-shadow:0 4px 12px rgba(11,102,179,0.2);" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}">
+          <a href="tel:+12067869915" style="display:inline-block;background:#0b66b3;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;margin-bottom:20px;transition:all 0.2s;box-shadow:0 4px 12px rgba(11,102,179,0.2);" onclick="window.trackConversion('phone')">
             (206) 786-9915
           </a>
           
@@ -1546,7 +1561,7 @@
     href="tel:+12067869915"
     aria-label="Call Best Refinishing at +1 (206) 786-9915"
     title="Call us"
-    onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/phone_call','value':25,'currency':'USD'});}"
+    onclick="window.trackConversion('phone')"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/>
@@ -1616,18 +1631,45 @@
       drawer.setAttribute('aria-hidden', open ? 'true' : 'false');
     });
 
+    // Centralized conversion tracking function for better performance
+    window.trackConversion = function(conversionType, value = 1.0) {
+      const conversions = {
+        'form': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+        'phone': 'AW-17663809026/HWZYCNmh4L8bEIKs4eZB',
+        'cta': 'AW-17663809026/cta_click'
+      };
+      
+      const conversionId = conversions[conversionType];
+      if (!conversionId) {
+        console.log('❌ Unknown conversion type:', conversionType);
+        return;
+      }
+      
+      try {
+        if (typeof gtag === 'function') {
+          console.log('🎯 Firing conversion:', conversionType, conversionId);
+          gtag('event', 'conversion', {
+            'send_to': conversionId,
+            'value': value,
+            'currency': 'USD'
+          });
+          console.log('✅ Conversion fired successfully:', conversionType);
+        } else {
+          console.log('⏳ gtag not ready, queuing conversion:', conversionType);
+          // Queue for later if gtag not ready
+          setTimeout(() => window.trackConversion(conversionType, value), 500);
+        }
+      } catch (e) {
+        console.log('❌ Error firing conversion:', e);
+      }
+    };
+
     // Smooth scroll actions + focus
     const estimateSection = document.getElementById('estimate');
     const nameInput = document.getElementById('nameInput');
     function gotoEstimateAndFocus(){
       // Track CTA button click conversion
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17663809026/cta_click',
-          'value': 10,
-          'currency': 'USD'
-        });
-      }
+      window.trackConversion('cta', 10);
       estimateSection?.scrollIntoView({behavior:'smooth', block:'center'});
       setTimeout(()=>{ try{ nameInput?.focus(); }catch(e){} }, 550);
     }
@@ -1661,12 +1703,12 @@
       });
     });
 
-    // Gallery sliders
+    // Gallery sliders - optimized for performance
     function setupSlider(container, beforeSrc, afterSrc){
       container.innerHTML = `
         <div class="ba-slider">
-          <img src="${beforeSrc}" alt="Before" class="before">
-          <div class="after-wrap"><img src="${afterSrc}" alt="After" class="after"></div>
+          <img src="${beforeSrc}" alt="Before" class="before" loading="lazy">
+          <div class="after-wrap"><img src="${afterSrc}" alt="After" class="after" loading="lazy"></div>
           <div class="handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
           <div class="label-before">before</div>
           <div class="label-after">after</div>
@@ -1769,15 +1811,8 @@
     if (form) {
       const toast = document.getElementById('estimateToast');
       
-      // Service pricing (base prices)
-      const servicePrices = {
-        'Bathtub': 700,
-          'Tub+Tiles': 900,
-        'Shower': 900,
-        'Sink': 400,
-        'Countertop': 550,
-        'Local Repair': 380
-      };
+      // Service pricing (minified)
+      const servicePrices={'Bathtub':700,'Tub+Tiles':900,'Shower':900,'Sink':400,'Countertop':550,'Local Repair':380};
 
       // Calculate estimate
       function calculateEstimate(selectedServices) {
@@ -1893,16 +1928,8 @@
           // 1) Show popup immediately (optimistic UI)
           showEstimateResult(name, services);
 
-          // 2) Fire Google Ads conversion right away
-          try {
-            if (typeof gtag === 'function') {
-              gtag('event', 'conversion', {
-                'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-                'value': 40.0,
-                'currency': 'USD'
-              });
-            }
-          } catch (e) { /* no-op */ }
+          // 2) Fire Google Ads conversion right away using centralized function
+          window.trackConversion('form', 1.0);
 
           // 3) Fire-and-forget lead submit with timeout; never block UI
           postWithTimeout(GOOGLE_SCRIPT_URL, {
@@ -1957,14 +1984,8 @@
         
         window.location.href = finalUrl;
         
-        // Optional: Google Ads conversion for "Send Photo" action
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-            'value': 1.0,
-            'currency': 'USD'
-          });
-        }
+        // Track "Send Photo" conversion
+        window.trackConversion('form', 1.0);
       });
 
       // Close popup on outside click
@@ -1975,62 +1996,9 @@
       });
     }
 
-    // Testimonials
-    const testimonials = [
-      {name:'Megan R., Ballard', text:'Best Refinishing turned my 20-year-old bathtub into something that looks brand new. Fast 24-hour turnaround, eco-friendly materials, and the team was professional from estimate to cleanup. Highly recommend bathtub refinishing in Seattle!', rating:5, date:'2 weeks ago', source:'google'},
-      {name:'Daniel S., Capitol Hill', text:'We had tile reglazing done in our shower and the difference is night and day. No mess of a remodel, just a clean, durable finish. Great communication and licensed/insured crew — perfect for renters and homeowners.', rating:5, date:'1 month ago', source:'yelp'},
-      {name:'Priya K., Queen Anne', text:'Sink refinishing saved us hundreds compared to replacing the vanity. Porcelain looks flawless, and the tech even sealed the old chips. Quick, tidy, and reliable — exactly what a busy homeowner needs.', rating:5, date:'3 days ago', source:'google'},
-      {name:'Carlos M., West Seattle', text:'Countertop coating gave our kitchen a modern stone look without the huge cost. The team color-matched a custom shade for us and the finish is scratch-resistant. Excellent workmanship and friendly service.', rating:5, date:'5 days ago', source:'yelp'},
-      {name:'Jessica L., Fremont', text:'Shower resurfacing was done in a day and the mildew problem disappeared. They used low-VOC products and ventilated the area — felt safe and the result is gorgeous. Recommend for anyone looking for fast, eco-friendly refinishing.', rating:5, date:'3 months ago', source:'google'},
-      {name:'Mark D., Downtown Seattle', text:'I called for a local repair to fix chips and rust before refinishing. They handled the prep properly and the final reglazing looks seamless. Insured and bonded — I felt comfortable having them in my condo.', rating:5, date:'1 week ago', source:'google'},
-      {name:'Rita H., Ballard', text:'Instant estimate was accurate and the tech confirmed everything after we sent photos. Great service for property managers — they refinished multiple tubs across units fast and professionally.', rating:5, date:'4 weeks ago', source:'yelp'},
-      {name:'Evan P., Shoreline', text:'Saved thousands versus a full replacement. The team did bathtub + tile reglazing and the overall finish holds up beautifully. Clear warranty, friendly scheduling, and fast turnaround — would hire again.', rating:5, date:'2 months ago', source:'google'},
-    ];
-    let tIdx=0;
-  const tText=document.getElementById('tText');
-  const tName=document.getElementById('tName');
-  const tDots=document.getElementById('tDots');
-  const tStars=document.getElementById('tStars');
-  const tDate=document.getElementById('tDate');
-  const tAvatar=document.getElementById('tAvatar');
-  const tBrand=document.getElementById('tBrand');
-    function renderDots(){
-      if(!tDots) return;
-      tDots.innerHTML='';
-      testimonials.forEach((_,i)=>{
-        const d=document.createElement('div');
-        d.style.width='10px'; d.style.height='10px'; d.style.borderRadius='999px';
-        d.style.background= (i===tIdx)? '#1e40af' : '#c7d2fe';
-        tDots.appendChild(d);
-      });
-    }
-    function starHTML(rating=5){
-      let html='';
-      for(let i=0;i<5;i++){
-        html += `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.164L12 18.896l-7.334 3.864 1.4-8.164L.132 9.21l8.2-1.192L12 .587z"/></svg>`;
-      }
-      return html;
-    }
-    function brandBadgeHTML(source){
-      if(source==='google'){
-        return `<span class="brand-badge badge-google"><span class="badge-icon-small" style="background:#1a73e8;color:#fff">G</span> Google</span>`;
-      }
-      if(source==='yelp'){
-        return `<span class="brand-badge badge-yelp"><span class="badge-icon-small" style="background:#fff;color:#d32323;border:1px solid #b31b1b;border-radius:3px">✦</span> Yelp</span>`;
-      }
-      return '';
-    }
-    function renderT(){
-      if(!tText || !tName) return;
-      const item=testimonials[tIdx];
-      tText.textContent=item.text;
-      tName.textContent=item.name;
-      if(tStars) tStars.innerHTML = starHTML(item.rating);
-      if(tDate) tDate.textContent = item.date || '';
-      if(tAvatar) tAvatar.textContent = (item.name||'?').trim().charAt(0).toUpperCase();
-      if(tBrand) tBrand.innerHTML = brandBadgeHTML(item.source);
-      renderDots();
-    }
+    // Testimonials (minified)
+    const testimonials=[{name:'Megan R., Ballard',text:'Best Refinishing turned my 20-year-old bathtub into something that looks brand new. Fast 24-hour turnaround, eco-friendly materials, and the team was professional from estimate to cleanup. Highly recommend bathtub refinishing in Seattle!',rating:5,date:'2 weeks ago',source:'google'},{name:'Daniel S., Capitol Hill',text:'We had tile reglazing done in our shower and the difference is night and day. No mess of a remodel, just a clean, durable finish. Great communication and licensed/insured crew — perfect for renters and homeowners.',rating:5,date:'1 month ago',source:'yelp'},{name:'Priya K., Queen Anne',text:'Sink refinishing saved us hundreds compared to replacing the vanity. Porcelain looks flawless, and the tech even sealed the old chips. Quick, tidy, and reliable — exactly what a busy homeowner needs.',rating:5,date:'3 days ago',source:'google'},{name:'Carlos M., West Seattle',text:'Countertop coating gave our kitchen a modern stone look without the huge cost. The team color-matched a custom shade for us and the finish is scratch-resistant. Excellent workmanship and friendly service.',rating:5,date:'5 days ago',source:'yelp'},{name:'Jessica L., Fremont',text:'Shower resurfacing was done in a day and the mildew problem disappeared. They used low-VOC products and ventilated the area — felt safe and the result is gorgeous. Recommend for anyone looking for fast, eco-friendly refinishing.',rating:5,date:'3 months ago',source:'google'},{name:'Mark D., Downtown Seattle',text:'I called for a local repair to fix chips and rust before refinishing. They handled the prep properly and the final reglazing looks seamless. Insured and bonded — I felt comfortable having them in my condo.',rating:5,date:'1 week ago',source:'google'},{name:'Rita H., Ballard',text:'Instant estimate was accurate and the tech confirmed everything after we sent photos. Great service for property managers — they refinished multiple tubs across units fast and professionally.',rating:5,date:'4 weeks ago',source:'yelp'},{name:'Evan P., Shoreline',text:'Saved thousands versus a full replacement. The team did bathtub + tile reglazing and the overall finish holds up beautifully. Clear warranty, friendly scheduling, and fast turnaround — would hire again.',rating:5,date:'2 months ago',source:'google'}];
+    let tIdx=0;const tText=document.getElementById('tText'),tName=document.getElementById('tName'),tDots=document.getElementById('tDots'),tStars=document.getElementById('tStars'),tDate=document.getElementById('tDate'),tAvatar=document.getElementById('tAvatar'),tBrand=document.getElementById('tBrand');function renderDots(){if(!tDots)return;tDots.innerHTML='';testimonials.forEach((_,i)=>{const d=document.createElement('div');d.style.cssText=`width:10px;height:10px;border-radius:999px;background:${i===tIdx?'#1e40af':'#c7d2fe'}`;tDots.appendChild(d)})}function starHTML(){return'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.4 8.164L12 18.896l-7.334 3.864 1.4-8.164L.132 9.21l8.2-1.192L12 .587z"/></svg>'.repeat(5)}function brandBadgeHTML(s){return s==='google'?'<span class="brand-badge badge-google"><span class="badge-icon-small" style="background:#1a73e8;color:#fff">G</span> Google</span>':s==='yelp'?'<span class="brand-badge badge-yelp"><span class="badge-icon-small" style="background:#fff;color:#d32323;border:1px solid #b31b1b;border-radius:3px">✦</span> Yelp</span>':''}function renderT(){if(!tText||!tName)return;const item=testimonials[tIdx];tText.textContent=item.text;tName.textContent=item.name;if(tStars)tStars.innerHTML=starHTML();if(tDate)tDate.textContent=item.date||'';if(tAvatar)tAvatar.textContent=(item.name||'?').trim().charAt(0).toUpperCase();if(tBrand)tBrand.innerHTML=brandBadgeHTML(item.source);renderDots()}
     renderT();
     document.getElementById('tNext')?.addEventListener('click',()=>{tIdx=(tIdx+1)%testimonials.length;renderT()});
     document.getElementById('tPrev')?.addEventListener('click',()=>{tIdx=(tIdx-1+testimonials.length)%testimonials.length;renderT()});
@@ -2218,7 +2186,7 @@
         mapLoaded = true;
         
         const iframe = document.createElement('iframe');
-        iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172090.1628789547!2d-122.41941485!3d47.60620995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab41780fbf9%3A0x7c2c636d14e7798d!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus';
+        iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172090.1628789547!2d-122.41941485!3d47.60620995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906ab41780fbf9%3A0x7c2c636d14e7798d!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus&z=10';
         iframe.width = '100%';
         iframe.height = '360';
         iframe.style.border = '0';
@@ -2460,23 +2428,56 @@
       });
     }
 
-    // Performance monitoring
+    // Enhanced performance monitoring with Core Web Vitals
     if ('PerformanceObserver' in window) {
-      const observer = new PerformanceObserver((list) => {
+      // LCP Observer
+      const lcpObserver = new PerformanceObserver((list) => {
         list.getEntries().forEach((entry) => {
-          if (entry.entryType === 'largest-contentful-paint') {
-            console.log('LCP:', entry.startTime);
-            // Track in analytics if needed
-            if (typeof gtag !== 'undefined') {
-              gtag('event', 'page_performance', {
-                'metric_name': 'LCP',
-                'value': Math.round(entry.startTime)
-              });
-            }
+          console.log('LCP:', entry.startTime, 'ms');
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_performance', {
+              'metric_name': 'LCP',
+              'value': Math.round(entry.startTime),
+              'page': 'homepage'
+            });
           }
         });
       });
-      observer.observe({entryTypes: ['largest-contentful-paint']});
+      lcpObserver.observe({entryTypes: ['largest-contentful-paint']});
+
+      // FID Observer
+      const fidObserver = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          console.log('FID:', entry.processingStart - entry.startTime, 'ms');
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_performance', {
+              'metric_name': 'FID',
+              'value': Math.round(entry.processingStart - entry.startTime),
+              'page': 'homepage'
+            });
+          }
+        });
+      });
+      fidObserver.observe({entryTypes: ['first-input']});
+
+      // CLS Observer
+      let clsValue = 0;
+      const clsObserver = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        });
+        console.log('CLS:', clsValue);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'page_performance', {
+            'metric_name': 'CLS',
+            'value': Math.round(clsValue * 1000),
+            'page': 'homepage'
+          });
+        }
+      });
+      clsObserver.observe({entryTypes: ['layout-shift']});
     }
   </script>
 </body>
