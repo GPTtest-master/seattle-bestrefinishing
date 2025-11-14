@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /sw.js
+Disallow: *.log
+
+Sitemap: https://www.best-refinishing.com/sitemap.xml
+
+# Performance and crawling optimization
+Crawl-delay: 1
