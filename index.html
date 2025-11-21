@@ -1404,6 +1404,8 @@
           <input type="tel" name="phone" placeholder="Phone Number" required />
           <input type="text" name="zip" placeholder="ZIP Code" required />
           <input type="email" name="email" placeholder="Email (optional)" />
+          <!-- Hidden GCLID field for Google Ads click attribution -->
+          <input type="hidden" id="gclid_field" name="gclid" />
           <button type="submit" class="submit">Get My Instant Quote</button>
         </form>
         <div class="note" style="text-align:center;">
@@ -1723,84 +1725,50 @@
       drawer.setAttribute('aria-hidden', open ? 'true' : 'false');
     });
 
-    // Google Ads official event snippet for Submit lead form conversion
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-          'value': 1.0,
-          'currency': 'USD',
-          'event_callback': callback
-      });
-      console.log('📝 Official gtag_report_conversion fired for Submit lead form');
-      return false;
-    }
-
-    // Make it globally available for Tag Assistant testing
-    window.gtag_report_conversion = gtag_report_conversion;
+    // (Removed duplicate gtag_report_conversion definition; single authoritative version lives in <head>)
 
     // Initialize conversion queue for early calls
     window.queuedConversions = window.queuedConversions || [];
+
+    // =========================
+    // GCLID CAPTURE & ATTRIBUTION
+    // =========================
+    (function captureGclid(){
+      const qs = new URLSearchParams(window.location.search);
+      const gclidParam = qs.get('gclid');
+      let stored = '';
+      try { stored = localStorage.getItem('gclid') || ''; } catch(e) {}
+      if (gclidParam) {
+        try { localStorage.setItem('gclid', gclidParam); } catch(e) {}
+        stored = gclidParam;
+      }
+      const gclidField = document.getElementById('gclid_field');
+      if (gclidField) gclidField.value = stored || '';
+      window.currentGclid = stored || '';
+      console.log('🔎 GCLID loaded:', window.currentGclid || '(none)');
+    })();
     
-    // Enhanced conversion tracking function for Submit lead form
+    // Lightweight tracking for non-form interactions (phone calls / CTA clicks)
     window.trackConversion = function(conversionType, value = 1.0, maxRetries = 3) {
-      console.log('🎯 Tracking conversion:', conversionType, 'Value:', value);
-      
+      if (conversionType === 'form') {
+        console.warn('trackConversion(form) is suppressed; form conversions fire after successful submission only.');
+        return;
+      }
+      console.log('🎯 Tracking auxiliary conversion:', conversionType, 'Value:', value);
+      const conversionId = 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB';
       try {
-        // For form submissions, use the official Google Ads function
-        if (conversionType === 'form') {
-          console.log('📝 Using official gtag_report_conversion for form');
-          
-          // Fire official Google Ads conversion
-          if (typeof gtag_report_conversion === 'function') {
-            gtag_report_conversion();
-            console.log('✅ Official conversion fired via gtag_report_conversion');
-          }
-          
-          // Also fire via gtag for backup
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-              'value': value,
-              'currency': 'USD'
-            });
-            console.log('✅ Backup conversion fired via gtag');
-          }
-          
-          return;
-        }
-        
-        // For other conversion types (phone, cta)
-        const conversionId = 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB';
-        
-        // Fire conversion
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', {
-            'send_to': conversionId,
-            'value': value,
-            'currency': 'USD'
+            send_to: conversionId,
+            value: value,
+            currency: 'USD'
           });
-          console.log('✅ Conversion fired:', conversionType, conversionId);
+          console.log('✅ Auxiliary conversion fired:', conversionType);
         } else if (maxRetries > 0) {
-          console.log('⏳ gtag not ready, retrying...', conversionType);
-          setTimeout(() => window.trackConversion(conversionType, value, maxRetries - 1), 500);
+          setTimeout(()=>window.trackConversion(conversionType, value, maxRetries-1), 400);
         }
-        
-      } catch (e) {
-        console.log('❌ Error firing conversion:', e);
-        // Fallback to official function
-        if (typeof gtag_report_conversion === 'function') {
-          try {
-            gtag_report_conversion();
-            console.log('🔄 Fallback: used gtag_report_conversion');
-          } catch (err) {
-            console.log('❌ All conversion attempts failed:', err);
-          }
-        }
+      } catch(err){
+        console.log('❌ Error firing auxiliary conversion:', err);
       }
     };
 
@@ -2085,24 +2053,11 @@
         try {
           if (!GOOGLE_SCRIPT_URL) throw new Error('Missing Google Script URL');
 
-          // 1) Show popup immediately (optimistic UI)
+          // Show popup immediately (optimistic UI)
           showEstimateResult(name, services);
 
-          // 2) Fire Google Ads conversions immediately
-          const conversionValue = Math.max(1.0, finalPrice * 0.1);
-          
-          console.log('🎯 Firing form conversion, value:', conversionValue);
-          
-          // Fire official Google Ads conversion
-          if (typeof gtag_report_conversion === 'function') {
-            gtag_report_conversion();
-            console.log('✅ Official gtag_report_conversion fired');
-          }
-          
-          // Fire backup conversion
-          window.trackConversion('form', conversionValue);
-
-          // 3) Fire-and-forget lead submit with timeout; never block UI
+          // Prepare submission payload including gclid for backend storage (possible offline upload)
+          const gclidVal = document.getElementById('gclid_field')?.value || window.currentGclid || '';
           const submissionPromise = postWithTimeout(GOOGLE_SCRIPT_URL, {
             name,
             phone,
@@ -2110,24 +2065,38 @@
             email,
             services: services.join(', '),
             price: finalPrice,
+            gclid: gclidVal,
             timestamp: new Date().toISOString(),
             source: 'website',
             page: window.location.href
           }, {timeout: 2500});
 
-          // 4) Fire additional conversion after successful submission (with delay for better tracking)
+          // Only fire conversion AFTER successful submission for accurate attributed leads
           submissionPromise.then(() => {
-            setTimeout(() => {
-              window.trackConversion('form', conversionValue);
-              console.log('📝 Form submission confirmed, conversion re-fired');
-            }, 1000);
+            const conversionValue = Math.max(1.0, finalPrice * 0.1);
+            const gclidForTxn = gclidVal || 'nogclid';
+            const transactionId = 'lead-' + Date.now() + '-' + gclidForTxn.substring(0,20);
+            console.log('✅ Form submitted. Firing attributed conversion. Value:', conversionValue, 'Txn:', transactionId);
+            if (typeof gtag === 'function') {
+              gtag('event','conversion',{
+                send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                value: conversionValue,
+                currency:'USD',
+                transaction_id: transactionId
+              });
+            } else if (typeof gtag_report_conversion === 'function') {
+              gtag_report_conversion();
+              console.log('⚠️ Fallback: used gtag_report_conversion (no value/txn params)');
+            } else {
+              console.warn('⚠️ gtag not ready; conversion queued');
+              window.queuedConversions.push({type:'form', value:conversionValue});
+            }
+            // Reset form UI
+            form.reset(); selected.clear();
+            document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
           }).catch(() => {
-            console.log('⚠️ Form submission failed, but conversion already tracked');
+            console.warn('❌ Submission failed or timed out; conversion suppressed.');
           });
-
-          // 5) Reset UI state
-          form.reset(); selected.clear();
-          document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
         } catch (err) {
           console.error(err);
           showToast('error','Submission error. Please call: +1 (206) 786-9915');
