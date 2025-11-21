@@ -56,7 +56,7 @@
             window.queuedConversions.forEach(conv => {
               if (conv.type === 'form' && conv.transactionId) {
                 gtag('event','conversion',{
-                  send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                  send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                   value: conv.value || 1.0,
                   currency:'USD',
                   transaction_id: conv.transactionId
@@ -79,7 +79,7 @@
     })(); // Execute immediately!
   </script>
 
-  <!-- Google Ads Event Snippet for Submit lead form conversion -->
+  <!-- Google Ads Event Snippet for Book appointment conversion -->
   <script>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -88,12 +88,12 @@
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+          'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
           'value': 1.0,
           'currency': 'USD',
           'event_callback': callback
       });
-      console.log('📝 Official gtag_report_conversion fired for Submit lead form');
+      console.log('📝 Official gtag_report_conversion fired for Book appointment');
       return false;
     }
   </script>
@@ -2081,7 +2081,7 @@
           const fireConversion = () => {
             if (typeof gtag === 'function') {
               gtag('event','conversion',{
-                send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                 value: conversionValue,
                 currency:'USD',
                 transaction_id: transactionId
@@ -2093,7 +2093,7 @@
               window.dataLayer.push({
                 'event': 'conversion',
                 'google_ads': true,
-                'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                 'value': conversionValue,
                 'currency': 'USD',
                 'transaction_id': transactionId
@@ -2153,93 +2153,7 @@
         }
       });
 
-      // Debug function for checking conversion tracking status (for testing)
-      window.checkTrackingStatus = function() {
-        console.log('🔍 Tracking Status Debug:');
-        console.log('gtag function:', typeof gtag);
-        console.log('dataLayer:', typeof dataLayer, dataLayer ? 'exists' : 'missing');
-        console.log('gtagReady:', window.gtagReady);
-        console.log('gtag_report_conversion:', typeof window.gtag_report_conversion);
-        console.log('Queued conversions:', window.queuedConversions?.length || 0);
-        if (window.queuedConversions?.length > 0) {
-          console.log('Queue contents:', window.queuedConversions);
-        }
-      };
-
-      // Test function for Tag Assistant validation
-      window.testGoogleAdsConversion = function() {
-        console.log('🧪 Testing Google Ads conversion for Tag Assistant...');
-        
-        // Test official function first
-        console.log('1️⃣ Testing official gtag_report_conversion...');
-        if (typeof gtag_report_conversion === 'function') {
-          gtag_report_conversion();
-          console.log('✅ gtag_report_conversion fired');
-        } else {
-          console.log('❌ gtag_report_conversion not available');
-        }
-        
-        // Test direct gtag call with delay for Tag Assistant
-        setTimeout(() => {
-          console.log('2️⃣ Testing direct gtag call...');
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', {
-              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-              'value': 1.0,
-              'currency': 'USD'
-            });
-            console.log('✅ Direct gtag conversion fired');
-          } else {
-            console.log('❌ gtag not available');
-          }
-        }, 1000);
-        
-        // Test with page_view event (for Page Load conversions)
-        setTimeout(() => {
-          console.log('3️⃣ Testing page_view conversion...');
-          if (typeof gtag === 'function') {
-            gtag('event', 'page_view', {
-              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB'
-            });
-            console.log('✅ Page view conversion fired');
-          }
-        }, 1500);
-        
-        // Test our enhanced function
-        setTimeout(() => {
-          console.log('4️⃣ Testing trackConversion...');
-          window.trackConversion('form', 1.0);
-        }, 2000);
-        
-        console.log('✅ All conversion tests queued. Check Tag Assistant in 3 seconds!');
-      };
-
-    // Additional test for Tag Assistant - Page Load conversion
-    window.testPageLoadConversion = function() {
-      console.log('📄 Testing Page Load conversion for Tag Assistant...');
-      
-      if (typeof gtag === 'function') {
-        // Try different event types that Tag Assistant might recognize
-        gtag('config', 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB', {
-          'page_title': 'Submit lead form',
-          'page_location': window.location.href
-        });
-        
-        // Also try as page_view
-        gtag('event', 'page_view', {
-          'send_to': 'AW-17663809026'
-        });
-        
-        console.log('✅ Page load conversion attempts sent');
-      }
-    };
-
-    // Make functions available in console for debugging
-    console.log('🧪 Debug functions available:');
-    console.log('- testGoogleAdsConversion() - Test all conversion methods');
-    console.log('- testPageLoadConversion() - Test Page Load conversion');
-    console.log('- checkTrackingStatus() - Check tracking setup');
-    console.log('- gtag_report_conversion() - Official Google Ads conversion');
+      // Clean production code - no debug functions that interfere with Tag Assistant
       
       // Close result popup
       document.getElementById('resultClose')?.addEventListener('click', () => {
