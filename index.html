@@ -50,9 +50,22 @@
           console.log('✅ Google Ads tracking ready');
           
           // Fire any queued conversions
-          if (window.queuedConversions) {
+          if (window.queuedConversions && window.queuedConversions.length > 0) {
+            console.log('🔥 Processing', window.queuedConversions.length, 'queued conversions');
             window.queuedConversions.forEach(conv => {
-              window.trackConversion(conv.type, conv.value);
+              if (conv.type === 'form' && conv.transactionId) {
+                // Form conversions with full params
+                gtag('event','conversion',{
+                  send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                  value: conv.value || 1.0,
+                  currency:'USD',
+                  transaction_id: conv.transactionId
+                });
+                console.log('✅ Queued form conversion fired with transaction_id:', conv.transactionId);
+              } else {
+                // Other conversions (phone, cta)
+                window.trackConversion(conv.type, conv.value);
+              }
             });
             window.queuedConversions = [];
           }
@@ -2056,8 +2069,56 @@
           // Show popup immediately (optimistic UI)
           showEstimateResult(name, services);
 
-          // Prepare submission payload including gclid for backend storage (possible offline upload)
+          // Fire conversion immediately on form submit (don't wait for backend)
+          const conversionValue = Math.max(1.0, finalPrice * 0.1);
           const gclidVal = document.getElementById('gclid_field')?.value || window.currentGclid || '';
+          const gclidForTxn = gclidVal || 'nogclid';
+          const transactionId = 'lead-' + Date.now() + '-' + gclidForTxn.substring(0,20);
+          console.log('🎯 Firing conversion immediately. Value:', conversionValue, 'Txn:', transactionId);
+          
+          // Enhanced conversion firing with multiple fallbacks
+          const fireConversion = () => {
+            if (typeof gtag === 'function') {
+              gtag('event','conversion',{
+                send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                value: conversionValue,
+                currency:'USD',
+                transaction_id: transactionId
+              });
+              console.log('✅ Conversion fired via gtag');
+              return true;
+            } else if (typeof window.dataLayer !== 'undefined') {
+              // Direct dataLayer push as fallback
+              window.dataLayer.push({
+                'event': 'conversion',
+                'google_ads': true,
+                'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+                'value': conversionValue,
+                'currency': 'USD',
+                'transaction_id': transactionId
+              });
+              console.log('✅ Conversion fired via dataLayer');
+              return true;
+            } else if (typeof gtag_report_conversion === 'function') {
+              gtag_report_conversion();
+              console.log('⚠️ Fallback: used gtag_report_conversion (no value/txn params)');
+              return true;
+            }
+            return false;
+          };
+          
+          // Fire conversion immediately
+          if (!fireConversion()) {
+            console.log('⏳ gtag not ready, waiting 500ms...');
+            setTimeout(() => {
+              if (!fireConversion()) {
+                console.warn('⚠️ All conversion methods failed; queuing for later');
+                window.queuedConversions.push({type:'form', value:conversionValue, transactionId});
+              }
+            }, 500);
+          }
+
+          // Prepare submission payload including gclid for backend storage (fire-and-forget)
           const submissionPromise = postWithTimeout(GOOGLE_SCRIPT_URL, {
             name,
             phone,
@@ -2071,31 +2132,17 @@
             page: window.location.href
           }, {timeout: 2500});
 
-          // Only fire conversion AFTER successful submission for accurate attributed leads
+          // Backend submission is now just for data storage (doesn't affect conversion)
           submissionPromise.then(() => {
-            const conversionValue = Math.max(1.0, finalPrice * 0.1);
-            const gclidForTxn = gclidVal || 'nogclid';
-            const transactionId = 'lead-' + Date.now() + '-' + gclidForTxn.substring(0,20);
-            console.log('✅ Form submitted. Firing attributed conversion. Value:', conversionValue, 'Txn:', transactionId);
-            if (typeof gtag === 'function') {
-              gtag('event','conversion',{
-                send_to:'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-                value: conversionValue,
-                currency:'USD',
-                transaction_id: transactionId
-              });
-            } else if (typeof gtag_report_conversion === 'function') {
-              gtag_report_conversion();
-              console.log('⚠️ Fallback: used gtag_report_conversion (no value/txn params)');
-            } else {
-              console.warn('⚠️ gtag not ready; conversion queued');
-              window.queuedConversions.push({type:'form', value:conversionValue});
-            }
+            console.log('✅ Backend submission successful');
             // Reset form UI
             form.reset(); selected.clear();
             document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
           }).catch(() => {
-            console.warn('❌ Submission failed or timed out; conversion suppressed.');
+            console.log('⚠️ Backend submission failed, but conversion already fired');
+            // Still reset form UI since popup was shown
+            form.reset(); selected.clear();
+            document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
           });
         } catch (err) {
           console.error(err);
