@@ -24,9 +24,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
-  <!-- Google Analytics - Deferred for performance -->
+  <!-- Google Ads - Enhanced loading for better conversion tracking -->
   <script>
-    // Load Google Analytics after page load for better performance
+    // Initialize dataLayer immediately for better tracking
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Load Google Ads after page load for better performance
     window.addEventListener('load', function() {
       var script = document.createElement('script');
       script.async = true;
@@ -34,12 +38,52 @@
       document.head.appendChild(script);
       
       script.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17663809026');
+        try {
+          gtag('js', new Date());
+          gtag('config', 'AW-17663809026', {
+            'debug_mode': false,
+            'send_page_view': true
+          });
+          
+          // Set global flag for conversion tracking
+          window.gtagReady = true;
+          console.log('✅ Google Ads tracking ready');
+          
+          // Fire any queued conversions
+          if (window.queuedConversions) {
+            window.queuedConversions.forEach(conv => {
+              window.trackConversion(conv.type, conv.value);
+            });
+            window.queuedConversions = [];
+          }
+        } catch (e) {
+          console.error('❌ Google Ads initialization error:', e);
+        }
+      };
+      
+      script.onerror = function() {
+        console.error('❌ Failed to load Google Ads script');
       };
     });
+  </script>
+
+  <!-- Google Ads Event Snippet for Submit lead form conversion -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      console.log('📝 Official gtag_report_conversion fired for Submit lead form');
+      return false;
+    }
   </script>
   
   <title>Best Refinishing — Seattle Reglazing Experts</title>
@@ -1679,36 +1723,84 @@
       drawer.setAttribute('aria-hidden', open ? 'true' : 'false');
     });
 
-    // Centralized conversion tracking function for better performance
-    window.trackConversion = function(conversionType, value = 1.0) {
-      const conversions = {
-        'form': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
-        'phone': 'AW-17663809026/HWZYCNmh4L8bEIKs4eZB',
-        'cta': 'AW-17663809026/cta_click'
+    // Google Ads official event snippet for Submit lead form conversion
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
       };
-      
-      const conversionId = conversions[conversionType];
-      if (!conversionId) {
-        console.log('❌ Unknown conversion type:', conversionType);
-        return;
-      }
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      console.log('📝 Official gtag_report_conversion fired for Submit lead form');
+      return false;
+    }
+
+    // Make it globally available for Tag Assistant testing
+    window.gtag_report_conversion = gtag_report_conversion;
+
+    // Initialize conversion queue for early calls
+    window.queuedConversions = window.queuedConversions || [];
+    
+    // Enhanced conversion tracking function for Submit lead form
+    window.trackConversion = function(conversionType, value = 1.0, maxRetries = 3) {
+      console.log('🎯 Tracking conversion:', conversionType, 'Value:', value);
       
       try {
+        // For form submissions, use the official Google Ads function
+        if (conversionType === 'form') {
+          console.log('📝 Using official gtag_report_conversion for form');
+          
+          // Fire official Google Ads conversion
+          if (typeof gtag_report_conversion === 'function') {
+            gtag_report_conversion();
+            console.log('✅ Official conversion fired via gtag_report_conversion');
+          }
+          
+          // Also fire via gtag for backup
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+              'value': value,
+              'currency': 'USD'
+            });
+            console.log('✅ Backup conversion fired via gtag');
+          }
+          
+          return;
+        }
+        
+        // For other conversion types (phone, cta)
+        const conversionId = 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB';
+        
+        // Fire conversion
         if (typeof gtag === 'function') {
-          console.log('🎯 Firing conversion:', conversionType, conversionId);
           gtag('event', 'conversion', {
             'send_to': conversionId,
             'value': value,
             'currency': 'USD'
           });
-          console.log('✅ Conversion fired successfully:', conversionType);
-        } else {
-          console.log('⏳ gtag not ready, queuing conversion:', conversionType);
-          // Queue for later if gtag not ready
-          setTimeout(() => window.trackConversion(conversionType, value), 500);
+          console.log('✅ Conversion fired:', conversionType, conversionId);
+        } else if (maxRetries > 0) {
+          console.log('⏳ gtag not ready, retrying...', conversionType);
+          setTimeout(() => window.trackConversion(conversionType, value, maxRetries - 1), 500);
         }
+        
       } catch (e) {
         console.log('❌ Error firing conversion:', e);
+        // Fallback to official function
+        if (typeof gtag_report_conversion === 'function') {
+          try {
+            gtag_report_conversion();
+            console.log('🔄 Fallback: used gtag_report_conversion');
+          } catch (err) {
+            console.log('❌ All conversion attempts failed:', err);
+          }
+        }
       }
     };
 
@@ -1866,6 +1958,8 @@
   // Form submit with loading + inline toast + send to Google Apps Script
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6zRJ35HtufhrhWvoOnV-idpNBkOUg0Z00ZxyN1BCK-n97E2NT1ndjCW4zjLwPqAY32Q/exec';
   const form = document.getElementById('estimateForm');
+  console.log('🔍 Form element found:', !!form, form ? 'ID: ' + form.id : 'Not found');
+  
     if (form) {
       const toast = document.getElementById('estimateToast');
       
@@ -1953,9 +2047,17 @@
 
       form.addEventListener('submit', async (e)=>{
         e.preventDefault();
+        console.log('🚀 Form submit event triggered');
+        
         const submitBtn = form.querySelector('button[type="submit"]');
         const data = new FormData(form);
         const services = Array.from(selected);
+        
+        console.log('📋 Form data:', {
+          submitBtn: !!submitBtn,
+          services: services.length,
+          selected: selected.size
+        });
 
         // Basic check
         const name = (data.get('name')||'').toString().trim();
@@ -1986,11 +2088,22 @@
           // 1) Show popup immediately (optimistic UI)
           showEstimateResult(name, services);
 
-          // 2) Fire Google Ads conversion right away using centralized function
-          window.trackConversion('form', 1.0);
+          // 2) Fire Google Ads conversions immediately
+          const conversionValue = Math.max(1.0, finalPrice * 0.1);
+          
+          console.log('🎯 Firing form conversion, value:', conversionValue);
+          
+          // Fire official Google Ads conversion
+          if (typeof gtag_report_conversion === 'function') {
+            gtag_report_conversion();
+            console.log('✅ Official gtag_report_conversion fired');
+          }
+          
+          // Fire backup conversion
+          window.trackConversion('form', conversionValue);
 
           // 3) Fire-and-forget lead submit with timeout; never block UI
-          postWithTimeout(GOOGLE_SCRIPT_URL, {
+          const submissionPromise = postWithTimeout(GOOGLE_SCRIPT_URL, {
             name,
             phone,
             zip,
@@ -2000,9 +2113,19 @@
             timestamp: new Date().toISOString(),
             source: 'website',
             page: window.location.href
-          }, {timeout: 2500}).catch(()=>{});
+          }, {timeout: 2500});
 
-          // 4) Reset UI state
+          // 4) Fire additional conversion after successful submission (with delay for better tracking)
+          submissionPromise.then(() => {
+            setTimeout(() => {
+              window.trackConversion('form', conversionValue);
+              console.log('📝 Form submission confirmed, conversion re-fired');
+            }, 1000);
+          }).catch(() => {
+            console.log('⚠️ Form submission failed, but conversion already tracked');
+          });
+
+          // 5) Reset UI state
           form.reset(); selected.clear();
           document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));
         } catch (err) {
@@ -2012,6 +2135,94 @@
           if(submitBtn){ submitBtn.disabled = false; submitBtn.innerHTML = prevHTML; }
         }
       });
+
+      // Debug function for checking conversion tracking status (for testing)
+      window.checkTrackingStatus = function() {
+        console.log('🔍 Tracking Status Debug:');
+        console.log('gtag function:', typeof gtag);
+        console.log('dataLayer:', typeof dataLayer, dataLayer ? 'exists' : 'missing');
+        console.log('gtagReady:', window.gtagReady);
+        console.log('gtag_report_conversion:', typeof window.gtag_report_conversion);
+        console.log('Queued conversions:', window.queuedConversions?.length || 0);
+        if (window.queuedConversions?.length > 0) {
+          console.log('Queue contents:', window.queuedConversions);
+        }
+      };
+
+      // Test function for Tag Assistant validation
+      window.testGoogleAdsConversion = function() {
+        console.log('🧪 Testing Google Ads conversion for Tag Assistant...');
+        
+        // Test official function first
+        console.log('1️⃣ Testing official gtag_report_conversion...');
+        if (typeof gtag_report_conversion === 'function') {
+          gtag_report_conversion();
+          console.log('✅ gtag_report_conversion fired');
+        } else {
+          console.log('❌ gtag_report_conversion not available');
+        }
+        
+        // Test direct gtag call with delay for Tag Assistant
+        setTimeout(() => {
+          console.log('2️⃣ Testing direct gtag call...');
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB',
+              'value': 1.0,
+              'currency': 'USD'
+            });
+            console.log('✅ Direct gtag conversion fired');
+          } else {
+            console.log('❌ gtag not available');
+          }
+        }, 1000);
+        
+        // Test with page_view event (for Page Load conversions)
+        setTimeout(() => {
+          console.log('3️⃣ Testing page_view conversion...');
+          if (typeof gtag === 'function') {
+            gtag('event', 'page_view', {
+              'send_to': 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB'
+            });
+            console.log('✅ Page view conversion fired');
+          }
+        }, 1500);
+        
+        // Test our enhanced function
+        setTimeout(() => {
+          console.log('4️⃣ Testing trackConversion...');
+          window.trackConversion('form', 1.0);
+        }, 2000);
+        
+        console.log('✅ All conversion tests queued. Check Tag Assistant in 3 seconds!');
+      };
+
+    // Additional test for Tag Assistant - Page Load conversion
+    window.testPageLoadConversion = function() {
+      console.log('📄 Testing Page Load conversion for Tag Assistant...');
+      
+      if (typeof gtag === 'function') {
+        // Try different event types that Tag Assistant might recognize
+        gtag('config', 'AW-17663809026/5IKrCO3VhLUbEIKs4eZB', {
+          'page_title': 'Submit lead form',
+          'page_location': window.location.href
+        });
+        
+        // Also try as page_view
+        gtag('event', 'page_view', {
+          'send_to': 'AW-17663809026'
+        });
+        
+        console.log('✅ Page load conversion attempts sent');
+      }
+    };
+
+    // Make functions available in console for debugging
+    console.log('🧪 Debug functions available:');
+    console.log('- testGoogleAdsConversion() - Test all conversion methods');
+    console.log('- testPageLoadConversion() - Test Page Load conversion');
+    console.log('- checkTrackingStatus() - Check tracking setup');
+    console.log('- gtag_report_conversion() - Official Google Ads conversion');
       
       // Close result popup
       document.getElementById('resultClose')?.addEventListener('click', () => {
