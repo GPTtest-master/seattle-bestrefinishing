@@ -4,7 +4,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://best-refinishing.com/</loc>
+    <loc>https://www.best-refinishing.com/</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -12,37 +12,37 @@
   
   <!-- Main Service Pages - High Priority -->
   <url>
-    <loc>https://best-refinishing.com/services/bathtub-refinishing.html</loc>
+    <loc>https://www.best-refinishing.com/services/bathtub-refinishing</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/services/tile-refinishing.html</loc>
+    <loc>https://www.best-refinishing.com/services/tile-refinishing</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/services/shower-refinishing.html</loc>
+    <loc>https://www.best-refinishing.com/services/shower-refinishing</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/services/sink-refinishing.html</loc>
+    <loc>https://www.best-refinishing.com/services/sink-refinishing</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/services/countertop-refinishing.html</loc>
+    <loc>https://www.best-refinishing.com/services/countertop-refinishing</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/services/repair.html</loc>
+    <loc>https://www.best-refinishing.com/services/repair</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -50,37 +50,37 @@
   
   <!-- Location Pages - Very High Priority for Local SEO -->
   <url>
-    <loc>https://best-refinishing.com/locations.html</loc>
+    <loc>https://www.best-refinishing.com/locations</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/locations/bellevue.html</loc>
+    <loc>https://www.best-refinishing.com/locations/bellevue</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/locations/redmond.html</loc>
+    <loc>https://www.best-refinishing.com/locations/redmond</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/locations/kirkland.html</loc>
+    <loc>https://www.best-refinishing.com/locations/kirkland</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/locations/renton.html</loc>
+    <loc>https://www.best-refinishing.com/locations/renton</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/locations/bothell.html</loc>
+    <loc>https://www.best-refinishing.com/locations/bothell</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -88,19 +88,19 @@
   
   <!-- Information Pages -->
   <url>
-    <loc>https://best-refinishing.com/common-problems.html</loc>
+    <loc>https://www.best-refinishing.com/common-problems</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/our-process.html</loc>
+    <loc>https://www.best-refinishing.com/our-process</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://best-refinishing.com/property.html</loc>
+    <loc>https://www.best-refinishing.com/property</loc>
     <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
