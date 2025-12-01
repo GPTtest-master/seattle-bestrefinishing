@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+    <!-- Performance Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://us.i.posthog.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5Z4223L5');</script>
+    <!-- End Google Tag Manager -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Google Ads with Enhanced Conversions - Immediate loading for instant conversion tracking -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.queuedConversions = [];
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17663809026';
+        document.head.appendChild(script);
+        script.onload = function() {
+          try {
+            gtag('js', new Date());
+            gtag('config', 'AW-17663809026', {
+              'debug_mode': false,
+              'send_page_view': true,
+              'allow_enhanced_conversions': true
+            });
+            window.gtagReady = true;
+            if (window.queuedConversions.length > 0) {
+              window.queuedConversions.forEach(conv => {
+                if (conv.type === 'form' && conv.transactionId) {
+                  gtag('event','conversion',{
+                    send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+                    value: conv.value || 1.0,
+                    currency:'USD',
+                    transaction_id: conv.transactionId,
+                    ...(conv.enhancedData || {})
+                  });
+                } else {
+                  window.trackConversion(conv.type, conv.value);
+                }
+              });
+              window.queuedConversions = [];
+            }
+          } catch (e) {
+            console.error('❌ Google Ads initialization error:', e);
+          }
+        };
+        script.onerror = function() {
+          console.error('❌ Failed to load Google Ads script');
+        };
+      })();
+    </script>
+    <!-- Google Ads Event Snippet for Book appointment conversion -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+    <!-- Google Ads Event Snippet for Click to call conversion -->
+    <script>
+      function gtag_report_conversion_call(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17663809026/HWZYCNmh4L8bEIKs4eZB',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+  <title>Bathtub Refinishing Seattle — Porcelain, Cast Iron, Fiberglass | Best Refinishing</title>
+  <meta name="description" content="Professional bathtub refinishing in Seattle. Restore porcelain, cast iron, fiberglass, and acrylic tubs. Same-day service, 5-year warranty. Save $5,000+ vs replacement."/>
+  <meta name="keywords" content="bathtub refinishing seattle, porcelain tub reglazing, cast iron tub refinishing, fiberglass tub repair, acrylic bathtub resurfacing, tub reglazing seattle"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://best-refinishing.com/services/bathtub-refinishing.html">
+  <meta property="og:title" content="Bathtub Refinishing Seattle — Porcelain, Cast Iron, Fiberglass">
+  <meta property="og:description" content="Professional bathtub refinishing for all materials. 24-hour turnaround, eco-friendly, licensed & insured.">
+  <meta property="og:image" content="https://best-refinishing.com/images/optimized/bathtub-after-3.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bathtub Refinishing Seattle — All Materials">
+  <meta name="twitter:description" content="Restore porcelain, cast iron, fiberglass & acrylic tubs. Fast, eco-friendly service.">
+  <meta name="twitter:image" content="https://best-refinishing.com/images/optimized/bathtub-after-3.webp">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://best-refinishing.com/services/bathtub-refinishing.html">
+  
+  <!-- Geo & Theme -->
+  <meta name="geo.region" content="US-WA">
+  <meta name="geo.placename" content="Seattle">
+  <meta name="theme-color" content="#0078D7">
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Bathtub Refinishing",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Best Refinishing",
+      "telephone": "+1-206-786-9915",
+      "url": "https://www.best-refinishing.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Seattle"
+    },
+    "description": "Professional bathtub refinishing for porcelain, cast iron, fiberglass, and acrylic tubs. Same-day service with 5-year warranty.",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "450",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "350",
+        "maxPrice": "750"
+      }
+    }
+  }
+  </script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root{
+      --navy:#0b1220;
+      --navy2:#1a2b4a;
+      --brand:#0078D7;
+      --brand-deep:#005fa9;
+      --ink:#111;
+      --text:#333;
+      --muted:#4b5563;
+      --gray:#f4f7fb;
+      --card:#fff;
+      --cta:#ff6b00;
+      --bg:#fff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--text);line-height:1.6;background:var(--bg)}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%;height:auto}
+
+    /* Header */
+    .header-wrap{
+      position:sticky;top:0;z-index:1000;
+      background:linear-gradient(180deg,var(--navy) 0%, var(--navy2) 100%);
+      color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+    .nav{
+      max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;
+      padding:14px 20px;gap:20px;flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;flex-direction:row;line-height:1;align-items:center;gap:12px;
+    }
+    .brand .logo{height:70px;width:auto;display:block}
+    .brand .text-wrap{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
+    .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px}
+    .brand .trusted{opacity:.75;font-size:.72rem;margin-top:4px;line-height:1.2;font-weight:600}
+    .menu{display:flex;flex:1;flex-wrap:wrap;gap:14px;align-items:center;font-weight:600;justify-content:center;margin:0 20px}
+    .menu a{opacity:.95;white-space:nowrap;padding:4px 0}
+    .menu a:hover{opacity:1;text-decoration:none}
+
+  .phone{font-weight:800;display:flex;align-items:center;gap:8px}
+  .phone .phone-link{color:inherit;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:8px;white-space:nowrap}
+  .phone .icons{display:none}
+  .phone .icon-link{display:none}
+  .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px;fill:currentColor}
+  .phone-number{display:inline-block}
+    /* Services dropdown */
+    .dropdown{position:relative}
+    .dropdown .dropdown-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+    .dropdown .dropdown-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+    .dropdown .dropdown-toggle::after{content:'▼';margin-left:5px;font-size:0.8rem;transition:transform 0.25s ease;display:inline-block;opacity:0.9;vertical-align:middle}
+    .dropdown:hover .dropdown-toggle::after{transform:rotate(180deg);opacity:1}
+    .dropdown-menu{position:absolute;top:100%;left:0;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;margin-top:8px;min-width:220px;display:none;box-shadow:0 10px 24px rgba(2,6,23,.3);z-index:1000}
+    .dropdown-menu a{display:block;color:#fff;padding:10px 12px;text-decoration:none;font-weight:600;border-radius:8px;opacity:.95}
+    .dropdown-menu a:hover{background:rgba(255,255,255,.06);opacity:1}
+    .dropdown:hover .dropdown-menu{display:block}    .cta-quote{
+      background:var(--cta);color:#fff;font-weight:800;border:none;border-radius:10px;
+      padding:10px 16px;font-size:0.95rem;cursor:pointer;transition:.25s;white-space:nowrap;
+    }
+    .cta-quote:hover{transform:translateY(-1px);box-shadow:0 0 18px rgba(255,107,0,.45);}
+
+    .burger{display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .burger span{width:24px;height:2px;background:#fff;border-radius:2px}
+    .drawer{display:none;background:var(--navy2);color:#fff;padding:12px 20px}
+    .drawer a{display:block;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#fff;text-decoration:none;font-weight:600}
+    .drawer .phone{display:block;margin-top:10px;padding:10px 0;border-top:2px solid rgba(255,255,255,.2);font-weight:700}
+    .drawer .cta-quote{margin-top:10px;width:100%;display:block;text-align:center;padding:12px}
+
+    /* Hero */
+    .hero{
+      position:relative;
+      background:
+        url('/images/IMG_6967.webp') center top/cover no-repeat;
+      color:#fff;padding:80px 20px 60px;text-align:center;
+      overflow:hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(20,30,50,0.28) 0%, rgba(20,30,50,0.18) 100%);
+    }
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1{font-size:2.4rem;max-width:900px;margin:0 auto 16px;line-height:1.2}
+  .hero p{font-size:1.15rem;max-width:700px;margin:0 auto 28px;opacity:.95;color:#fff}
+    .hero-cta{
+      display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+    }
+    .btn-primary{
+      background:var(--cta);
+      color:#fff;
+      padding:16px 32px;
+      border-radius:12px;
+      border:none;
+      font-weight:800;
+      font-size:1.1rem;
+      cursor:pointer;
+      transition:.25s;
+      box-shadow:0 2px 12px rgba(11,102,179,0.10);
+      letter-spacing:0.01em;
+    }
+    .btn-primary:hover{
+      background:#f0f9ff!important;
+      color:#005fa9!important;
+      transform:translateY(-3px) scale(1.05)!important;
+      box-shadow:0 6px 24px rgba(255,255,255,0.4)!important;
+    }
+    .btn-secondary:hover{
+      background:#f0f9ff!important;
+      color:#005fa9!important;
+      transform:translateY(-3px) scale(1.05)!important;
+      box-shadow:0 6px 24px rgba(255,255,255,0.4)!important;
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,.25);color:#fff;padding:16px 32px;border-radius:12px;
+      border:2px solid rgba(255,255,255,.6);font-weight:800;font-size:1.1rem;cursor:pointer;transition:.25s;
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,.35)}
+
+    /* Main Content */
+    .main{max-width:1100px;margin:40px auto;padding:0 20px}
+    section{margin-bottom:50px}
+    h2{font-size:1.9rem;color:var(--ink);margin-bottom:16px}
+    h3{font-size:1.35rem;color:var(--ink);margin-bottom:12px;margin-top:22px}
+    p{margin-bottom:14px;color:var(--text);line-height:1.65}
+    ul,ol{margin:14px 0;padding-left:28px}
+    li{margin-bottom:10px;line-height:1.65}
+
+    .content-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:30px}
+    .card{
+      background:var(--card);padding:26px;border-radius:12px;
+      box-shadow:0 4px 14px rgba(0,0,0,.06);border:1px solid #e5e7eb
+    }
+    .highlight-box{
+      background:var(--gray);padding:20px;border-radius:12px;border-left:4px solid var(--brand);
+      margin:20px 0
+    }
+    .price-box{
+      background:linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+      border:2px solid var(--cta);padding:20px;border-radius:12px;margin:20px 0;text-align:center
+    }
+    .price-box strong{font-size:1.6rem;color:var(--cta);display:block;margin-bottom:8px}
+
+    /* Materials Grid */
+    .materials-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:20px 0
+    }
+    .material-item{
+      background:#fff;padding:14px 18px;border-radius:10px;
+      border:1px solid #e5e7eb;font-weight:600;color:var(--brand);text-align:center
+    }
+
+    /* Footer */
+    .footer{background:var(--navy);color:#cbd5e1;padding:0;margin-top:60px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
+    .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-links{list-style:none;padding:0;margin:0}
+    .footer-links li{margin-bottom:8px}
+    .footer-links a{color:#93c5fd;text-decoration:none;transition:color 0.3s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px;margin-top:20px;text-align:center;font-size:0.9rem;opacity:0.8}
+    @media(max-width:768px){
+      .footer-grid{grid-template-columns:repeat(2,1fr);gap:25px}
+    }
+    @media(max-width:480px){
+      .footer-grid{grid-template-columns:1fr;gap:20px}
+    }
+
+    /* Mobile */
+    @media (max-width:768px){
+      .nav{padding:10px 16px}
+      .brand .logo{height:50px}
+      .brand .name{font-size:1.2rem}
+      .brand .trusted{font-size:0.65rem}
+      .menu{display:none}
+      .phone{display:none}
+      .burger{display:flex}
+      .hero{padding:60px 20px 50px}
+      .hero h1{font-size:1.8rem}
+      .hero p{font-size:1rem}
+      .content-grid{grid-template-columns:1fr}
+      h2{font-size:1.5rem}
+      h3{font-size:1.2rem}
+    }
+    @media(max-width:480px){
+      .brand .logo{height:45px}
+      .brand .name{font-size:1.1rem}
+      .brand .trusted{font-size:0.6rem}
+      .hero{padding:50px 16px 40px}
+      .hero h1{font-size:1.6rem}
+      .hero p{font-size:0.95rem}
+    }
+    .floating-btn{
+      position:fixed;
+      bottom:26px;
+      right:26px;
+      background:#0b66b3;
+      color:#fff;
+      border:none;
+      border-radius:50%;
+      width:68px;
+      height:68px;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      cursor:pointer;
+      z-index:1000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      transition:.3s;
+    }
+    .floating-btn:hover{background:var(--brand-deep);transform:scale(1.05)}
+    .floating-btn svg{width:32px;height:32px;display:block;fill:#fff}
+
+    /* Trust Bar (Mobile & Desktop, как на index.html) */
+    .trust-bar {
+      background:rgba(255,255,255,0.95);
+      color:#0b66b3;
+      padding:8px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:30px;
+      flex-wrap:wrap;
+      font-weight:700;
+      font-size:0.9rem;
+      margin-bottom:20px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .trust-bar > div {
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .trust-desktop-only {
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    @media (max-width: 768px) {
+      .trust-bar {
+        font-size:0.7rem;
+        gap:6px;
+        padding:4px 8px;
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+      .trust-bar > div {
+        font-size:0.7rem;
+      }
+      .trust-desktop-only {
+        display:none !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .trust-bar {
+        font-size:0.65rem;
+        gap:4px;
+        padding:3px 6px;
+        flex-direction:row;
+        justify-content:space-around;
+      }
+      .trust-bar > div {
+        font-size:0.65rem;
+        flex:1;
+        text-align:center;
+      }
+      .trust-bar > div:nth-child(4) {
+        display:none;
+      }
+      .trust-desktop-only {
+        display:none !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z4223L5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Header -->
+  <div class="header-wrap">
+    <nav class="nav">
+  <a href="/" class="brand" style="cursor:pointer">
+  <img src="/images/logo.png" alt="Best Refinishing" class="logo" width="90" height="90">
+      </a>
+
+      <div class="menu">
+        <div class="dropdown">
+          <a href="#services" class="dropdown-toggle">Services</a>
+          <div class="dropdown-menu">
+            <a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a>
+            <a href="/services/shower-refinishing.html">Shower Refinishing</a>
+            <a href="/services/tile-refinishing.html">Tile Refinishing</a>
+            <a href="/services/sink-refinishing.html">Sink Refinishing</a>
+            <a href="/services/countertop-refinishing.html">Countertop Refinishing</a>
+            <a href="/services/repair.html">Chip & Crack Repair</a>
+          </div>
+        </div>
+        <a href="/locations.html">Locations</a>
+  <a href="/our-process">Our Process</a>
+  <a href="/contact">Contact</a>
+  <a href="/common-problems.html">Common Problems</a>
+  <a href="/faq">FAQ</a>
+
+        <span class="phone" aria-hidden="false">
+          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
+            <span class="phone-number">+1 (206) 786-9915</span>
+          </a>
+          <span class="icons" aria-hidden="true">
+            <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="gtag_report_conversion_call()">
+              <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
+            </a>
+            <a class="icon-link" href="sms:+12067869915" aria-label="Text">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+            </a>
+          </span>
+        </span>
+
+        <button class="cta-quote" id="quoteTop">Get Instant Quote</button>
+      </div>
+
+      <div class="burger" id="burger" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+    <a href="/services">Services</a>
+      <a href="/services/bathtub-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Bathtub Refinishing</a>
+      <a href="/services/shower-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Shower Refinishing</a>
+      <a href="/services/tile-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Tile Refinishing</a>
+      <a href="/services/sink-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Sink Refinishing</a>
+      <a href="/services/countertop-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Countertop Refinishing</a>
+      <a href="/services/repair.html" style="padding-left:20px;font-size:0.9rem">• Chip & Crack Repair</a>
+      <a href="/gallery">Gallery</a>
+  <a href="/our-process">Our Process</a>
+  <a href="/contact">Contact</a>
+    <a href="/common-problems.html">Common Problems</a>
+    <a href="/faq">FAQ</a>
+      <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
+        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
+          Call: +1 (206) 786-9915
+        </a>
+        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="gtag_report_conversion_call()">
+          <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
+        </a>
+        <a href="sms:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Text">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Trust Bar (Mobile & Desktop, как на index.html) -->
+  <div class="trust-bar" style="background:rgba(255,255,255,0.95);color:#0b66b3;padding:8px 20px 0 20px;display:flex;justify-content:center;align-items:center;gap:30px;flex-wrap:wrap;font-weight:700;font-size:0.9rem;margin-bottom:0;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    <div style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>Licensed & Insured</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>5-Year Warranty</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>1,000+ Satisfied Customers</span>
+    </div>
+    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>Same-Day Service</span>
+    </div>
+    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>Eco-Friendly Materials</span>
+    </div>
+    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;">
+      <span style="color:#22c55e;">✓</span>
+      <span>10-15 Year Durability</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1 class="hero-desktop-headline">Bathtub Refinishing Seattle — Restore & Save Instantly</h1>
+    <h1 class="hero-mobile-headline" style="font-size:2.1rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;">Bathtub Refinishing Seattle</h1>
+    <p class="hero-desktop" style="font-size:1.15rem;opacity:.96;margin:0 auto 24px;max-width:820px;color:#fff;line-height:1.6;display:block;">
+      Transform your old, stained, or damaged bathtub into a flawless, modern centerpiece in just 24 hours.<br>
+      We refinish <span style="color:#fff;font-weight:700;">porcelain, cast iron, fiberglass, and acrylic tubs</span> with commercial-grade coatings for a glossy, durable finish that lasts 10+ years.<br>
+      <span style="color:#fff;font-weight:700;">Save $5,000+</span> vs replacement. <span style="color:#fff;font-weight:700;">Licensed, insured, 5-year warranty.</span> Get your instant quote now — no calls required!
+    </p>
+    <p class="hero-mobile" style="font-size:1.05rem;opacity:.96;margin:0 auto 24px;max-width:820px;color:#fff;line-height:1.6;display:none;">
+  Fast bathtub refinishing in Seattle.<br>
+  All materials: porcelain, cast iron, fiberglass, acrylic.<br>
+  <strong>Save $5,000+</strong> & 5-year warranty.<br>
+  Instant online quote — no calls needed.
+    </p>
+    <style>
+      @media (max-width:820px) {
+        .hero-desktop-headline { display: none !important; }
+        .hero-mobile-headline { display: block !important; }
+        .hero-desktop { display: none !important; }
+        .hero-mobile { display: block !important; }
+      }
+      @media (min-width:821px) {
+        .hero-desktop-headline { display: block !important; }
+        .hero-mobile-headline { display: none !important; }
+        .hero-desktop { display: block !important; }
+        .hero-mobile { display: none !important; }
+      }
+    </style>
+    <div class="hero-cta" style="display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;">
+      <a href="/index.html#estimate"><button class="btn-primary" style="background:#ff6b00;color:#fff;padding:20px 45px;border-radius:12px;border:2px solid #ff6b00;font-weight:800;font-size:1.2rem;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(255,107,0,0.4);letter-spacing:0.01em;">Get Instant Quote</button></a>
+      <a href="tel:+12067869915"><button class="btn-secondary" style="background:rgba(255,255,255,0.2);color:#fff;padding:18px 40px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;backdrop-filter:blur(5px);letter-spacing:0.01em;">Call (206) 786-9915</button></a>
+    </div>
+  <div style="font-weight:800;color:#fff;margin-top:18px;font-size:1.08rem;">1‑day turnaround • Ready in 24 hours</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <section>
+      <h2>Transform Your Bathtub Without Replacement</h2>
+      <p>Is your bathtub chipped, stained, or outdated? Our professional bathtub refinishing service restores it to pristine condition—no demolition, no replacement, no mess. We work with all bathtub materials and deliver results that last 7–10+ years.</p>
+      
+      <div class="price-box">
+        <strong>From $350–$750</strong>
+        <p style="margin:0">Typical cost depending on size, material, and condition. Get your exact price instantly online.</p>
+      </div>
+
+      <div class="highlight-box">
+        <strong>✓ Same-day or 24-hour service</strong><br>
+        <strong>✓ 5-year warranty on workmanship</strong><br>
+        <strong>✓ Eco-friendly, low-VOC coatings</strong><br>
+        <strong>✓ Licensed, insured, and Seattle-local</strong>
+      </div>
+    </section>
+
+    <section>
+      <h2>Bathtub Materials We Refinish</h2>
+      <p>Our advanced refinishing process works on all common bathtub materials found in Seattle homes:</p>
+      
+      <div class="materials-grid">
+        <div class="material-item">✓ Porcelain Tubs</div>
+        <div class="material-item">✓ Cast Iron Tubs</div>
+        <div class="material-item">✓ Fiberglass Tubs</div>
+        <div class="material-item">✓ Acrylic Tubs</div>
+        <div class="material-item">✓ Steel Tubs</div>
+        <div class="material-item">✓ Cultured Marble</div>
+      </div>
+
+      <p>Each material requires specialized prep and coating techniques. Our certified technicians match the process to your tub's surface for maximum adhesion and durability.</p>
+    </section>
+
+    <section>
+      <h2>Our Bathtub Refinishing Process</h2>
+      <div class="content-grid">
+        <div class="card">
+          <h3>1. Deep Cleaning & Prep</h3>
+          <p>We remove all soap scum, oils, and mineral deposits. The surface is chemically etched to ensure perfect adhesion of the new coating.</p>
+        </div>
+        <div class="card">
+          <h3>2. Chip & Crack Repair</h3>
+          <p>All chips, cracks, and rust spots are filled with industrial-grade epoxy filler and sanded smooth.</p>
+        </div>
+        <div class="card">
+          <h3>3. Primer & Bonding</h3>
+          <p>We apply a professional bonding agent designed specifically for your tub's material—porcelain, cast iron, fiberglass, or acrylic.</p>
+        </div>
+        <div class="card">
+          <h3>4. Multi-Layer Topcoat</h3>
+          <p>3–4 layers of high-solids acrylic urethane coating are sprayed for a smooth, glossy, durable finish. Cures in 24 hours for a true 1‑day turnaround.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why Choose Refinishing Over Replacement?</h2>
+      <ul>
+        <li><strong>Save 70–80%:</strong> Bathtub replacement costs $3,000–$6,000+ including demolition, plumbing, tiling, and disposal. Refinishing costs $350–$750.</li>
+  <li><strong>Fast turnaround:</strong> Most tubs are done in 4–6 hours, ready to use in 24 hours. No weeks of construction.</li>
+        <li><strong>No demolition:</strong> Keep your existing tub, tile, and plumbing. Zero mess, dust, or structural work.</li>
+        <li><strong>Eco-friendly:</strong> Refinishing keeps old tubs out of landfills and uses low-VOC, water-based coatings.</li>
+        <li><strong>Custom colors:</strong> Choose bright white, off-white, almond, or any modern neutral to match your bathroom.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Common Bathtub Issues We Fix</h2>
+      <div class="content-grid">
+        <div>
+          <h3>Chips & Cracks</h3>
+          <p>Dropped objects, age, and wear create chips and cracks. We fill and seal them permanently.</p>
+        </div>
+        <div>
+          <h3>Stains & Discoloration</h3>
+          <p>Hard water, rust, and mineral buildup cause yellowing and stains. Our coating covers them completely.</p>
+        </div>
+        <div>
+          <h3>Rough, Worn Surface</h3>
+          <p>Old porcelain and enamel becomes porous and rough. We restore the smooth, glossy finish.</p>
+        </div>
+        <div>
+          <h3>Outdated Colors</h3>
+          <p>Pink, avocado, harvest gold? We reglaze in modern white or neutral tones for instant updates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      
+      <h3>How long does bathtub refinishing last?</h3>
+      <p>With proper care, a professionally refinished tub lasts 7–10 years or more. Use non-abrasive cleaners, avoid bathmats with suction cups, and clean regularly.</p>
+
+      <h3>Is refinishing safe?</h3>
+  <p>Yes. We use low-VOC, eco-friendly coatings and ensure proper ventilation. The space is safe to enter after 12 hours and fully ready after 24 hours.</p>
+
+      <h3>Can you refinish fiberglass and acrylic tubs?</h3>
+      <p>Absolutely. We specialize in all materials—fiberglass, acrylic, porcelain, and cast iron. Each requires different prep and coating techniques.</p>
+
+      <h3>What if my tub has rust or deep cracks?</h3>
+      <p>We repair rust spots and fill cracks with industrial epoxy before refinishing. Most damage can be fixed.</p>
+
+      <h3>Do you offer warranties?</h3>
+      <p>Yes, we provide a 5-year warranty on workmanship and adhesion. If the coating peels or fails under normal use, we'll re-coat at no charge.</p>
+
+      <h3>How soon can I use my tub after refinishing?</h3>
+  <p>Light use (hand-washing, no standing water) after 12 hours. Full use (bathing, soaking) after 24 hours once fully cured.</p>
+    </section>
+
+    <section style="text-align:center">
+      <h2>Ready to Restore Your Bathtub?</h2>
+      <p>Get an instant online quote in 60 seconds. No pressure, no sales calls—just honest pricing.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+        <a href="/index.html#estimate"><button class="btn-primary" style="font-size:1.2rem;padding:18px 40px">Get Instant Quote</button></a>
+        <a href="tel:+12067869915"><button class="btn-secondary" style="font-size:1.1rem;padding:16px 32px;background:#fff;color:var(--brand);border:2px solid var(--brand)">Call (206) 786-9915</button></a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+  <h3>Best Refinishing</h3>
+  <p style="color:#fff;">Seattle's premier refinishing service. Transform your bathroom and kitchen fixtures with professional reglazing.</p>
+  <p style="margin-top:12px;color:#fff;"><strong>Licensed & Insured</strong><br>Washington State</p>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a></li>
+          <li><a href="/services/tile-refinishing.html">Tile Refinishing</a></li>
+          <li><a href="/services/shower-refinishing.html">Shower Refinishing</a></li>
+          <li><a href="/services/sink-refinishing.html">Sink Refinishing</a></li>
+          <li><a href="/services/countertop-refinishing.html">Countertop Refinishing</a></li>
+          <li><a href="/services/repair.html">Chip & Crack Repair</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html#services">All Services</a></li>
+          <li><a href="/our-process.html">Our Process</a></li>
+          <li><a href="/property.html">Property Managers</a></li>
+          <li><a href="/index.html#reviews">Reviews</a></li>
+          <li><a href="/index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul class="footer-links">
+          <li><a href="tel:+12067869915">(206) 786-9915</a></li>
+          <li><a href="mailto:info@best-refinishing.com">info@best-refinishing.com</a></li>
+          <li style="margin-top:8px;font-weight:600">Open 24/7 — our estimate form is always available</li>
+          <li style="margin-top:12px;font-size:0.85rem;line-height:1.4;opacity:0.9">
+            <strong style="color:#fff">Service Areas:</strong><br>
+            <a href="/locations.html" style="color:#93c5fd">Seattle</a>, 
+            <a href="/locations/bellevue.html" style="color:#93c5fd">Bellevue</a>, 
+            <a href="/locations/redmond.html" style="color:#93c5fd">Redmond</a>, 
+            <a href="/locations/kirkland.html" style="color:#93c5fd">Kirkland</a>, 
+            <a href="/locations/renton.html" style="color:#93c5fd">Renton</a>, 
+            <a href="/locations/bothell.html" style="color:#93c5fd">Bothell</a> & 
+            <a href="/locations.html" style="color:#93c5fd">15+ more cities</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <p style="color:#fff;">&copy; 2025 Best Refinishing. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Call/Text -->
+  <a
+    class="floating-btn"
+    id="floatCall"
+    href="tel:+12067869915"
+    aria-label="Call Best Refinishing at +1 (206) 786-9915"
+    title="Call us"
+    onclick="gtag_report_conversion_call()"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:40px;height:40px;display:block;margin:auto;fill:#fff;">
+      <path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 713 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/>
+    </svg>
+  </a>
+
+  <script>
+    const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+    if(burger&&drawer){
+      burger.addEventListener('click',()=>{
+        const isOpen=drawer.style.display==='block';
+        drawer.style.display=isOpen?'none':'block';
+        drawer.setAttribute('aria-hidden',isOpen?'true':'false');
+      });
+      document.addEventListener('click',e=>{
+        if(!burger.contains(e.target)&&!drawer.contains(e.target)&&drawer.style.display==='block'){
+          drawer.style.display='none';
+          drawer.setAttribute('aria-hidden','true');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

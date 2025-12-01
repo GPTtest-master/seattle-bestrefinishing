@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Z4223L5');</script>
+<!-- End Google Tag Manager -->
    <!-- Performance Optimization: Preconnect to external domains -->
    <link rel="preconnect" href="https://us.i.posthog.com">
    <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -20,6 +27,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
+    <!-- Performance Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://us.i.posthog.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- Google Ads with Enhanced Conversions - Immediate loading for instant conversion tracking -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.queuedConversions = [];
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17663809026';
+        document.head.appendChild(script);
+        script.onload = function() {
+          try {
+            gtag('js', new Date());
+            gtag('config', 'AW-17663809026', {
+              'debug_mode': false,
+              'send_page_view': true,
+              'allow_enhanced_conversions': true
+            });
+            window.gtagReady = true;
+            if (window.queuedConversions.length > 0) {
+              window.queuedConversions.forEach(conv => {
+                if (conv.type === 'form' && conv.transactionId) {
+                  gtag('event','conversion',{
+                    send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+                    value: conv.value || 1.0,
+                    currency:'USD',
+                    transaction_id: conv.transactionId,
+                    ...(conv.enhancedData || {})
+                  });
+                } else {
+                  window.trackConversion(conv.type, conv.value);
+                }
+              });
+              window.queuedConversions = [];
+            }
+          } catch (e) {
+            console.error('❌ Google Ads initialization error:', e);
+          }
+        };
+        script.onerror = function() {
+          console.error('❌ Failed to load Google Ads script');
+        };
+      })();
+    </script>
+    <!-- Google Ads Event Snippet for Book appointment conversion -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+    <!-- Google Ads Event Snippet for Click to call conversion -->
+    <script>
+      function gtag_report_conversion_call(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17663809026/HWZYCNmh4L8bEIKs4eZB',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
   <!-- Google Analytics - Deferred for performance -->
   <script>
     // Load Google Analytics after page load for better performance
@@ -38,12 +128,131 @@
     });
   </script>
   
-  <title>Our Process — Best Refinishing Seattle</title>
-  <meta name="description" content="Learn about our professional bathtub and tile refinishing process. Expert service in Seattle area."/>
+  <title>Our Refinishing Process — Professional 7-Step System | Best Refinishing Seattle</title>
+  <meta name="description" content="Our proven 7-step refinishing process delivers factory-quality results. Surface prep, acid etching, professional spraying, 24-hour cure time. 5-year warranty. Licensed & insured in Seattle."/>
+  <meta name="keywords" content="refinishing process, bathtub reglazing steps, professional refinishing, surface preparation, spray refinishing, Seattle refinishing service"/>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://best-refinishing.com/our-process.html">
+  <meta property="og:title" content="Our Professional Refinishing Process — Best Refinishing Seattle">
+  <meta property="og:description" content="7-step proven process: preparation, acid etch, repair, prime, spray, cure. Factory-quality results, 5-year warranty.">
+  <meta property="og:image" content="https://best-refinishing.com/images/optimized/bathtub-after-3.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Professional Refinishing Process — Best Refinishing">
+  <meta name="twitter:description" content="7-step proven process delivers factory-quality results. 24-hour turnaround, 5-year warranty.">
+  <meta name="twitter:image" content="https://best-refinishing.com/images/optimized/bathtub-after-3.webp">
+  
+  <!-- Canonical & Geo -->
+  <link rel="canonical" href="https://best-refinishing.com/our-process.html">
+  <meta name="geo.region" content="US-WA">
+  <meta name="geo.placename" content="Seattle">
+  <meta name="geo.position" content="47.6062;-122.3321">
+  <meta name="ICBM" content="47.6062, -122.3321">
+  
+  <!-- PWA & Theme -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#0078D7">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Structured Data - HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Professional Bathtub and Tile Refinishing Process",
+    "description": "Our proven 7-step refinishing process delivers factory-quality, durable results for bathtubs, tiles, showers, and countertops.",
+    "totalTime": "PT6H",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "450"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Surface Preparation",
+        "text": "Deep cleaning and removal of soap scum, oils, and contaminants using professional-grade cleaners."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Damage Assessment and Repair",
+        "text": "Inspect for chips, cracks, and rust. Repair all damage using specialized fillers and bonding agents."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Acid Etching",
+        "text": "Apply industrial acid etching solution to create microscopic texture for maximum coating adhesion."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Final Cleaning and Masking",
+        "text": "Thorough rinse, neutralization, and professional masking of fixtures and surrounding areas."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Primer Application",
+        "text": "Apply specialized bonding primer designed for ceramic, porcelain, fiberglass, or acrylic surfaces."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Professional Spray Coating",
+        "text": "Multiple thin coats of commercial-grade refinishing coating applied with HVLP spray equipment."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 7,
+        "name": "Curing and Quality Check",
+        "text": "24-hour cure time, ventilation, final inspection, and protective care instructions provided."
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "HVLP Spray Equipment"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Industrial Ventilation System"
+      }
+    ],
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Commercial-grade refinishing coating"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Bonding primer"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Acid etching solution"
+      }
+    ],
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Best Refinishing",
+      "telephone": "+1-206-786-9915",
+      "url": "https://best-refinishing.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
   <!-- Optimized font loading for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,9 +296,9 @@
     .brand .text-wrap{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
     .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px}
     .brand .trusted{opacity:.75;font-size:.72rem;margin-top:4px;line-height:1.2;font-weight:600}
-    .menu{display:flex;flex:1;flex-wrap:nowrap;gap:14px;align-items:center;font-weight:600;justify-content:space-evenly;margin:0 20px}
+        .menu{display:flex;flex:1;flex-wrap:nowrap;gap:14px;align-items:center;font-weight:600;justify-content:space-evenly;margin:0 20px}
     .menu a{opacity:.95;white-space:nowrap}
-    .menu a:hover{opacity:1;text-decoration:underline}
+    .menu a:hover{opacity:1;text-decoration:none}
 
     /* phone: number only */
     .phone{font-weight:800;display:flex;align-items:center;gap:8px}
@@ -98,6 +307,16 @@
     .phone .icon-link{display:none}
     .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px;fill:currentColor}
     .phone-number{display:inline-block}
+
+    /* Services dropdown */
+    .dropdown{position:relative}
+    .dropdown .dropdown-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+    .dropdown .dropdown-toggle::after{content:'▼';margin-left:5px;font-size:0.8rem;transition:transform 0.25s ease;display:inline-block;opacity:0.9;vertical-align:middle}
+    .dropdown:hover .dropdown-toggle::after{transform:rotate(180deg);opacity:1}
+    .dropdown-menu{position:absolute;top:100%;left:0;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;margin-top:8px;min-width:220px;display:none;box-shadow:0 10px 24px rgba(2,6,23,.3);z-index:1000}
+    .dropdown-menu a{display:block;color:#fff;padding:10px 12px;text-decoration:none;font-weight:600;border-radius:8px;opacity:.95}
+    .dropdown-menu a:hover{background:rgba(255,255,255,.06);opacity:1}
+    .dropdown:hover .dropdown-menu{display:block}
 
     .cta-quote{
       background:var(--cta);color:#fff;font-weight:800;border:none;border-radius:10px;
@@ -205,18 +424,19 @@
       color:#fff;
       border:none;
       border-radius:50%;
-      width:64px;
-      height:64px;
+      width:68px;
+      height:68px;
       box-shadow:0 6px 16px rgba(0,0,0,.25);
       cursor:pointer;
       z-index:1000;
       display:flex;
       align-items:center;
       justify-content:center;
+      padding:16px;
       transition:.3s;
     }
     .floating-btn:hover{background:var(--brand-deep);transform:scale(1.05)}
-    .floating-btn svg{width:28px;height:28px;display:block}
+    .floating-btn svg{width:32px;height:32px;display:block;fill:#fff}
     @media (max-width:900px){
       .process-row{grid-template-columns:1fr!important}
       .process-row:nth-child(even) .process-text{order:1}
@@ -226,31 +446,42 @@
   </style>
 </head>
 <body>
-
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z4223L5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- Header -->
   <div class="header-wrap">
     <nav class="nav">
-      <a href="/" class="brand" style="cursor:pointer">
-  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo">
-        <div class="text-wrap">
-          <div class="name">Best Refinishing</div>
-          <div class="trusted">Trusted by Homeowners Across Seattle</div>
-        </div>
+  <a href="/" class="brand" style="cursor:pointer">
+  <img src="/images/logo.png" alt="Best Refinishing" class="logo" width="90" height="90">
       </a>
 
       <div class="menu">
-    <a href="/services">Services</a>
-    <a href="/gallery">Gallery</a>
-  <a href="/our-process" aria-current="page">Our Process</a>
-        <a href="/property">Property Managers</a>
-    <a href="/faq">FAQ</a>
+        <div class="dropdown">
+          <a href="#services" class="dropdown-toggle">Services</a>
+          <div class="dropdown-menu">
+            <a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a>
+            <a href="/services/shower-refinishing.html">Shower Refinishing</a>
+            <a href="/services/tile-refinishing.html">Tile Refinishing</a>
+            <a href="/services/sink-refinishing.html">Sink Refinishing</a>
+            <a href="/services/countertop-refinishing.html">Countertop Refinishing</a>
+            <a href="/services/repair.html">Chip & Crack Repair</a>
+          </div>
+        </div>
+        <a href="/locations.html">Locations</a>
+  <a href="/our-process">Our Process</a>
+  <a href="/contact">Contact</a>
+  <a href="/common-problems.html">Common Problems</a>
+  <a href="/faq">FAQ</a>
+
         <span class="phone" aria-hidden="false">
-          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/HWZYCNmh4L8bEIKs4eZB','value':1.0,'currency':'USD'});}">
+          <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
             <span class="phone-number">+1 (206) 786-9915</span>
           </a>
           <span class="icons" aria-hidden="true">
-            <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/HWZYCNmh4L8bEIKs4eZB','value':1.0,'currency':'USD'});}">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+            <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="gtag_report_conversion_call()">
+              <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
             </a>
             <a class="icon-link" href="sms:+12067869915" aria-label="Text">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
@@ -258,7 +489,7 @@
           </span>
         </span>
 
-        <button class="cta-quote" onclick="window.location.href='/#estimate'">Get Instant Quote</button>
+        <button class="cta-quote" id="quoteTop">Get Instant Quote</button>
       </div>
 
       <div class="burger" id="burger" aria-label="Open Menu">
@@ -267,25 +498,36 @@
     </nav>
 
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="/services">Services</a>
+    <a href="/services">Services</a>
+      <a href="/services/bathtub-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Bathtub Refinishing</a>
+      <a href="/services/shower-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Shower Refinishing</a>
+      <a href="/services/tile-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Tile Refinishing</a>
+      <a href="/services/sink-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Sink Refinishing</a>
+      <a href="/services/countertop-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Countertop Refinishing</a>
+      <a href="/services/repair.html" style="padding-left:20px;font-size:0.9rem">• Chip & Crack Repair</a>
       <a href="/gallery">Gallery</a>
-    <a href="/our-process" aria-current="page">Our Process</a>
-      <a href="/property">Property Managers</a>
-      <a href="/faq">FAQ</a>
-      <button class="cta-quote" onclick="window.location.href='/estimate'">Get Instant Quote</button>
+  <a href="/our-process">Our Process</a>
+  <a href="/contact">Contact</a>
+    <a href="/common-problems.html">Common Problems</a>
+    <a href="/faq">FAQ</a>
+      <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
-        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/HWZYCNmh4L8bEIKs4eZB','value':1.0,'currency':'USD'});}">
+        <a href="tel:+12067869915" style="color:inherit;text-decoration:none" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
           Call: +1 (206) 786-9915
         </a>
-        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/HWZYCNmh4L8bEIKs4eZB','value':1.0,'currency':'USD'});}">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 713 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+        <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="gtag_report_conversion_call()">
+          <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
         </a>
         <a href="sms:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Text">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
         </a>
       </div>
     </div>
+  </div>
+
+
+</div>
   </div>
 
   <!-- Hero with Video Background -->
@@ -460,55 +702,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <div style="background:#0b1220;color:#cbd5e1;padding:26px 20px;text-align:center;margin-top:0">© 2025 Best Refinishing — All rights reserved.</div>
-
-  <!-- Floating Call Button -->
-  <a
-    class="floating-btn"
-    href="tel:+12067869915"
-    aria-label="Call Best Refinishing at +1 (206) 786-9915"
-    title="Call us"
-    onclick="if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-17663809026/HWZYCNmh4L8bEIKs4eZB','value':1.0,'currency':'USD'});}"
-  >
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/>
-    </svg>
-  </a>
-
+  <!-- Lazy loading script -->
   <script>
-    // Header drawer
-    const burger = document.getElementById('burger');
-    const drawer = document.getElementById('drawer');
-    burger && burger.addEventListener('click', () => {
-      const open = drawer.style.display === 'block';
-      drawer.style.display = open ? 'none' : 'block';
-      drawer.setAttribute('aria-hidden', open ? 'true' : 'false');
-    });
-
-    // Accessibility: close drawer on outside click
-    document.addEventListener('click',(e)=>{
-      if(!drawer || !burger) return;
-      if(drawer.style.display==='block' && !drawer.contains(e.target) && !burger.contains(e.target)){
-        drawer.style.display='none';
-        drawer.setAttribute('aria-hidden','true');
-      }
-    });
-
-    // Register Service Worker for performance optimization
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('SW registered: ', registration);
-          })
-          .catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
-
-    // Intersection Observer for lazy loading optimization
     if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -528,6 +723,108 @@
         imageObserver.observe(img);
       });
     }
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/our-process.html">Our Process</a></li>
+          <li><a href="/property.html">Property Managers</a></li>
+          <li><a href="/index.html#quote">Get Free Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a></li>
+          <li><a href="/services/tile-refinishing.html">Tile Refinishing</a></li>
+          <li><a href="/services/shower-refinishing.html">Shower Refinishing</a></li>
+          <li><a href="/services/sink-refinishing.html">Sink Refinishing</a></li>
+          <li><a href="/services/countertop-refinishing.html">Countertop Refinishing</a></li>
+          <li><a href="/services/repair.html">Repair Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html#services">All Services</a></li>
+          <li><a href="/our-process.html">Our Process</a></li>
+          <li><a href="/property.html">Property Managers</a></li>
+          <li><a href="/index.html#reviews">Reviews</a></li>
+          <li><a href="/index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul class="footer-links">
+          <li><a href="tel:+12067869915">(206) 786-9915</a></li>
+          <li><a href="mailto:info@best-refinishing.com">info@best-refinishing.com</a></li>
+          <li style="margin-top:8px;font-weight:600">Open 24/7 — our estimate form is always available</li>
+          <li style="margin-top:12px;font-size:0.85rem;line-height:1.4;opacity:0.9">
+            <strong style="color:#fff">Service Areas:</strong><br>
+            <a href="/locations.html" style="color:#93c5fd">Seattle</a>, 
+            <a href="/locations/bellevue.html" style="color:#93c5fd">Bellevue</a>, 
+            <a href="/locations/redmond.html" style="color:#93c5fd">Redmond</a>, 
+            <a href="/locations/kirkland.html" style="color:#93c5fd">Kirkland</a>, 
+            <a href="/locations/renton.html" style="color:#93c5fd">Renton</a>, 
+            <a href="/locations/bothell.html" style="color:#93c5fd">Bothell</a> & 
+            <a href="/locations.html" style="color:#93c5fd">15+ more cities</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Best Refinishing. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .footer{background:var(--navy);color:#cbd5e1;padding:0;margin-top:60px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
+    .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-links{list-style:none;padding:0;margin:0}
+    .footer-links li{margin-bottom:8px;font-size:0.95rem}
+    .footer-links a{color:#93c5fd;text-decoration:none;transition:color 0.3s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px;text-align:center;font-size:0.9rem;opacity:0.8}
+    @media(max-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr);gap:25px}}
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr;gap:20px}}
+  </style>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    
+    if (burger && drawer) {
+      burger.addEventListener('click', () => {
+        const isOpen = drawer.style.display === 'block';
+        drawer.style.display = isOpen ? 'none' : 'block';
+        drawer.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Quote buttons
+    const quoteButtons = document.querySelectorAll('#quoteTop, #quoteTopMobile');
+    quoteButtons.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17663809026/cta_click',
+              'value': 10,
+              'currency': 'USD'
+            });
+          }
+          window.location.href = '/estimate';
+        });
+      }
+    });
   </script>
 </body>
 </html>

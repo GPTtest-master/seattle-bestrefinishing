@@ -1,0 +1,51 @@
+# Pinegrow backups
+_pgbackup/
+
+# Documentation files (не нужны в продакшене)
+*.md
+README.md
+CHANGELOG.md
+CHECKLIST.md
+GOOGLE_MY_BUSINESS_GUIDE.md
+GOOGLE_SHEETS_EXAMPLE.md
+GOOGLE_SHEETS_SETUP.md
+INSTRUKCIYA.md
+PROJECT_STRUCTURE.md
+SCHEMA.md
+SEO_ACTION_PLAN.md
+SEO_FINAL_STATUS.md
+SEO_SETUP.md
+SEO_STATUS.md
+START_HERE.md
+SUMMARY.md
+
+# Python scripts (не нужны в продакшене)
+*.py
+add_schema_to_locations.py
+
+# Google Apps Script (если не используется на фронтенде)
+google-apps-script.js
+
+# Git files
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (если будут)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

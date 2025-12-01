@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5Z4223L5');</script>
+  <!-- End Google Tag Manager -->
    <!-- Performance Optimization: Preconnect to external domains -->
    <link rel="preconnect" href="https://us.i.posthog.com">
    <link rel="preconnect" href="https://www.googletagmanager.com">
    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
    <link rel="preload" href="/images/hero-bg.webp" as="image" type="image/webp" fetchpriority="high">
-   <link rel="preload" href="/images/logo1.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="/images/logo.png" as="image" type="image/png" fetchpriority="high">
    
    <!-- PostHog Analytics - Deferred for performance -->
    <script>
@@ -24,7 +31,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
-  <!-- Google Ads - Immediate loading for instant conversion tracking -->
+  <!-- Google Search Console Verification (ADD YOUR CODE) -->
+  <!-- ИНСТРУКЦИЯ: Замените "YOUR_VERIFICATION_CODE" на код из Google Search Console -->
+  <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
+  
+  <!-- Google Ads with Enhanced Conversions - Immediate loading for instant conversion tracking -->
   <script>
     // Initialize dataLayer immediately
     window.dataLayer = window.dataLayer || [];
@@ -43,12 +54,13 @@
           gtag('js', new Date());
           gtag('config', 'AW-17663809026', {
             'debug_mode': false,
-            'send_page_view': true
+            'send_page_view': true,
+            'allow_enhanced_conversions': true  // ВАЖНО: включаем Enhanced Conversions
           });
           
           // Set global flag for conversion tracking
           window.gtagReady = true;
-          console.log('✅ Google Ads tracking ready (immediate load)');
+          console.log('✅ Google Ads tracking ready with Enhanced Conversions');
           
           // Fire any queued conversions immediately
           if (window.queuedConversions.length > 0) {
@@ -59,9 +71,11 @@
                   send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                   value: conv.value || 1.0,
                   currency:'USD',
-                  transaction_id: conv.transactionId
+                  transaction_id: conv.transactionId,
+                  // Enhanced conversion data
+                  ...(conv.enhancedData || {})
                 });
-                console.log('✅ Queued form conversion fired:', conv.transactionId);
+                console.log('✅ Queued enhanced conversion fired:', conv.transactionId);
               } else {
                 window.trackConversion(conv.type, conv.value);
               }
@@ -119,6 +133,32 @@
   
   <title>Best Refinishing — Seattle Reglazing Experts</title>
   <meta name="description" content="Bathtub, Tile, Shower, Sink, Countertop refinishing in Seattle area. Fast, eco-friendly, professional reglazing. Call or text +1 (206) 786-9915."/>
+  
+  <!-- Open Graph / Facebook Meta Tags for Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://best-refinishing.com/">
+  <meta property="og:title" content="Best Refinishing — Seattle Reglazing Experts">
+  <meta property="og:description" content="Professional bathtub, tile, shower & countertop refinishing in Seattle. Save $5,000+ vs replacement. 24-hour service. Licensed & insured.">
+  <meta property="og:image" content="https://best-refinishing.com/images/tub-after-1.webp">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best Refinishing — Seattle Reglazing Experts">
+  <meta name="twitter:description" content="Professional bathtub, tile, shower & countertop refinishing in Seattle. Save $5,000+ vs replacement. 24-hour service.">
+  <meta name="twitter:image" content="https://best-refinishing.com/images/tub-after-1.webp">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="keywords" content="bathtub refinishing seattle, tile reglazing seattle, shower refinishing, tub resurfacing, countertop refinishing, seattle reglazing, bathtub repair seattle">
+  <meta name="author" content="Best Refinishing">
+  <meta name="geo.region" content="US-WA">
+  <meta name="geo.placename" content="Seattle">
+  <meta name="geo.position" content="47.6062;-122.3321">
+  <meta name="ICBM" content="47.6062, -122.3321">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.best-refinishing.com/">
+  
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#0078D7">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -146,15 +186,28 @@
     },
     "openingHours": "Mo-Su 07:00-19:00",
     "priceRange": "$$",
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": "47.6062",
-        "longitude": "-122.3321"
-      },
-      "geoRadius": "50000"
-    },
+    "areaServed": [
+      {"@type": "City", "name": "Seattle", "containedIn": {"@type": "State", "name": "Washington"}},
+      {"@type": "City", "name": "Bellevue"},
+      {"@type": "City", "name": "Redmond"},
+      {"@type": "City", "name": "Kirkland"},
+      {"@type": "City", "name": "Bothell"},
+      {"@type": "City", "name": "Renton"},
+      {"@type": "City", "name": "Kent"},
+      {"@type": "City", "name": "Federal Way"},
+      {"@type": "City", "name": "Tacoma"},
+      {"@type": "City", "name": "Lynnwood"},
+      {"@type": "City", "name": "Sammamish"},
+      {"@type": "City", "name": "Issaquah"},
+      {"@type": "City", "name": "Mercer Island"},
+      {"@type": "City", "name": "Shoreline"},
+      {"@type": "City", "name": "Edmonds"},
+      {"@type": "City", "name": "Burien"},
+      {"@type": "City", "name": "Tukwila"},
+      {"@type": "City", "name": "SeaTac"},
+      {"@type": "City", "name": "Newcastle"},
+      {"@type": "City", "name": "Mountlake Terrace"}
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Refinishing Services",
@@ -205,6 +258,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
   <style>
+  .floating-btn svg {
+    width: 32px !important;
+    height: 32px !important;
+    display: block !important;
+    fill: #fff !important;
+    stroke: none !important;
+    margin: auto;
+    pointer-events: none;
+  }
+  @media (max-width: 600px) {
+    #reviews .tBtn {
+      width: 36px !important;
+      height: 36px !important;
+      font-size: 1.6rem !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: block !important;
+        margin: auto !important;
+        fill: #fff !important;
+        stroke: none !important;
+      right: 8px !important;
+      top: 48% !important;
+      transform: translateY(-50%) !important;
+      box-shadow: 0 2px 8px rgba(11,102,179,0.18) !important;
+      padding: 0 !important;
+      border-radius: 50% !important;
+      z-index: 10 !important;
+      background: #0b66b3 !important;
+      color: #fff !important;
+      border: none !important;
+      display: block !important;
+    }
+    #reviews .tBtn#tPrev {
+      left: 8px !important;
+      right: auto !important;
+    }
+    #reviews .tBtn#tNext {
+      right: 8px !important;
+      left: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .galleryGrid .ga:nth-child(1) img,
+    .galleryGrid .ga:nth-child(2) img {
+      object-fit: contain !important;
+      background: #f7f7f7;
+    }
+  }
+  @media (max-width: 600px) {
+    .galleryGrid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      box-sizing: border-box;
+    }
+    .ga {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 6px !important;
+      box-sizing: border-box;
+      display: block !important;
+    }
+    .ga img {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 1/1 !important;
+      object-fit: cover !important;
+      border-radius: 6px !important;
+      display: block !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .galleryGrid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
     :root{
       --navy:#0b1220;
       --navy2:#1a2b4a;
@@ -219,17 +353,18 @@
       --bg:#fff;
     }
     *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--text);line-height:1.55;background:var(--bg)}
+    html{scroll-behavior:smooth;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--text);line-height:1.55;background:var(--bg);margin:0;padding:0}
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
   section{padding:80px 20px}
 
     /* Header */
     .header-wrap{
-      position:sticky;top:0;z-index:1000;
+      position:sticky;top:-1px;z-index:1000;
       background:linear-gradient(180deg,var(--navy) 0%, var(--navy2) 100%);
       color:#fff; box-shadow:0 6px 20px rgba(0,0,0,.18);
+      margin-top:-1px;
     }
     .nav{
       max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;
@@ -245,7 +380,7 @@
     .brand .trusted{opacity:.75;font-size:.72rem;margin-top:4px;line-height:1.2;font-weight:600}
     .menu{display:flex;flex:1;flex-wrap:nowrap;gap:14px;align-items:center;font-weight:600;justify-content:space-evenly;margin:0 20px}
     .menu a{opacity:.95;white-space:nowrap}
-    .menu a:hover{opacity:1;text-decoration:underline}
+    .menu a:hover{opacity:1;text-decoration:none}
 
     /* phone: number only */
     .phone{font-weight:800;display:flex;align-items:center;gap:8px}
@@ -254,6 +389,16 @@
     .phone .icon-link{display:none}
     .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px;fill:currentColor}
     .phone-number{display:inline-block}
+
+    /* Services dropdown */
+    .dropdown{position:relative}
+    .dropdown .dropdown-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+    .dropdown .dropdown-toggle::after{content:'▼';margin-left:5px;font-size:0.8rem;transition:transform 0.25s ease;display:inline-block;opacity:0.9;vertical-align:middle}
+    .dropdown:hover .dropdown-toggle::after{transform:rotate(180deg);opacity:1}
+    .dropdown-menu{position:absolute;top:100%;left:0;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;margin-top:8px;min-width:220px;display:none;box-shadow:0 10px 24px rgba(2,6,23,.3);z-index:1000}
+    .dropdown-menu a{display:block;color:#fff;padding:10px 12px;text-decoration:none;font-weight:600;border-radius:8px;opacity:.95}
+    .dropdown-menu a:hover{background:rgba(255,255,255,.06);opacity:1}
+    .dropdown:hover .dropdown-menu{display:block}
 
     .cta-quote{
       background:var(--cta);color:#fff;font-weight:800;border:none;border-radius:10px;
@@ -349,8 +494,9 @@
   .svcGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;row-gap:20px}
     .svcItem{display:flex;flex-direction:column;gap:8px}
     .svcCaption{font-size:1.05rem;font-weight:900;color:#111;text-align:center}
-    .svcCard{position:relative;border-radius:16px;overflow:hidden;min-height:180px;box-shadow:0 8px 24px rgba(0,0,0,.08);cursor:pointer}
+    .svcCard{position:relative;border-radius:16px;overflow:hidden;min-height:180px;box-shadow:0 8px 24px rgba(0,0,0,.08);cursor:pointer;transition:all 0.3s ease}
     .svcImg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .35s ease}
+    .svcCard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,120,215,.15)}
     .svcCard:hover .svcImg{transform:scale(1.06)}
     .svcOverlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(255,255,255,.82) 0%, rgba(255,255,255,.35) 60%, rgba(255,255,255,.15) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:18px}
   .svcTextWrap{background:rgba(255,255,255,.80);backdrop-filter:blur(2px);border-radius:12px;padding:12px 16px;text-align:center;display:flex;flex-direction:column;align-items:center}
@@ -456,10 +602,10 @@
   .toast.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
 
   /* Gallery & rest */
-  .galleryGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1200px;margin:0 auto}
-  .ga{position:relative;border-radius:14px;overflow:hidden;height:240px;background:#e5eaf1;cursor:pointer;transition:transform .2s}
+  .galleryGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1200px;margin:0 auto}
+  .ga{position:relative;border-radius:14px;overflow:hidden;background:transparent;cursor:pointer;transition:transform .2s}
   .ga:hover{transform:scale(1.02)}
-  .ga img{width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(0);will-change:transform}
+  .ga img{width:100%;height:auto;object-fit:contain;display:block;transform:translateZ(0);will-change:transform}
   
   /* Performance optimizations */
   .ba-slider{contain:layout style paint}
@@ -546,6 +692,19 @@
   .map-wrap{width:100%;margin:18px auto;padding:20px}
     .map-frame{border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,.06)}
     .footer{background:var(--navy);color:#cbd5e1;padding:26px 20px;text-align:center;margin-top:24px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
+    .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-links{list-style:none;padding:0;margin:0}
+    .footer-links li{margin-bottom:8px}
+    .footer-links a{color:#93c5fd;text-decoration:none;transition:color 0.3s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px;margin-top:20px;text-align:center;font-size:0.9rem;opacity:0.8}
+    @media(max-width:768px){
+      .footer-grid{grid-template-columns:repeat(2,1fr);gap:25px}
+    }
+    @media(max-width:480px){
+      .footer-grid{grid-template-columns:1fr;gap:20px}
+    }
     .floating-btn{
       position:fixed;
       bottom:26px;
@@ -554,18 +713,19 @@
       color:#fff;
       border:none;
       border-radius:50%;
-      width:64px;
-      height:64px;
+      width:68px;
+      height:68px;
       box-shadow:0 6px 16px rgba(0,0,0,.25);
       cursor:pointer;
       z-index:1000;
       display:flex;
       align-items:center;
       justify-content:center;
+      padding:16px;
       transition:.3s;
     }
     .floating-btn:hover{background:var(--brand-deep);transform:scale(1.05)}
-    .floating-btn svg{width:28px;height:28px;display:block}
+    .floating-btn svg{width:32px;height:32px;display:block;fill:#fff}
     .instant-floating{
       position:fixed;
       bottom:100px;
@@ -1156,24 +1316,35 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z4223L5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <!-- Header -->
   <div class="header-wrap">
     <nav class="nav">
   <a href="/" class="brand" style="cursor:pointer">
-  <img src="/images/logo1.png" alt="Best Refinishing Logo" class="logo">
-        <div class="text-wrap">
-          <div class="name">Best Refinishing</div>
-          <div class="trusted">Trusted by Homeowners Across Seattle</div>
-        </div>
+  <img src="/images/logo.png" alt="Best Refinishing" class="logo" width="90" height="90">
       </a>
 
       <div class="menu">
-        <a href="/services">Services</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/our-process">Our Process</a>
-        <a href="/property">Property Managers</a>
-        <a href="/faq">FAQ</a>
+        <div class="dropdown">
+          <a href="#services" class="dropdown-toggle">Services</a>
+          <div class="dropdown-menu">
+            <a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a>
+            <a href="/services/shower-refinishing.html">Shower Refinishing</a>
+            <a href="/services/tile-refinishing.html">Tile Refinishing</a>
+            <a href="/services/sink-refinishing.html">Sink Refinishing</a>
+            <a href="/services/countertop-refinishing.html">Countertop Refinishing</a>
+            <a href="/services/repair.html">Chip & Crack Repair</a>
+          </div>
+        </div>
+        <a href="/locations.html">Locations</a>
+  <a href="/our-process">Our Process</a>
+  <a href="/contact">Contact</a>
+  <a href="/common-problems.html">Common Problems</a>
+  <a href="/faq">FAQ</a>
 
         <span class="phone" aria-hidden="false">
           <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
@@ -1198,12 +1369,18 @@
     </nav>
 
     <div class="drawer" id="drawer" aria-hidden="true">
-      <a href="/services">Services</a>
+    <a href="/services">Services</a>
+      <a href="/services/bathtub-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Bathtub Refinishing</a>
+      <a href="/services/shower-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Shower Refinishing</a>
+      <a href="/services/tile-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Tile Refinishing</a>
+      <a href="/services/sink-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Sink Refinishing</a>
+      <a href="/services/countertop-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Countertop Refinishing</a>
+      <a href="/services/repair.html" style="padding-left:20px;font-size:0.9rem">• Chip & Crack Repair</a>
       <a href="/gallery">Gallery</a>
-      <a href="/our-process">Our Process</a>
-      <a href="/property">Property Managers</a>
+  <a href="/our-process">Our Process</a>
   <a href="/contact">Contact</a>
-      <a href="/faq">FAQ</a>
+    <a href="/common-problems.html">Common Problems</a>
+    <a href="/faq">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
@@ -1211,7 +1388,7 @@
           Call: +1 (206) 786-9915
         </a>
         <a href="tel:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Call" onclick="gtag_report_conversion_call()">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 713 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
+          <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
         </a>
         <a href="sms:+12067869915" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:inherit;border-radius:8px;padding:6px" aria-label="Text">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
@@ -1249,7 +1426,6 @@
         <span>10-15 Year Durability</span>
       </div>
     </div>
-
     <h1 class="hero-desktop-headline">Best Bathroom &amp; Kitchen Refinishing</h1>
     <h1 class="hero-mobile-headline" style="font-size:2.1rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;">Best Bathroom &amp; Kitchen Refinishing</h1>
     
@@ -1292,8 +1468,8 @@
 
     <div class="cta" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" id="goEstimate" style="background:#ff6b00;color:#fff;padding:20px 45px;border-radius:12px;border:2px solid #ff6b00;font-weight:800;font-size:1.2rem;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(255,107,0,0.4);letter-spacing:0.01em;position:relative;overflow:hidden;">
-        <span style="position:relative;z-index:2;">Get Instant Quote</span>
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg, #ff6b00, #ff8533);z-index:1;"></div>
+  <span style="position:relative;z-index:2;">Get Instant Quote</span>
+  <span style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg, #ff6b00, #ff8533);z-index:1;"></span>
       </button>
       <button class="btn-secondary" onclick="window.location.href='#reviews'" style="background:rgba(255,255,255,0.2);color:#fff;padding:18px 40px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;backdrop-filter:blur(5px);letter-spacing:0.01em;">Read Reviews</button>
     </div>
@@ -1309,7 +1485,7 @@
         <div class="svcCard go-est" data-key="Bathtub">
           <div class="svcImg" style="background-image:url('/images/tub-bg.webp'),url('/images/tub-bg.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/bathtub-refinishing.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1320,7 +1496,7 @@
         <div class="svcCard go-est" data-key="Tub+Tiles">
           <div class="svcImg" style="background-image:url('/images/tiles-bg.webp'),url('/images/tiles-bg.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/tile-refinishing.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1331,7 +1507,7 @@
         <div class="svcCard go-est" data-key="Shower">
           <div class="svcImg" style="background-image:url('/images/shower-bg.webp'),url('/images/shower-bg.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/shower-refinishing.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1342,7 +1518,7 @@
         <div class="svcCard go-est" data-key="Countertop">
           <div class="svcImg" style="background-image:url('/images/counter-bg.webp'),url('/images/counter-bg.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/countertop-refinishing.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1353,7 +1529,7 @@
         <div class="svcCard go-est" data-key="Sink">
           <div class="svcImg" style="background-image:url('/images/sink-bg.webp'),url('/images/sink-bg.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/sink-refinishing.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1364,7 +1540,7 @@
         <div class="svcCard go-est" data-key="Local Repair">
           <div class="svcImg" style="background-image:url('/images/local-bg1.webp'),url('/images/local-bg1.jpg')"></div>
           <div class="svcOverlay">
-            <a class="svcBtn" href="/our-process">Read More</a>
+            <a class="svcBtn" href="/services/repair.html">Read More</a>
           </div>
         </div>
       </div>
@@ -1376,36 +1552,20 @@
     <h2 class="title">Before & After Gallery</h2>
     <div class="galleryGrid">
       <!-- Pair 1: tub 1 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tub-before-1.jpg?v=2" alt="Before: Tub 1"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-after-1.jpg?v=2" alt="After: Tub 1"></div>
-
-      <!-- Pair 2: bathtub 2 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/bathtub-2.jpg" alt="Before: Bathtub 2"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/bathtub-2-after.jpg" alt="After: Bathtub 2"></div>
-
-      <!-- Pair 3: bathtub 3 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/bathtub-3-before.jpg?v=2" alt="Before: Bathtub 3"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/bathtub-3-after.jpg?v=2" alt="After: Bathtub 3"></div>
-
-      <!-- Pair 4: bathtub 4 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/bathtub-4-before.jpg" alt="Before: Bathtub 4"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/bathtub-4-after.jpg" alt="After: Bathtub 4"></div>
-
-    <!-- Pair 5: local repair 1 -->
-  <div class="ga desktop-only"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/local-before-1.jpg" alt="Before: Local Repair 1"></div>
-  <div class="ga desktop-only"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/local-after-1.jpg" alt="After: Local Repair 1"></div>
-
-    <!-- Pair 6: sink 1 -->
-  <div class="ga desktop-only"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/sink-before-1.jpg" alt="Before: Sink 1"></div>
-  <div class="ga desktop-only"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/sink-after-1.jpg" alt="After: Sink 1"></div>
-
-    <!-- Pair 7: Tub+Tiles 1 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tiles-tub-before-1.jpeg" alt="Before: Tub+Tiles 1"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-tiles-after-1.jpeg" alt="After: Tub+Tiles 1"></div>
-
-    <!-- Pair 8: local repair 5 -->
-  <div class="ga"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/local-5.jpg" alt="Before: Local Repair 5"></div>
-  <div class="ga"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/local-5-after.jpg" alt="After: Local Repair 5"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tub-before-1rotate.jpg" alt="Before: Bathtub Refinishing" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-after-rotate1jpg.jpg" alt="After: Bathtub Refinishing" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <!-- Pair 2: bathtub 4 -->
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/bathtub-4-before.jpg" alt="Before: Bathtub 4" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/bathtub-4-after.webp" alt="After: Bathtub 4" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <!-- Pair 3: tiles tub -->
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/tiles-tub-before-1.jpeg" alt="Before: Tiles Tub" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/tub-tiles-after-1.jpeg" alt="After: Tiles Tub" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <!-- Pair 4: sink -->
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/sink-before-1.webp" alt="Before: Sink" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/sink-after-1.webp" alt="After: Sink" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <!-- Pair 5: local repair -->
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">before</span><img loading="lazy" decoding="async" src="/images/local-5.webp" alt="Before: Local Repair" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="ga" style="width:490px;height:257.73px;display:flex;align-items:center;justify-content:center;margin:0 auto"><span class="baBadge">after</span><img loading="lazy" decoding="async" src="/images/local-5-after.webp" alt="After: Local Repair" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     </div>
   </section>
 
@@ -1631,50 +1791,96 @@
     <p><strong>Address:</strong> Columbia Tower, 701 5th Ave 42nd Floor, Seattle, WA 98104</p>
   </section>
 
-  <!-- Our Offices -->
-  <section id="offices" style="padding:80px 20px;background:#f8fafc;">
+  <!-- Our Locations -->
+  <section id="locations" style="padding:80px 20px;background:#f8fafc;">
     <div style="max-width:1200px;margin:0 auto;">
-      <h2 style="font-size:2.2rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:16px;">Our Locations</h2>
-      <p style="text-align:center;margin-bottom:50px;color:#6b7280;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto;">
-        We are the BEST bathtub refinisher near you, with offices covering the Seattle area and beyond. Reach out today for a free quote!
+      <h2 style="font-size:2.5rem;font-weight:800;color:#0b66b3;text-align:center;margin-bottom:16px;">Service Areas Across Seattle Metro</h2>
+      <p style="text-align:center;margin-bottom:50px;color:#6b7280;font-size:1.15rem;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6;">
+        Professional refinishing services throughout the greater Seattle area. Click any location to learn more about our services in your city.
       </p>
       
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1000px;margin:0 auto;">
-        <!-- Seattle Office -->
-        <div style="background:#fff;border-radius:16px;padding:30px;box-shadow:0 8px 24px rgba(0,0,0,0.08);text-align:center;border:1px solid #e2e8f0;">
-          <div style="width:80px;height:80px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 4px 12px rgba(11,102,179,0.2);">
-            <svg style="width:40px;height:40px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto;">
+        
+        <!-- Bellevue -->
+        <a href="/locations/bellevue.html" style="text-decoration:none;display:block;background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e2e8f0;transition:all 0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#0b66b3';this.style.boxShadow='0 8px 24px rgba(11,102,179,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'">
+          <div style="width:70px;height:70px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg style="width:36px;height:36px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </div>
-          
-          <h3 style="font-size:1.5rem;font-weight:700;color:#111;margin-bottom:8px;">Best Refinishing Seattle</h3>
-          
-          <div style="display:flex;justify-content:center;margin-bottom:20px;">
-            <a href="https://www.google.com/maps" target="_blank" style="width:36px;height:36px;background:#4285f4;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;">
-              <span style="color:#fff;font-weight:bold;font-size:12px;">G+</span>
-            </a>
-          </div>
-          
-          <a href="tel:+12067869915" style="display:inline-block;background:#0b66b3;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;margin-bottom:20px;transition:all 0.2s;box-shadow:0 4px 12px rgba(11,102,179,0.2);" onclick="gtag_report_conversion_call()">
-            (206) 786-9915
-          </a>
-          
-          <p style="color:#6b7280;font-size:0.95rem;line-height:1.5;margin:0;">
-            Serving Seattle, Bellevue, Redmond, Kirkland, Bothell, Lynnwood and surrounding areas in King County.
-          </p>
-        </div>
-        
-        <!-- Placeholder for future offices -->
-        <div style="background:#f8fafc;border:2px dashed #d1d5db;border-radius:16px;padding:30px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;">
-          <div style="width:60px;height:60px;background:#e5e7eb;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
-            <svg style="width:30px;height:30px;color:#9ca3af;" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          <h3 style="font-size:1.6rem;font-weight:800;color:#111;margin-bottom:10px;text-align:center;">Bellevue</h3>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:16px;">Eastside's premier refinishing service. Downtown, Factoria, Crossroads & all neighborhoods.</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">Learn More →</div>
+        </a>
+
+        <!-- Redmond -->
+        <a href="/locations/redmond.html" style="text-decoration:none;display:block;background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e2e8f0;transition:all 0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#0b66b3';this.style.boxShadow='0 8px 24px rgba(11,102,179,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'">
+          <div style="width:70px;height:70px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg style="width:36px;height:36px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </div>
-          <h3 style="color:#6b7280;font-size:1.2rem;font-weight:600;margin-bottom:8px;">More Locations Coming Soon</h3>
-          <p style="color:#9ca3af;font-size:0.9rem;">We're expanding to serve you better</p>
-        </div>
+          <h3 style="font-size:1.6rem;font-weight:800;color:#111;margin-bottom:10px;text-align:center;">Redmond</h3>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:16px;">Tech hub specialist. Overlake, Education Hill, Microsoft campus area & surroundings.</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">Learn More →</div>
+        </a>
+
+        <!-- Kirkland -->
+        <a href="/locations/kirkland.html" style="text-decoration:none;display:block;background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e2e8f0;transition:all 0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#0b66b3';this.style.boxShadow='0 8px 24px rgba(11,102,179,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'">
+          <div style="width:70px;height:70px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg style="width:36px;height:36px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.6rem;font-weight:800;color:#111;margin-bottom:10px;text-align:center;">Kirkland</h3>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:16px;">Waterfront experts. Juanita, Totem Lake, Finn Hill & all lakefront properties.</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">Learn More →</div>
+        </a>
+
+        <!-- Renton -->
+        <a href="/locations/renton.html" style="text-decoration:none;display:block;background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e2e8f0;transition:all 0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#0b66b3';this.style.boxShadow='0 8px 24px rgba(11,102,179,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'">
+          <div style="width:70px;height:70px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg style="width:36px;height:36px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.6rem;font-weight:800;color:#111;margin-bottom:10px;text-align:center;">Renton</h3>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:16px;">South Seattle leader. Highlands, Kennydale, Fairwood & all surrounding areas.</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">Learn More →</div>
+        </a>
+
+        <!-- Bothell -->
+        <a href="/locations/bothell.html" style="text-decoration:none;display:block;background:#fff;border-radius:16px;padding:32px 24px;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:2px solid #e2e8f0;transition:all 0.3s;cursor:pointer;" onmouseover="this.style.borderColor='#0b66b3';this.style.boxShadow='0 8px 24px rgba(11,102,179,0.15)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'">
+          <div style="width:70px;height:70px;background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg style="width:36px;height:36px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.6rem;font-weight:800;color:#111;margin-bottom:10px;text-align:center;">Bothell</h3>
+          <p style="color:#6b7280;font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:16px;">North Seattle expert. Canyon Park, Queensborough, Northshore & family communities.</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">Learn More →</div>
+        </a>
+
+        <!-- View All Locations -->
+        <a href="/locations.html" style="text-decoration:none;display:block;background:linear-gradient(135deg,#f8fafc,#e2e8f0);border-radius:16px;padding:32px 24px;border:2px solid #cbd5e1;transition:all 0.3s;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:280px;" onmouseover="this.style.borderColor='#0b66b3';this.style.background='#fff'" onmouseout="this.style.borderColor='#cbd5e1';this.style.background='linear-gradient(135deg,#f8fafc,#e2e8f0)'">
+          <div style="width:70px;height:70px;background:#cbd5e1;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <svg style="width:36px;height:36px;color:#64748b;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.4rem;font-weight:700;color:#475569;margin-bottom:10px;text-align:center;">View All Locations</h3>
+          <p style="color:#64748b;font-size:0.95rem;text-align:center;margin-bottom:12px;">Seattle, Lynnwood, Edmonds, Everett & 15+ more cities</p>
+          <div style="text-align:center;color:#0b66b3;font-weight:700;font-size:0.95rem;">See Full Coverage →</div>
+        </a>
+
+      </div>
+
+      <!-- CTA Below Locations -->
+      <div style="text-align:center;margin-top:50px;padding:40px 20px;background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+        <h3 style="font-size:1.8rem;font-weight:800;color:#111;margin-bottom:12px;">Not Sure If We Serve Your Area?</h3>
+        <p style="color:#6b7280;font-size:1.1rem;margin-bottom:24px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;">
+          We cover the entire Seattle metro area. Call us at <a href="tel:+12067869915" style="color:#0b66b3;font-weight:700;text-decoration:none;" onclick="gtag_report_conversion_call()">(206) 786-9915</a> to confirm service availability in your city.
+        </p>
       </div>
     </div>
   </section>
@@ -1744,7 +1950,58 @@
   </div>
 
   <!-- Footer -->
-  <div class="footer">© 2025 Best Refinishing — All rights reserved.</div>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+  <h3>Best Refinishing</h3>
+  <p style="color:#fff;">Seattle's premier refinishing service. Transform your bathroom and kitchen fixtures with professional reglazing.</p>
+  <p style="margin-top:12px;color:#fff;"><strong>Licensed & Insured</strong><br>Washington State</p>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="/services/bathtub-refinishing.html">Bathtub Refinishing</a></li>
+          <li><a href="/services/tile-refinishing.html">Tile Refinishing</a></li>
+          <li><a href="/services/shower-refinishing.html">Shower Refinishing</a></li>
+          <li><a href="/services/sink-refinishing.html">Sink Refinishing</a></li>
+          <li><a href="/services/countertop-refinishing.html">Countertop Refinishing</a></li>
+          <li><a href="/services/repair.html">Chip & Crack Repair</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/index.html#services">All Services</a></li>
+          <li><a href="/our-process.html">Our Process</a></li>
+          <li><a href="/property.html">Property Managers</a></li>
+          <li><a href="/index.html#reviews">Reviews</a></li>
+          <li><a href="/index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul class="footer-links">
+          <li><a href="tel:+12067869915">(206) 786-9915</a></li>
+          <li><a href="mailto:info@best-refinishing.com">info@best-refinishing.com</a></li>
+          <li style="margin-top:8px;font-weight:600">Open 24/7 — our estimate form is always available</li>
+          <li style="margin-top:12px;font-size:0.85rem;line-height:1.4;opacity:0.9">
+            <strong style="color:#fff">Service Areas:</strong><br>
+            <a href="/locations.html" style="color:#93c5fd">Seattle</a>, 
+            <a href="/locations/bellevue.html" style="color:#93c5fd">Bellevue</a>, 
+            <a href="/locations/redmond.html" style="color:#93c5fd">Redmond</a>, 
+            <a href="/locations/kirkland.html" style="color:#93c5fd">Kirkland</a>, 
+            <a href="/locations/renton.html" style="color:#93c5fd">Renton</a>, 
+            <a href="/locations/bothell.html" style="color:#93c5fd">Bothell</a> & 
+            <a href="/locations.html" style="color:#93c5fd">15+ more cities</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <p style="color:#fff;">&copy; 2025 Best Refinishing. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     // Header drawer
@@ -1762,19 +2019,50 @@
     window.queuedConversions = window.queuedConversions || [];
 
     // =========================
-    // GCLID CAPTURE & ATTRIBUTION
+    // GCLID CAPTURE & ATTRIBUTION (with 90-day expiration)
     // =========================
     (function captureGclid(){
       const qs = new URLSearchParams(window.location.search);
       const gclidParam = qs.get('gclid');
       let stored = '';
-      try { stored = localStorage.getItem('gclid') || ''; } catch(e) {}
+      
+      try { 
+        stored = localStorage.getItem('gclid') || ''; 
+      } catch(e) {
+        console.warn('localStorage unavailable:', e);
+      }
+      
+      // Сохраняем новый gclid если пришел из URL
       if (gclidParam) {
-        try { localStorage.setItem('gclid', gclidParam); } catch(e) {}
+        try { 
+          localStorage.setItem('gclid', gclidParam);
+          localStorage.setItem('gclid_time', Date.now().toString());
+          console.log('🔖 New GCLID captured:', gclidParam);
+        } catch(e) {
+          console.warn('Could not save gclid:', e);
+        }
         stored = gclidParam;
       }
+      
+      // Проверяем срок действия gclid (90 дней как у Google)
+      try {
+        const gclidTime = localStorage.getItem('gclid_time');
+        if (gclidTime && stored) {
+          const daysPassed = (Date.now() - parseInt(gclidTime)) / (1000 * 60 * 60 * 24);
+          if (daysPassed > 90) {
+            console.log('⏰ GCLID expired, clearing');
+            localStorage.removeItem('gclid');
+            localStorage.removeItem('gclid_time');
+            stored = '';
+          }
+        }
+      } catch(e) {}
+      
+      // Записываем в скрытое поле формы
       const gclidField = document.getElementById('gclid_field');
       if (gclidField) gclidField.value = stored || '';
+      
+      // Сохраняем глобально для доступа
       window.currentGclid = stored || '';
       console.log('🔎 GCLID loaded:', window.currentGclid || '(none)');
     })();
@@ -1938,7 +2226,7 @@
     });
 
   // Form submit with loading + inline toast + send to Google Apps Script
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6zRJ35HtufhrhWvoOnV-idpNBkOUg0Z00ZxyN1BCK-n97E2NT1ndjCW4zjLwPqAY32Q/exec';
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhsIpQy3oWC1MwchLAhEn3NTG4reN4JS4MnoEEfLVKjIzNlySG3uFcRKi2dhI_FnkrDA/exec';
   const form = document.getElementById('estimateForm');
   console.log('🔍 Form element found:', !!form, form ? 'ID: ' + form.id : 'Not found');
   
@@ -1971,6 +2259,27 @@
           discount: discountRounded,
           savings: savingsCalculated
         };
+      }
+
+      // Normalize and hash user data for Enhanced Conversions (privacy-safe)
+      async function hashValue(value) {
+        if (!value) return '';
+        const normalized = value.toLowerCase().trim();
+        const msgBuffer = new TextEncoder().encode(normalized);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+      
+      // Normalize phone for Enhanced Conversions (E.164 format)
+      function normalizePhone(phone) {
+        // Remove all non-digit characters
+        let digits = phone.replace(/\D/g, '');
+        // Add country code if not present (assume US +1)
+        if (digits.length === 10) {
+          digits = '1' + digits;
+        }
+        return digits;
       }
 
       // Show estimate result popup
@@ -2011,7 +2320,7 @@
       }
 
       // Small helper to avoid UI hanging if network blocks/slow
-      async function postWithTimeout(url, payload, {timeout=2500}={}){
+  async function postWithTimeout(url, payload, {timeout=6000}={}){
         const controller = new AbortController();
         const id = setTimeout(()=>controller.abort(), timeout);
         try{
@@ -2046,6 +2355,8 @@
         const phone = (data.get('phone')||'').toString().trim();
         const zip = (data.get('zip')||'').toString().trim();
         const email = (data.get('email')||'').toString().trim();
+        const gclid = (data.get('gclid')||'').toString().trim() || window.currentGclid || '';
+        
         if(!name || !phone || !zip){
           showToast('error','Please fill in Name, Phone, and ZIP.');
           return;
@@ -2070,12 +2381,28 @@
           // Show popup immediately (optimistic UI)
           showEstimateResult(name, services);
 
-          // Fire conversion immediately on form submit (don't wait for backend)
+          // Prepare Enhanced Conversion data
+          const normalizedPhone = normalizePhone(phone);
+          const enhancedData = {
+            email: email || undefined,
+            phone_number: normalizedPhone || undefined,
+            address: {
+              postal_code: zip
+            }
+          };
+
+          // Hash email and phone for privacy (если доступны)
+          if (email) {
+            enhancedData.sha256_email_address = await hashValue(email);
+          }
+          if (phone) {
+            enhancedData.sha256_phone_number = await hashValue(normalizedPhone);
+          }
+
+          // Fire Enhanced Conversion immediately on form submit
           const conversionValue = Math.max(1.0, finalPrice * 0.1);
-          const gclidVal = document.getElementById('gclid_field')?.value || window.currentGclid || '';
-          const gclidForTxn = gclidVal || 'nogclid';
-          const transactionId = 'lead-' + Date.now() + '-' + gclidForTxn.substring(0,20);
-          console.log('🎯 Firing conversion immediately. Value:', conversionValue, 'Txn:', transactionId);
+          const transactionId = 'lead-' + Date.now() + '-' + (gclid || 'direct').substring(0,20);
+          console.log('🎯 Firing Enhanced Conversion. Value:', conversionValue, 'Txn:', transactionId);
           
           // Enhanced conversion firing with multiple fallbacks
           const fireConversion = () => {
@@ -2084,9 +2411,11 @@
                 send_to:'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                 value: conversionValue,
                 currency:'USD',
-                transaction_id: transactionId
+                transaction_id: transactionId,
+                // Enhanced Conversions user data
+                ...enhancedData
               });
-              console.log('✅ Conversion fired via gtag');
+              console.log('✅ Enhanced Conversion fired via gtag');
               return true;
             } else if (typeof window.dataLayer !== 'undefined') {
               // Direct dataLayer push as fallback
@@ -2096,13 +2425,14 @@
                 'send_to': 'AW-17663809026/dC2_COaQtMQbEIKs4eZB',
                 'value': conversionValue,
                 'currency': 'USD',
-                'transaction_id': transactionId
+                'transaction_id': transactionId,
+                ...enhancedData
               });
-              console.log('✅ Conversion fired via dataLayer');
+              console.log('✅ Enhanced Conversion fired via dataLayer');
               return true;
             } else if (typeof gtag_report_conversion === 'function') {
               gtag_report_conversion();
-              console.log('⚠️ Fallback: used gtag_report_conversion (no value/txn params)');
+              console.log('⚠️ Fallback: used gtag_report_conversion (no enhanced data)');
               return true;
             }
             return false;
@@ -2110,32 +2440,41 @@
           
           // Fire conversion immediately
           if (!fireConversion()) {
-            console.log('⏳ gtag not ready, waiting 500ms...');
+            console.log('⏳ gtag not ready, queueing with enhanced data...');
+            window.queuedConversions.push({
+              type:'form', 
+              value:conversionValue, 
+              transactionId,
+              enhancedData
+            });
+            // Try again after delay
             setTimeout(() => {
               if (!fireConversion()) {
-                console.warn('⚠️ All conversion methods failed; queuing for later');
-                window.queuedConversions.push({type:'form', value:conversionValue, transactionId});
+                console.warn('⚠️ All conversion methods failed after retry');
               }
             }, 500);
           }
 
-          // Prepare submission payload including gclid for backend storage (fire-and-forget)
+          // Prepare submission payload including gclid + transaction_id for backend storage
           const submissionPromise = postWithTimeout(GOOGLE_SCRIPT_URL, {
             name,
             phone,
             zip,
             email,
             services: services.join(', '),
+            service: services.join(', '),
             price: finalPrice,
-            gclid: gclidVal,
+            gclid: gclid,  // ВАЖНО: отправляем GCLID в таблицу
+            transaction_id: transactionId,  // ВАЖНО: для связи с конверсией
             timestamp: new Date().toISOString(),
             source: 'website',
-            page: window.location.href
+            page: window.location.href,
+            status: 'new_lead'  // Статус для дальнейшей квалификации
           }, {timeout: 2500});
 
-          // Backend submission is now just for data storage (doesn't affect conversion)
+          // Backend submission is for data storage (doesn't affect conversion)
           submissionPromise.then(() => {
-            console.log('✅ Backend submission successful');
+            console.log('✅ Data sent to Google Sheets with GCLID');
             // Reset form UI
             form.reset(); selected.clear();
             document.querySelectorAll('.chip.active').forEach(el=>el.classList.remove('active'));

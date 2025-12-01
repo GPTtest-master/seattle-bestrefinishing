@@ -1,9 +1,40 @@
 User-agent: *
 Allow: /
+
+# Disallow Pinegrow backup and project files
+Disallow: /_pgbackup/
+Disallow: /_pginfo/
+
+# Disallow service worker and log files
 Disallow: /sw.js
-Disallow: *.log
+Disallow: /*.log$
 
-Sitemap: https://www.best-refinishing.com/sitemap.xml
+# Disallow manifest (not needed for crawlers)
+Disallow: /manifest.json
 
-# Performance and crawling optimization
+# Allow all service and location pages (important for SEO)
+Allow: /services/
+Allow: /locations/
+
+# Sitemaps
+Sitemap: https://best-refinishing.com/sitemap.xml
+
+# Crawl-delay (optional, uncomment if needed)
+# Crawl-delay: 1
+
+# Specific bot rules for better indexing
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
 Crawl-delay: 1
