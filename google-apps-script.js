@@ -35,6 +35,7 @@ function doPost(e) {
     // ВАЖНО: порядок должен совпадать с колонками в таблице
   // Формат даты для Google Ads (UTC): yyyy-MM-dd HH:mm:ss+00:00
   const qualifiedDateUtc = Utilities.formatDate(new Date(), 'GMT', "yyyy-MM-dd' 'HH:mm:ss") + '+00:00';
+  const leadDateUtc = Utilities.formatDate(new Date(), 'GMT', "yyyy-MM-dd' 'HH:mm:ss") + '+00:00';
 
     // Получаем заголовки (первая строка) и строим карту колонок
   const headerRange = sheet.getRange(1, 1, 1, Math.max(1, sheet.getLastColumn()));
@@ -57,7 +58,8 @@ function doPost(e) {
       'Status': 'Qualified lead',
       'Source': safe(data.source) || 'website',
       'Page': safe(data.page),
-      'Qualified Date': qualifiedDateUtc
+      'Qualified Date': qualifiedDateUtc,
+      'Lead Date': leadDateUtc
     };
 
     // Собираем массив значений по порядку текущих заголовков;
@@ -76,7 +78,7 @@ function doPost(e) {
 
     // Проверяем, есть ли отсутствующие ключевые поля и добавим колонки при необходимости
     // Гарантируем наличие ключевых колонок
-    ['Status', 'Qualified Date', 'Service'].forEach(h => {
+    ['Status', 'Qualified Date', 'Lead Date', 'Service'].forEach(h => {
       if (headers.indexOf(h) === -1) {
         needToAppendNewCols = true;
         headers.push(h);
