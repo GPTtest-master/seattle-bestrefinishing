@@ -241,9 +241,10 @@
     .cta-section p{font-size:1.2rem;margin-bottom:30px}
     .cta-section .cta-btn{background:#fff;color:var(--brand);font-size:1.1rem;padding:16px 40px}
     .cta-section .cta-btn:hover{background:#f1f5f9}
-    .footer{background:var(--navy);color:#e2e8f0;padding:0;margin-top:60px}
+    .footer{background:var(--navy);color:#cbd5e1;padding:0;margin-top:60px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
     .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-col p, .footer-bottom p, .footer-col strong { color: #fff !important; }
     .footer-links{list-style:none;padding:0;margin:0}
     .footer-links li{margin-bottom:8px;color:#e2e8f0}
     .footer-links a{color:#60a5fa;text-decoration:none;transition:color 0.3s;font-weight:500}
@@ -597,6 +598,10 @@
         }
       });
     }
+    
+    // Quote buttons redirect to estimate form
+    document.getElementById('quoteTop')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
+    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
   </script>
 </body>
 </html>

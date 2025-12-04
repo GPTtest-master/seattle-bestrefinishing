@@ -324,6 +324,7 @@
     .footer{background:var(--navy);color:#cbd5e1;padding:0;margin-top:60px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
     .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-col p, .footer-bottom p, .footer-col strong { color: #fff !important; }
     .footer-links{list-style:none;padding:0;margin:0}
     .footer-links li{margin-bottom:8px}
     .footer-links a{color:#93c5fd;text-decoration:none;transition:color 0.3s}
@@ -796,6 +797,10 @@
         }
       });
     }
+    
+    // Quote buttons redirect to estimate form
+    document.getElementById('quoteTop')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
+    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
   </script>
 </body>
 </html>

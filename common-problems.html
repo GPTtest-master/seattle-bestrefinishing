@@ -68,6 +68,61 @@
     .callout{background:var(--gray);border:1px solid #e2e8f0;border-radius:12px;padding:16px}
     .faq dt{font-weight:800;color:#0b1220}
     .faq dd{margin:8px 0 16px;color:#475569}
+    
+    /* Problem Step Badges */
+    .problem-badge{
+      display:inline-block;
+      background:linear-gradient(135deg,#0078D7 0%,#005fa9 100%);
+      color:#fff;
+      font-weight:800;
+      font-size:0.85rem;
+      padding:8px 20px;
+      border-radius:20px;
+      margin-bottom:16px;
+      letter-spacing:0.5px;
+      box-shadow:0 4px 12px rgba(0,120,215,0.3);
+    }
+    .problem-badge.orange{
+      background:linear-gradient(135deg,#ff6b00 0%,#e65100 100%);
+      box-shadow:0 4px 12px rgba(255,107,0,0.3);
+    }
+    
+    /* Problem Articles Styling */
+    article{
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+      padding:32px;
+      margin-bottom:32px!important;
+      transition:box-shadow 0.3s ease;
+    }
+    article:hover{
+      box-shadow:0 8px 24px rgba(0,0,0,0.12);
+    }
+    article h2{
+      font-size:1.75rem;
+      margin-bottom:24px;
+      color:#0b1220;
+      font-weight:800;
+    }
+    article p{
+      font-size:1rem;
+      line-height:1.8;
+      color:#475569;
+    }
+    article figure{
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      transition:transform 0.3s ease;
+    }
+    article figure:hover{
+      transform:scale(1.02);
+    }
+    
+    @media(max-width:768px){
+      article{padding:24px 16px}
+      article h2{font-size:1.5rem}
+      article>div{grid-template-columns:1fr!important}
+    }
 
     /* CTA Button Styles */
     .btn-primary:hover{
@@ -83,6 +138,7 @@
     .footer{background:var(--navy);color:#e2e8f0;margin-top:60px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:0 auto;text-align:left;padding:40px 20px}
     .footer-col h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-weight:700}
+    .footer-col p, .footer-bottom p, .footer-col strong { color: #fff !important; }
     .footer-links{list-style:none;padding:0;margin:0}
     .footer-links li{margin-bottom:8px;font-size:0.95rem}
     .footer-links a{color:#93c5fd;text-decoration:none;transition:color 0.3s}
@@ -220,18 +276,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Chips & Cracks in Bathtubs, Sinks, and Countertops</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Chips and cracks are among the most common surface damage issues we encounter in bathroom and kitchen refinishing. These imperfections typically occur from impact damage—dropping heavy objects like shampoo bottles, tools, or soap dishes—or from structural settling in older homes that causes stress fractures in porcelain, fiberglass, and cultured marble surfaces. Left untreated, even small chips can allow water to seep underneath the surface coating, leading to rust stains, further cracking, and eventual coating failure around the damaged area.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Chips and cracks from dropped objects or house settling allow water seepage, leading to rust stains and coating failure.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Our professional repair process begins with thorough cleaning and rust neutralization if corrosion has started. We use commercial-grade epoxy fillers specifically formulated for bathtub and sink repair, which bond permanently to porcelain, acrylic, and fiberglass substrates. Each repair is meticulously color-matched to your existing surface and sanded smooth before the entire fixture is refinished with our premium coating system. The result is a seamless, durable repair that's backed by our 5-year warranty and indistinguishable from the surrounding surface.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Commercial-grade epoxy fillers, color-matched to your surface, sanded smooth, and refinished with premium coating. Seamless repair backed by 5-year warranty.
           </p>
         </div>
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Chipped bathtub before/after repair]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Professional chip repair with color-matched epoxy and refinishing</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Chips -&-Cracks-in-Bathtubs-Sinks-and-Countertops.webp?v=1764805779" 
+               alt="Chipped bathtub before and after professional repair" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
       </div>
     </article>
@@ -240,18 +298,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article style="margin-bottom:60px">
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Rust Stains and Corrosion Around Drains</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Rusty drain area restoration]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Drain rust removal and protective refinishing</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Rust-Stains-and-Corrosion-Around-Drains.webp?v=1764805779" 
+               alt="Rusty drain area before and after restoration" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Rust around bathtub and sink drains is a persistent problem caused by standing water, failed caulking, or deteriorating metal drain components. When water sits in contact with steel drain rings or penetrates through cracked caulk, it initiates oxidation that creates unsightly orange-brown stains. These rust stains don't just look bad—they actively corrode the surrounding porcelain or acrylic, creating a progressively larger damaged area that can eventually compromise the structural integrity of the drain seal and lead to leaks beneath your bathroom floor.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Standing water and failed caulking cause rust stains that corrode porcelain/acrylic, compromising drain seals and causing leaks.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Our drain area restoration starts with complete rust neutralization using specialized chemical treatments that stop the oxidation process at the molecular level. We remove all compromised material, rebuild the drain mounting area if necessary, and install fresh caulk seals before applying our refinishing system. The new coating creates a waterproof barrier that prevents future rust formation and restores the drain area to like-new condition. Proper maintenance of caulk seals after refinishing ensures this problem won't recur, giving you decades of rust-free service.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Rust neutralization at molecular level, rebuild drain area, fresh caulk seals, waterproof refinishing. Prevents future rust for decades.
           </p>
         </div>
       </div>
@@ -262,18 +322,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Peeling and Flaking Surface Coatings</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Peeling, bubbling, and flaking coatings are telltale signs of improper surface preparation or low-quality refinishing products. This problem commonly occurs with DIY refinishing kits or budget contractors who skip essential preparation steps like acid etching and proper primer application. Without proper surface bonding, any coating—no matter how expensive—will eventually fail as moisture penetrates underneath, causing the finish to lift, bubble, and peel away in sheets. Old factory finishes can also delaminate over time due to age, repeated exposure to harsh cleaning chemicals, or thermal stress from hot water.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> DIY kits and poor prep work cause peeling, bubbling, and flaking. Moisture penetrates underneath, lifting the finish in sheets.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Our solution involves complete removal of the failed coating using mechanical stripping and chemical solvents, followed by aggressive acid etching to create microscopic surface texture for superior adhesion. We then apply a two-part epoxy bonding primer formulated specifically for bathtub refinishing, which chemically bonds to the substrate at the molecular level. Our final topcoat system consists of multiple layers of commercial-grade polyurethane or acrylic urethane, cured under controlled conditions to ensure maximum durability. This professional process, backed by our 5-year warranty, prevents the peeling and flaking problems associated with inferior methods and materials.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Complete coating removal, acid etching for superior adhesion, two-part epoxy primer, multiple commercial-grade topcoat layers. 5-year warranty.
           </p>
         </div>
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Peeling coating removal & professional reapplication]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Failed DIY coating removed and replaced with professional system</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Peeling and Flaking Surface Coatings.webp?v=1764805779" 
+               alt="Peeling coating removed and professionally refinished" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
       </div>
     </article>
@@ -282,18 +344,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article style="margin-bottom:60px">
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Surface Discoloration and Yellowing</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Yellowed tub restored to bright white]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Discolored surface refinished with UV-stable coating</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Surface-Discoloration-and-Yellowing.webp?v=1764805779" 
+               alt="Yellowed bathtub restored to bright white" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Yellowing and discoloration in bathtubs, sinks, and countertops stem from multiple sources: UV exposure from bathroom windows, staining from cleaning products containing dyes or bleach, cigarette smoke residue, hard water mineral deposits, and degradation of old refinishing coatings that weren't UV-stabilized. White and light-colored surfaces are particularly susceptible, gradually taking on an unappealing yellow, beige, or gray tint that makes your bathroom look aged and unsanitary despite regular cleaning efforts. This discoloration penetrates into the porous surface material, making it impossible to remove with conventional cleaning methods.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> UV exposure, cleaning products, hard water, and old coatings cause permanent yellow/gray discoloration that cleaning can't remove.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Professional refinishing is the only effective solution for permanent discoloration. Our process begins with deep chemical cleaning to remove surface stains, followed by complete refinishing with UV-stabilized coatings that resist future yellowing. We offer bright white finishes that restore the original factory appearance, or custom color tinting if you prefer almond, biscuit, or other popular bathroom colors. Our commercial-grade topcoats contain UV inhibitors and are formulated to resist staining from cleaning products, hard water, and daily use, ensuring your refinished surface maintains its fresh appearance for 7-10+ years with proper care and maintenance.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Deep chemical cleaning + UV-stabilized refinishing. Bright white or custom colors (almond, biscuit). Resists staining for 7-10+ years.
           </p>
         </div>
       </div>
@@ -304,18 +368,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Grout Stains, Mildew, and Mold Growth</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Stained, discolored grout and mildew growth are chronic problems in tiled showers and bathtub surrounds because standard cement grout is highly porous, absorbing soap scum, body oils, hard water minerals, and moisture deep into its structure. Once these contaminants penetrate the grout, they provide an ideal environment for mold and mildew spores to colonize, creating black, pink, or brown discoloration that's impossible to remove with regular cleaning. Deteriorated caulk seals around tub edges and shower corners also harbor mold growth and allow water infiltration behind tiles, potentially causing hidden water damage to wall structures.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Porous grout absorbs soap scum, oils, and moisture—creating black/pink mold that's impossible to clean out.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Our tile refinishing process solves this problem permanently by sealing the porous grout surface under a waterproof coating. We begin with thorough decontamination and mildew treatment, remove and replace all failed caulk, and then apply our tile reglazing system that encapsulates both the tiles and grout lines in a seamless, non-porous finish. This eliminates the microscopic crevices where mold grows and creates an easy-to-clean surface that resists future staining and mildew formation. The result is a bright, sanitary shower or tub surround that stays cleaner with minimal maintenance, dramatically reducing the time and effort required for bathroom cleaning while improving indoor air quality by eliminating mold sources.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Seal grout under waterproof coating. Eliminates mold growth, creates easy-to-clean surface, dramatically reduces cleaning time.
           </p>
         </div>
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Stained grout before/after tile refinishing]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Mildewed grout sealed and refinished for easy maintenance</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Grout-Stains-Mildew-and-Mold-Growth.webp?v=1764805779" 
+               alt="Stained grout before and after tile refinishing" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
       </div>
     </article>
@@ -324,18 +390,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article style="margin-bottom:60px">
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Worn, Dull, and Scratched Surface Finishes</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Worn surface refinished to high-gloss]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Dull, scratched finish restored with professional topcoat</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Worn-Dull-and-Scratched-Surface-Finishes.webp?v=1764805779" 
+               alt="Worn bathtub surface refinished to high-gloss finish" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Daily use, abrasive cleaning products, and accumulated wear gradually degrade bathtub and sink surface finishes, removing the protective gloss layer and creating a dull, rough appearance covered in fine scratches and scuff marks. This wear exposes the underlying substrate to moisture and chemicals, making the surface increasingly difficult to clean and more susceptible to staining. Older porcelain fixtures and previously refinished surfaces are particularly vulnerable, as repeated scrubbing with harsh cleansers or abrasive pads removes microns of coating material year after year until the once-shiny finish becomes porous, rough to the touch, and visually unappealing.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Daily wear and abrasive cleaners remove gloss layer, creating dull, scratched surface that's hard to clean and stains easily.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Professional refinishing restores the factory-fresh appearance and protective qualities of worn surfaces. Our process includes thorough mechanical preparation to remove the damaged finish layer, followed by application of high-solids topcoat systems that provide superior durability and chemical resistance. We offer standard high-gloss finishes that create that showroom shine, or optional slip-resistant textured coatings for bathtub floors where safety is a priority. These commercial-grade finishes are formulated to withstand daily use and cleaning products, maintaining their gloss and smoothness far longer than consumer-grade products. With proper care using non-abrasive cleaners, your refinished surface will maintain its beautiful appearance for 7-10+ years.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> High-gloss showroom finish OR slip-resistant textured coating. Superior durability, maintains appearance for 7-10+ years with proper care.
           </p>
         </div>
       </div>
@@ -345,20 +413,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <article style="margin-bottom:60px">
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Hairline Cracks and Surface Crazing</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Hairline-Cracks-and-Surface-Crazing.webp?v=1764805779" 
+               alt="Hairline cracks and crazing repaired and sealed" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
+        </figure>
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Crazing appears as a network of fine hairline cracks resembling spider webs or cracked pottery glaze, most commonly affecting fiberglass bathtubs, acrylic shower pans, and cultured marble vanity tops. This surface fracturing occurs due to thermal stress from repeated exposure to hot and cold water temperature extremes, age-related brittleness in gelcoat finishes, UV degradation, or flexing of inadequately supported substrates. While crazing typically doesn't compromise the structural integrity of the fixture immediately, these micro-fractures collect dirt, soap residue, and mildew, creating permanently stained lines that are impossible to clean and progressively worsen over time as water infiltration causes additional cracking.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Spider-web cracks from thermal stress and flexing collect dirt and mildew, creating permanently stained lines that worsen over time.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Our approach to crazing repair begins with substrate stabilization—reinforcing the bottom of fiberglass tubs if needed to eliminate flexing that contributes to cracking. We then use specialized filler compounds to penetrate and seal the micro-fractures, followed by thorough surface preparation and refinishing with flexible coating systems designed to accommodate the slight movement inherent in fiberglass and acrylic substrates. For cultured marble surfaces, we can apply decorative stone-look finishes that not only conceal the crazing but also upgrade the aesthetic appearance beyond the original factory finish. Our refinishing process effectively stops crazing progression and restores a smooth, uniform surface with excellent long-term durability.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Stabilize substrate, seal micro-fractures, flexible coating system. Optional decorative stone-look finishes for cultured marble. Stops progression permanently.
           </p>
         </div>
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Crazed gelcoat repaired and sealed]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Hairline crazing filled, sealed, and refinished</figcaption>
-        </figure>
       </div>
     </article>
 
@@ -446,21 +516,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   return false;
                 }
               </script>
+    
+    <!-- Problem 8: Burns & Heavy Stains -->
     <article style="margin-bottom:60px">
       <h2 style="font-size:2rem;color:#0b1220;margin-bottom:20px">Burns, Scorch Marks, and Deep Permanent Stains</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
-        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-          <div style="width:100%;height:220px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:0.9rem">
-            [Photo: Stained surface completely restored]
-          </div>
-          <figcaption style="margin-top:12px;font-size:0.85rem;color:#64748b;font-style:italic">Permanent stains eliminated with spot repair and full refinish</figcaption>
+        <figure style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <img src="/images/Burns-Scorch-Marks-and-Deep-Permanent-Stains.webp?v=1764805779" 
+               alt="Permanently stained surface completely restored" 
+               loading="lazy"
+               width="600" 
+               height="400"
+               style="width:100%;height:auto;border-radius:8px;object-fit:contain;max-height:450px">
         </figure>
         <div>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Severe surface damage from burns (curling irons, dropped cigarettes, hot hair styling tools), chemical etching from drain cleaners or harsh chemicals, and deep penetrating stains from rust rings, hair dye, hard water minerals, and mildew create permanent discoloration that cannot be removed through conventional cleaning or surface polishing. These stains chemically alter or physically damage the surface material itself, etching into porcelain glaze or penetrating deep into porous fiberglass and acrylic substrates where they remain visible regardless of cleaning efforts. Attempting to scrub or bleach out these stains often makes the problem worse by damaging surrounding areas and creating dull spots or additional surface roughness.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">⚠️ The Problem:</strong> Burns, chemical etching, hair dye, rust rings create permanent stains that cleaning can't remove—often making damage worse.
           </p>
-          <p style="color:#475569;line-height:1.8;margin-bottom:16px">
-            Professional refinishing provides complete restoration for even the most severely stained or damaged surfaces. Our technicians assess each problem area individually, using spot repair techniques for localized damage—filling burn marks, neutralizing chemical etching, and priming discolored areas to prevent bleed-through. We then apply full-surface refinishing that creates a uniform, stain-free appearance across the entire fixture. Our coating systems are formulated with stain-blocking primers and highly pigmented topcoats that completely conceal underlying damage and resist future staining from hard water, cleaning products, and daily use. This comprehensive approach, backed by our warranty against re-staining, gives you a fixture that looks brand new and stays that way for years to come.
+          <p style="color:#475569;line-height:1.8;margin-bottom:16px;font-size:1.05rem">
+            <strong style="color:#0b1220">✨ Our Solution:</strong> Spot repair for burns, stain-blocking primers, highly pigmented topcoats. Complete restoration with warranty against re-staining. Looks brand new.
           </p>
         </div>
       </div>
@@ -575,6 +649,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const burger=document.getElementById('burger');
     const drawer=document.getElementById('drawer');
     if(burger&&drawer){burger.addEventListener('click',()=>{const open=drawer.style.display==='block';drawer.style.display=open?'none':'block';});}
+    
+    // Quote buttons redirect to estimate form
+    document.getElementById('quoteTop')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
+    document.getElementById('quoteTopMobile')?.addEventListener('click', ()=>{ window.location.href='/index.html#estimate'; });
   </script>
 </body>
 </html>
