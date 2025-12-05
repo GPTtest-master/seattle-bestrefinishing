@@ -53,7 +53,7 @@ for location, data in schemas.items():
     "description": "{data['description']}",
     "url": "{data['url']}",
     "telephone": "+1-206-786-9915",
-    "email": "info@best-refinishing.com",
+    "email": "office@best-refinishing.com",
     "image": "https://best-refinishing.com/images/logo.png",
     "logo": "https://best-refinishing.com/images/logo.png",
     "address": {{
