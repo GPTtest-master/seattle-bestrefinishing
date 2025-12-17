@@ -38,7 +38,7 @@
     .header-wrap{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,var(--navy) 0%, var(--navy2) 100%);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18)}
     .nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:20px}
     .brand{display:flex;flex-direction:row;line-height:1;align-items:center;gap:12px;margin-left:0;text-decoration:none;color:#fff}
-    .brand .logo{height:70px;width:auto;display:block;margin-top:0;margin-bottom:0}
+    .brand .logo{height:80px;width:auto;display:block;margin-top:0;margin-bottom:0}
     .brand .text-wrap{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
     .brand .name{font-weight:800;font-size:1.4rem;letter-spacing:.2px;color:#fff}
     .brand .trusted{opacity:.85;font-size:.78rem;margin-top:6px;line-height:1.2;font-weight:600;color:#fff}
@@ -60,7 +60,7 @@
     .drawer .cta-quote{margin-top:10px;width:100%;display:block;text-align:center;padding:12px}
     @media(max-width:768px){
       .nav{flex-wrap:wrap;padding:10px 16px}
-      .brand .logo{height:50px}
+      .brand .logo{height:80px}
       .brand .name{font-size:1.2rem}
       .brand .trusted{font-size:0.7rem}
       .menu{display:none}
@@ -68,7 +68,7 @@
       .phone{font-size:1rem}
     }
     @media(max-width:480px){
-      .brand .logo{height:45px}
+      .brand .logo{height:58px}
       .brand .name{font-size:1.1rem}
       .brand .trusted{font-size:0.65rem}
       .nav{font-size:0.85rem;gap:8px}
@@ -171,10 +171,11 @@
     /* Services Dropdown */
     .dropdown{position:relative}
     .dropdown .dropdown-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
-    .dropdown .dropdown-toggle::after{content:'▼';margin-left:5px;font-size:0.8rem;transition:transform 0.25s ease;display:inline-block;opacity:0.9;vertical-align:middle}
-    .dropdown:hover .dropdown-toggle::after{transform:rotate(180deg);opacity:1}
-    .dropdown-menu{position:absolute;top:100%;left:0;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;margin-top:8px;min-width:220px;display:none;box-shadow:0 10px 24px rgba(2,6,23,.3);z-index:1000}
+        .dropdown .dropdown-toggle::after{content:'⌄';margin-left:1px;font-size:1.6rem;transition:transform 0.25s ease,opacity 0.25s ease;display:inline-block;opacity:0.85;vertical-align:baseline;font-weight:300;line-height:1;position:relative;top:-6px;transform-origin:center center;will-change:transform}
+    .dropdown:hover .dropdown-toggle::after{transform:translateY(0) rotate(180deg);opacity:1}
+    .dropdown-menu{position:absolute;top:100%;left:0;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px;margin-top:0;min-width:220px;display:none;box-shadow:0 10px 24px rgba(2,6,23,.3);z-index:1000}
     .dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent}
     .dropdown-menu a{display:block;color:#fff;padding:10px 12px;text-decoration:none;font-weight:600;border-radius:8px;opacity:.95}
     .dropdown-menu a:hover{background:rgba(255,255,255,.06);opacity:1}
     .floating-btn{
@@ -297,10 +298,11 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
   <!-- Header from index.html (полностью идентичный) -->
+  <!-- Header -->
   <div class="header-wrap">
     <nav class="nav">
   <a href="/" class="brand" style="cursor:pointer">
-  <img src="/images/logo.png" alt="Best Refinishing" class="logo" width="90" height="90">
+  <img src="/images/logo.svg" alt="Best Refinishing" class="logo" width="105" height="70">
       </a>
 
       <div class="menu">
@@ -327,7 +329,7 @@
           </a>
           <span class="icons" aria-hidden="true">
             <a class="icon-link" href="tel:+12067869915" aria-label="Call" onclick="gtag_report_conversion_call()">
-              <svg class="icon" viewBox="0 0 512 509.45" aria-hidden="true"><path fill="currentColor" fill-rule="nonzero" d="M141 209.38c17.22 31.02 37.04 60.82 62.81 88.02 25.83 27.33 57.94 52.21 99.56 73.45 3.08 1.51 6.01 1.51 8.61.47 3.97-1.51 7.99-4.78 11.97-8.75 3.07-3.07 6.9-7.99 10.92-13.38 15.99-21.05 35.81-47.16 63.76-34.1.61.28 1.09.61 1.7.89l93.27 53.64c.28.14.61.47.9.61 12.3 8.47 17.36 21.52 17.5 36.28 0 15.04-5.53 31.97-13.67 46.26-10.74 18.87-26.58 31.35-44.84 39.63-17.35 7.99-36.7 12.3-55.29 15.04-29.18 4.3-56.51 1.56-84.47-7.05-27.34-8.46-54.86-22.42-84.94-41l-2.23-1.42c-13.81-8.61-28.71-17.83-43.32-28.71-53.59-40.44-108.12-98.8-143.64-163.03C9.81 212.31-6.47 154.09 2.43 98.61 7.34 68.2 20.4 40.53 43.15 22.27 62.97 6.28 89.69-2.46 124.26.61c3.98.28 7.52 2.6 9.37 6.01l59.78 101.07c8.75 11.35 9.84 22.56 5.06 33.82-3.97 9.22-11.96 17.68-22.89 25.63-3.22 2.74-7.05 5.53-11.07 8.47-13.38 9.69-28.57 20.9-23.36 34.1l-.15-.33z"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 01.95-.27 11.36 11.36 0 003.56.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.22.19 2.41.57 3.56a1 1 0 01-.27.95l-2.18 2.28z"/></svg>
             </a>
             <a class="icon-link" href="sms:+12067869915" aria-label="Text">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
@@ -351,7 +353,7 @@
       <a href="/services/sink-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Sink Refinishing</a>
       <a href="/services/countertop-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Countertop Refinishing</a>
       <a href="/services/repair.html" style="padding-left:20px;font-size:0.9rem">• Chip & Crack Repair</a>
-      <a href="/index.html#gallery">Gallery</a>
+      <a href="#gallery">Gallery</a>
   <a href="/our-process">Our Process</a>
   <a href="/contact">Contact</a>
     <a href="/common-problems.html">Common Problems</a>
@@ -372,14 +374,16 @@
     </div>
   </div>
 
-  <!-- Trust Bar (как на главной, из shower-refinishing.html) -->
-  <div class="trust-bar" style="background:rgba(255,255,255,0.95);color:#0b66b3;padding:8px 20px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;font-weight:700;font-size:0.9rem;margin-bottom:0px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-    <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>Licensed & Insured</span></div>
-    <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>5-Year Warranty</span></div>
-    <div style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>1,000+ Satisfied Customers</span></div>
-    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>Same-Day Service</span></div>
-    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>Eco-Friendly Materials</span></div>
-    <div class="trust-desktop-only" style="display:flex;align-items:center;gap:6px;"><span style="color:#22c55e;">✓</span><span>10-15 Year Durability</span></div>
+  <!-- Trust Bar -->
+  <div class="trust-bar" style="background:rgba(255,255,255,0.95);color:#0b66b3;padding:4px 0;box-shadow:0 2px 8px rgba(0,0,0,0.1);width:100%;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 12px;display:flex;justify-content:space-around;align-items:center;gap:2px;flex-wrap:nowrap;font-weight:600;font-size:0.7rem;">
+      <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>Licensed & Insured</span></div>
+      <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>5-Year Warranty</span></div>
+      <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>1,000+ Clients</span></div>
+      <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>80% Savings</span></div>
+      <div class="trust-desktop-only" style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>15 Year Durability</span></div>
+      <div class="trust-desktop-only" style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>Eco-Friendly Materials</span></div>
+    </div>
   </div>
 
 <section class="hero">
