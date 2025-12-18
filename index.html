@@ -480,10 +480,6 @@
       background:
         linear-gradient(rgba(18,32,54,0.62), rgba(18,32,54,0.62)),
         url('/images/hero-bg.webp') center center/cover no-repeat;
-      /* Fallback for browsers that don't support WebP */
-      background-image: 
-        linear-gradient(rgba(18,32,54,0.62), rgba(18,32,54,0.62)),
-        url('/images/hero-bg.jpg');
       color:#fff;
       min-height:85vh;
       display:flex;
@@ -1095,6 +1091,32 @@
       .brand .logo{height:58px}
       .brand .name{font-size:1.2rem}
       .brand .trusted{font-size:0.65rem}
+      .hero{
+        background-position:85% center!important;
+        padding:40px 16px !important;
+        min-height:90vh !important;
+      }
+      .hero-cta {
+        gap:12px !important;
+        margin-bottom:18px !important;
+      }
+      .hero-cta .btn-primary {
+        padding:18px 36px !important;
+        font-size:1.1rem !important;
+        width:100%;
+        max-width:340px;
+      }
+      .hero-cta .hero-call-btn {
+        padding:16px 36px !important;
+        font-size:1.05rem !important;
+        width:100%;
+        max-width:340px;
+      }
+      .hero-helper-text {
+        font-size:0.95rem !important;
+        max-width:320px !important;
+        padding:0 10px;
+      }
     }
     @media (max-width:1024px){
       .galleryGrid{grid-template-columns:repeat(3,1fr)}
@@ -1451,7 +1473,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div style="max-width:1200px;margin:0 auto;padding:0 12px;display:flex;justify-content:space-around;align-items:center;gap:2px;flex-wrap:nowrap;font-weight:600;font-size:0.7rem;">
       <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>Licensed & Insured</span></div>
       <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>5-Year Warranty</span></div>
-      <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>1,000+ Clients</span></div>
+      <div class="trust-desktop-only" style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>1,000+ Clients</span></div>
       <div style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>80% Savings</span></div>
       <div class="trust-desktop-only" style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>15 Year Durability</span></div>
       <div class="trust-desktop-only" style="display:flex;align-items:center;gap:2px;white-space:nowrap;"><span style="color:#22c55e;font-size:0.8rem;">✓</span><span>Eco-Friendly Materials</span></div>
@@ -1460,18 +1482,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <h1 class="hero-desktop-headline">Best Bathroom &amp; Kitchen Refinishing</h1>
-    <h1 class="hero-mobile-headline" style="font-size:2.1rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;">Best Bathroom &amp; Kitchen Refinishing</h1>
+    <div style="max-width:900px;width:100%;margin:0 auto;">
+    <h1 class="hero-desktop-headline" style="text-align:center;">Bathroom Refinishing in Greater Seattle</h1>
+    <h1 class="hero-mobile-headline" style="font-size:1.8rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;text-align:center;">Bathroom Refinishing<br>in Greater Seattle</h1>
     
-    <p class="hero-desktop" style="font-size:1.15rem;opacity:.96;margin:0 auto 24px;max-width:820px;color:#fff;line-height:1.6;display:block;">
-      Professional refinishing of bathtubs, tiles, sinks, showers, and countertops throughout Seattle and surrounding areas.<br>
-      Make your bathroom look brand new again without the mess in 24 hours and save $5,000+.<br>
-      <strong>Get your free instant quote in 60 seconds</strong> — no phone calls required.
+    <p class="hero-desktop" style="font-size:1.18rem;opacity:.98;margin:0 auto 20px;max-width:950px;color:#fff;line-height:1.7;display:block;font-weight:500;text-align:center;">
+      Transform your bathtub, tile, shower, sink, countertop in as little as 1 day — no messy remodel.<br>
+      Expert surface prep and premium coatings for a durable, like-new finish that can last up to 15 years.<br>
+      <strong style="font-size:1.25rem;display:inline-block;margin-top:10px;">Ready to use in 24 hours • Save $5,500 vs replacement</strong>
     </p>
-    <p class="hero-mobile" style="font-size:1.05rem;opacity:.96;margin:0 auto 24px;max-width:820px;color:#fff;line-height:1.6;display:none;">
-      Professional refinishing throughout Seattle and surrounding areas.<br>
-      Make your bathroom look brand new again without the mess in 24 hours and save $5,000+.<br>
-      <strong>Get instant quote in 60 seconds</strong> — no calls required.
+    <p class="hero-mobile" style="font-size:1.05rem;opacity:.98;margin:0 auto 20px;max-width:340px;color:#fff;line-height:1.65;display:none;font-weight:500;text-align:center;">
+      Transform your bathtub, tile, shower, sink, countertop in 1 day — no messy remodel<br>
+      <span style="opacity:0.95;">Expert surface prep and premium coatings<br>Durable, like-new finish — up to 15 years</span><br>
+      <strong style="display:inline-block;margin-top:8px;">Ready to use in 24 hours • Save $5,500</strong>
     </p>
 
 
@@ -1500,12 +1523,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     </style>
 
-    <div class="cta" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
+    <div class="cta hero-cta" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
       <button class="btn-primary" id="goEstimate" style="background:#ff6b00;color:#fff;padding:20px 45px;border-radius:12px;border:2px solid #ff6b00;font-weight:800;font-size:1.2rem;cursor:pointer;transition:.25s;box-shadow:0 6px 20px rgba(255,107,0,0.4);letter-spacing:0.01em;position:relative;overflow:hidden;">
   <span style="position:relative;z-index:2;">Get Instant Quote</span>
   <span style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg, #ff6b00, #ff8533);z-index:1;"></span>
       </button>
-      <button class="btn-secondary" onclick="window.location.href='#reviews'" style="background:rgba(255,255,255,0.2);color:#fff;padding:18px 40px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;backdrop-filter:blur(5px);letter-spacing:0.01em;">Read Reviews</button>
+      <button onclick="window.location.href='#reviews'" class="hero-call-btn" style="background:rgba(255,255,255,0.2);color:#fff;padding:18px 40px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;backdrop-filter:blur(5px);letter-spacing:0.01em;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.5);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Read Reviews</button>
+    </div>
+    
+    <p class="hero-helper-text" style="font-size:1.08rem;color:#FFD700;margin:0 auto;max-width:600px;font-weight:700;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,0.3);letter-spacing:0.02em;">
+      <span style="white-space:nowrap;">Get your instant price in 60 seconds</span><br>
+      <span style="white-space:nowrap;">Prefer to talk? Call <a href="tel:+12067869915" onclick="gtag_report_conversion_call()" style="color:#FFD700;text-decoration:none;" class="phone-number">(206) 786-9915</a></span>
+    </p>
     </div>
   </section>
 
