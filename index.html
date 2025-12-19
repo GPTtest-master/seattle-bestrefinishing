@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5Z4223L5');</script>
+  <!-- End Google Tag Manager -->
    <!-- Performance Optimization: Preconnect to external domains -->
+   <link rel="preconnect" href="https://us.i.posthog.com">
    <link rel="preconnect" href="https://www.googletagmanager.com">
-   <link rel="dns-prefetch" href="https://us.i.posthog.com">
+   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
    <link rel="preload" href="/images/hero-bg.webp" as="image" type="image/webp" fetchpriority="high">
-   <link rel="preload" href="/images/logo.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="/images/logo.png" as="image" type="image/png" fetchpriority="high">
    
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-   <!-- Google Tag Manager - Deferred -->
-  <script>
-    window.addEventListener('load', function() {
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5Z4223L5');
-    });
-  </script>
-   
-   <!-- PostHog Analytics - Deferred -->
+   <!-- PostHog Analytics - Deferred for performance -->
    <script>
+    // Load PostHog after page load for better performance
     window.addEventListener('load', function() {
       !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init fi Cr Or ci Tr Ir capture Mi calculateEventProperties Ar register register_once register_for_session unregister unregister_for_session Nr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty jr Mr createPersonProfile Lr kr Ur opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Fr debug M Dr getPageViewId captureTraceFeedback captureTraceMetric Sr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
       posthog.init('phc_6vqc5LZP3LwItcIoZCM9Me9FV7LFDV370TKuppGta78', {
@@ -32,25 +28,22 @@
       });
     });
   </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
   <!-- Google Search Console Verification (ADD YOUR CODE) -->
   <!-- ИНСТРУКЦИЯ: Замените "YOUR_VERIFICATION_CODE" на код из Google Search Console -->
   <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" /> -->
   
-  <!-- Google Ads - Optimized loading -->
+  <!-- Google Ads with Enhanced Conversions - Immediate loading for instant conversion tracking -->
   <script>
+    // Initialize dataLayer immediately
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.queuedConversions = [];
     
-    // Load Google Ads after initial content is loaded
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(function() { loadGoogleAds(); });
-    } else {
-      setTimeout(function() { loadGoogleAds(); }, 2000);
-    }
-    
-    function loadGoogleAds() {
+    // Load Google Ads IMMEDIATELY - no waiting for page load
+    (function() {
       var script = document.createElement('script');
       script.async = true;
       script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17663809026';
@@ -62,16 +55,21 @@
           gtag('config', 'AW-17663809026', {
             'debug_mode': false,
             'send_page_view': true,
-            'allow_enhanced_conversions': true
+            'allow_enhanced_conversions': true  // ВАЖНО: включаем Enhanced Conversions
           });
           
+          // Phone conversion tracking snippet
           gtag('config', 'AW-17663809026/FtVGCJjCjtIbEIKs4eZB', {
             'phone_conversion_number': '+1 (206) 786-9915'
           });
           
+          // Set global flag for conversion tracking
           window.gtagReady = true;
+          console.log('✅ Google Ads tracking ready with Enhanced Conversions');
           
+          // Fire any queued conversions immediately
           if (window.queuedConversions.length > 0) {
+            console.log('🔥 Processing', window.queuedConversions.length, 'queued conversions');
             window.queuedConversions.forEach(conv => {
               if (conv.type === 'form' && conv.transactionId) {
                 gtag('event','conversion',{
@@ -79,8 +77,10 @@
                   value: conv.value || 1.0,
                   currency:'USD',
                   transaction_id: conv.transactionId,
+                  // Enhanced conversion data
                   ...(conv.enhancedData || {})
                 });
+                console.log('✅ Queued enhanced conversion fired:', conv.transactionId);
               } else {
                 window.trackConversion(conv.type, conv.value);
               }
@@ -88,10 +88,14 @@
             window.queuedConversions = [];
           }
         } catch (e) {
-          console.error('Google Ads error:', e);
+          console.error('❌ Google Ads initialization error:', e);
         }
       };
-    }
+      
+      script.onerror = function() {
+        console.error('❌ Failed to load Google Ads script');
+      };
+    })(); // Execute immediately!
   </script>
 
   <!-- Google Ads Event Snippet for Book appointment conversion -->
@@ -485,6 +489,9 @@
       flex-direction:column;
       padding:60px 20px;
       position:relative;
+      overflow-x:hidden;
+      width:100%;
+      box-sizing:border-box;
     }
     .hero h1{
       font-size:2.6rem;
@@ -1091,26 +1098,30 @@
         background-position:85% center!important;
         padding:40px 16px !important;
         min-height:90vh !important;
+        overflow-x:hidden !important;
       }
       .hero-cta {
         gap:12px !important;
         margin-bottom:18px !important;
+        max-width:100% !important;
+        width:100% !important;
       }
       .hero-cta .btn-primary {
         padding:18px 36px !important;
         font-size:1.1rem !important;
-        width:100%;
-        max-width:340px;
+        width:100% !important;
+        max-width:100% !important;
       }
       .hero-cta .hero-call-btn {
         padding:16px 36px !important;
         font-size:1.05rem !important;
-        width:100%;
-        max-width:340px;
+        width:100% !important;
+        max-width:100% !important;
       }
       .hero-helper-text {
         font-size:0.95rem !important;
-        max-width:320px !important;
+        max-width:100% !important;
+        padding:0 10px;
         padding:0 10px;
       }
     }
@@ -1408,10 +1419,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <a href="/locations.html">Locations</a>
-  <a href="/our-process">Our Process</a>
-  <a href="/contact">Contact</a>
+  <a href="/our-process.html">Our Process</a>
+  <a href="/contact.html">Contact</a>
   <a href="/common-problems.html">Common Problems</a>
-  <a href="/faq">FAQ</a>
+  <a href="/faq.html">FAQ</a>
 
         <span class="phone" aria-hidden="false">
           <a class="phone-link" href="tel:+12067869915" aria-label="Call +1 (206) 786-9915" onclick="gtag_report_conversion_call()">
@@ -1444,10 +1455,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/services/countertop-refinishing.html" style="padding-left:20px;font-size:0.9rem">• Countertop Refinishing</a>
       <a href="/services/repair.html" style="padding-left:20px;font-size:0.9rem">• Chip & Crack Repair</a>
       <a href="#gallery">Gallery</a>
-  <a href="/our-process">Our Process</a>
-  <a href="/contact">Contact</a>
+  <a href="/our-process.html">Our Process</a>
+  <a href="/contact.html">Contact</a>
     <a href="/common-problems.html">Common Problems</a>
-    <a href="/faq">FAQ</a>
+    <a href="/faq.html">FAQ</a>
       <button class="cta-quote" id="quoteTopMobile">Get Instant Quote</button>
 
       <div style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:800">
@@ -1478,18 +1489,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div style="max-width:900px;width:100%;margin:0 auto;">
+    <div style="max-width:1000px;width:100%;margin:0 auto;padding:0 20px;box-sizing:border-box;">
     <h1 class="hero-desktop-headline" style="text-align:center;">Bathroom Refinishing in Greater Seattle</h1>
-    <h1 class="hero-mobile-headline" style="font-size:1.8rem;max-width:900px;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;text-align:center;">Bathroom Refinishing<br>in Greater Seattle</h1>
+    <h1 class="hero-mobile-headline" style="font-size:1.8rem;max-width:100%;line-height:1.15;margin-bottom:18px;color:#fff;text-shadow:0 2px 16px rgba(18,32,54,0.22);display:none;text-align:center;">Bathroom Refinishing<br>in Greater Seattle</h1>
     
-    <p class="hero-desktop" style="font-size:1.18rem;opacity:.98;margin:0 auto 20px;max-width:950px;color:#fff;line-height:1.7;display:block;font-weight:500;text-align:center;">
+    <p class="hero-desktop" style="font-size:1.18rem;opacity:.98;margin:0 auto 20px;max-width:100%;color:#fff;line-height:1.7;display:block;font-weight:500;text-align:center;">
       Transform your bathtub, tile, shower, sink, countertop in as little as 1 day — no messy remodel.<br>
-      Expert surface prep and premium coatings for a durable, like-new finish that can last up to 15 years.<br>
+      Get a flawless, factory-fresh finish that lasts 15+ years — at a fraction of the cost of replacement.<br>
+      Licensed, insured, and trusted by 1,000+ homeowners across Greater Seattle.<br>
+      <span style="font-size:1.15rem;font-weight:700;">Get your free instant quote now!</span><br>
       <strong style="font-size:1.25rem;display:inline-block;margin-top:10px;">Ready to use in 24 hours • Save $5,500 vs replacement</strong>
     </p>
-    <p class="hero-mobile" style="font-size:1.05rem;opacity:.98;margin:0 auto 20px;max-width:340px;color:#fff;line-height:1.65;display:none;font-weight:500;text-align:center;">
+    <p class="hero-mobile" style="font-size:1.05rem;opacity:.98;margin:0 auto 20px;max-width:100%;color:#fff;line-height:1.65;display:none;font-weight:500;text-align:center;">
       Transform your bathtub, tile, shower, sink, countertop in 1 day — no messy remodel<br>
-      <span style="opacity:0.95;">Expert surface prep and premium coatings<br>Durable, like-new finish — up to 15 years</span><br>
+      <span style="opacity:0.95;">Factory-fresh finish that lasts 15+ years<br>Trusted by 1,000+ homeowners</span><br>
+      <span style="font-weight:700;">Get your free instant quote now!</span><br>
       <strong style="display:inline-block;margin-top:8px;">Ready to use in 24 hours • Save $5,500</strong>
     </p>
 
@@ -1527,9 +1541,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button onclick="window.location.href='#reviews'" class="hero-call-btn" style="background:rgba(255,255,255,0.2);color:#fff;padding:18px 40px;border-radius:12px;border:2px solid rgba(255,255,255,0.5);font-weight:800;font-size:1.15rem;cursor:pointer;transition:.25s;backdrop-filter:blur(5px);letter-spacing:0.01em;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.5);" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Read Reviews</button>
     </div>
     
-    <p class="hero-helper-text" style="font-size:1.08rem;color:#FFD700;margin:0 auto;max-width:600px;font-weight:700;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,0.3);letter-spacing:0.02em;">
-      <span style="white-space:nowrap;">Get your instant price in 60 seconds</span><br>
-      <span style="white-space:nowrap;">Prefer to talk? Call <a href="tel:+12067869915" onclick="gtag_report_conversion_call()" style="color:#FFD700;text-decoration:none;" class="phone-number">(206) 786-9915</a></span>
+    <p class="hero-helper-text" style="font-size:1.08rem;color:#fff;margin:0 auto;max-width:600px;font-weight:600;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,0.3);letter-spacing:0.02em;opacity:0.95;">
+      Get your instant price in 60 seconds
     </p>
     </div>
   </section>
@@ -1664,7 +1677,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Process Link -->
         <div style="text-align:center;margin-top:16px;">
-          <a href="/our-process" style="color:#0b66b3;text-decoration:underline;font-weight:600;font-size:0.95rem;">
+          <a href="/our-process.html" style="color:#0b66b3;text-decoration:underline;font-weight:600;font-size:0.95rem;">
             → Want to know how we work? See our detailed process
           </a>
         </div>
@@ -1740,7 +1753,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:60px;">
         <!-- Left: Process Study Link -->
         <div style="position:relative;">
-          <a href="/our-process" style="text-decoration:none;display:block;">
+          <a href="/our-process.html" style="text-decoration:none;display:block;">
             <div style="background:linear-gradient(135deg,#0b66b3,#1e40af);border-radius:20px;padding:40px;text-align:center;min-height:300px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;color:#fff;" onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 12px 32px rgba(11,102,179,0.3)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
               <div style="width:80px;height:80px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;backdrop-filter:blur(5px);">
                 <svg style="width:40px;height:40px;color:#fff;" fill="currentColor" viewBox="0 0 24 24">
@@ -2702,8 +2715,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const sectionRoutes = {
         '/services': 'services',
         '/gallery':  'gallery',
-        '/contact':  'contact',
-        '/faq':      'faq',
+        '/contact.html':  'contact',
+        '/faq.html':      'faq',
         '/estimate': 'estimate',
       };
 
